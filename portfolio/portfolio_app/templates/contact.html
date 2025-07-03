@@ -205,7 +205,8 @@
             </div>
             <div class="contact-form">
                 <h3>Send Message</h3>
-                <form action="your_form_submission_endpoint" method="POST">
+                <form action="contact/contact/form_submission" method="POST">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>

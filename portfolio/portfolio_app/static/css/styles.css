@@ -298,3 +298,40 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
+.submission-confirmation {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.submission-confirmation h1 {
+    font-size: 2rem;
+    color: #2563eb;
+    margin-bottom: 20px;
+}
+
+.submission-confirmation p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    .submission-confirmation {
+        background-color: #1f2937;
+        color: #f3f4f6;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .submission-confirmation h1 {
+        color: #60a5fa;
+    }
+
+    .submission-confirmation p {
+        color: #d1d5db;
+    }
+}
