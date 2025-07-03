@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
     <meta charset="UTF-8" />
@@ -50,7 +51,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -155,7 +156,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 50px;
+            gap: 60px;
             flex-wrap: wrap;
         }
 
@@ -165,7 +166,7 @@
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3.7rem;
             margin-bottom: 20px;
             color: var(--dark-color);
         }
@@ -175,7 +176,7 @@
         }
 
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             max-width: 600px;
         }
@@ -188,10 +189,10 @@
 
         .hero-image img {
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 5px solid white;
+            border: 5px solid var(--primary-color);
         }
 
         .btn {
@@ -238,7 +239,7 @@
             transform: translateY(-5px);
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 1000px) {
             .hero-content {
                 flex-direction: column-reverse;
                 text-align: center;
@@ -267,11 +268,6 @@
                         <li><a href="/about">About</a></li>
                         <li><a href="/projects">Projects</a></li>
                         <li><a href="/contact">Contact</a></li>
-                        <li>
-                            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-                                <i class="fas fa-moon"></i>
-                            </button>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -286,9 +282,10 @@
                     <h1>Hi, I'm <span>Adelodun Peter</span></h1>
                     <p>Web Developer specializing in clean, responsive designs and robust backend systems.
                         Passionate about creating intuitive user experiences with modern technologies.</p>
-                    <a href="#projects" class="btn">Browse Projects</a>
+                    <a href="/projects" class="btn">Browse Projects</a>
                     <div class="social-links">
-                        <a href="https://github.com/Adelodunpeter25" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Adelodunpeter25" aria-label="GitHub" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -317,4 +314,5 @@
         });
     </script>
 </body>
+
 </html>
