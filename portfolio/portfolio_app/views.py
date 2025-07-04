@@ -21,9 +21,4 @@ def form_submission(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
 
-        if name and email and message:
-            return HttpResponse("Thank you! Your message has been sent.")
-        else:
-            return HttpResponse("Please fill out all fields.", status=400)
-
     return render(request, 'form_submission.html', {'title': 'My Portfolio - Form Submission'})
