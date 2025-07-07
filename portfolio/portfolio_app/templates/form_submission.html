@@ -1,7 +1,4 @@
-{% extends 'base.html %'}
 
-{% block title %}Form Submission - My Portfolio{% endblock %}
-    
 {% block form_submission %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,63 +7,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Submission - My Portfolio</title>
     <style>
-        /* Base styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
+            color: #000000;
+            background-color: #e9e9e9;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Confirmation card styles */
         .submission-confirmation {
-            max-width: 600px;
-            margin: 100px auto;
+            max-width: fit-content;
+            max-height: fit-content;
+            margin: 150px auto;
             padding: 40px;
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #15151500;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.951);
             text-align: center;
             transition: all 0.3s ease;
         }
 
         .submission-confirmation h1 {
-            font-size: 2rem;
-            color: #2563eb;
+            font-size: 2.1rem;
+            color: #1a1a1a;
             margin-bottom: 20px;
         }
 
         .submission-confirmation p {
-            font-size: 1.1rem;
-            color: #333;
+            font-size: 1.2rem;
+            color: #2f2f2f;
             margin-bottom: 30px;
         }
 
-        /* Dark mode styles */
-        @media (prefers-color-scheme: dark) {
+        .submission-confirmation button {
+            display: inline-block;
+            background-color: #000000;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+    .submission-confirmation button:hover{
+          background-color: #2239ce
+
+    }
+        @media (prefers-color-scheme: light) {
             body {
-                background-color: #111827;
+                background-color: #ffffff;
             }
 
             .submission-confirmation {
-                background-color: #1f2937;
+                background-color: #000000;
                 color: #f3f4f6;
                 box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
             }
 
             .submission-confirmation h1 {
-                color: #60a5fa;
+                color: #150995;
             }
 
             .submission-confirmation p {
-                color: #d1d5db;
+                color: #fdfeff;
             }
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .submission-confirmation {
                 margin: 50px 20px;
@@ -78,7 +89,6 @@
             }
         }
 
-        /* Animation for better UX */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -92,9 +102,9 @@
 <body>
     <div class="submission-confirmation">
         <img src="data:image/jpeg;base64,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" />
-        <h1>Thank you for your submission!</h1>
-        <p>I appreciate your message and will get back to you shortly.</p>
-        <button onclick="window.location.href='index.html'" class="home-button">Return Home</button>
+        <h1>Thank you for your message!</h1>
+        <p>I appreciate it and will get back to you shortly.</p>
+        <button onclick="window.location.href='/landing'" class="home-button">Return Home</button>
     </div>
 
     <script>
@@ -108,3 +118,4 @@
 </body>
 </html>
 
+{% endblock %}
