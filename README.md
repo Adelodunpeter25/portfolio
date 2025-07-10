@@ -64,6 +64,10 @@ Contact Section
 ![Contact](screenshots/contact.png)
 
 
+Projects Section
+![Projects](screenshots/projects.png)
+
+
 About Section
 ![About](screenshots/about.png)
 
@@ -121,7 +125,6 @@ Visit [http://127.0.0.1:8000] in your browser.
 * Navigate to the Home section to view the introduction
 * Navigate to the About section to view background and skills
 * Browse the Projects section to see individual project details.
-* Check out the Blog section for technical articles.
 * Use the Contact section to view contact details and send messages
 
 ---
