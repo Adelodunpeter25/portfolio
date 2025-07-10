@@ -6,3 +6,4 @@ p==1.5.0
 sqlparse==0.5.3
 gunicorn
 whitenoise
+Pillow==9.4.0
