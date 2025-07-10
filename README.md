@@ -65,19 +65,12 @@ About Section
 
 
 Projects Section
-![Projects](screenshots/projects.png
+![Projects](screenshots/projects.png)
 
 
 Contact Section
 ![Contact](screenshots/contact.png)
 
-)
-
-
-
-
-
-Place your screenshot images in a folder named screenshots/ in your repository.
 
 ## Installation
 
