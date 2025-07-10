@@ -15,11 +15,18 @@
 }
 
 [data-theme="dark"] {
-    --primary-color: #164acf;
-    --secondary-color: #1c2ca3;
-    --text-color: #e5e7eb;
-    --light-color: #0f1215;
+    --primary-color: #3b82f6;
+    --secondary-color: #2563eb;
+    --text-color: #ffffff;
+    --light-color: #000000;
     --dark-color: #f9fafb;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #cccccc;
 }
 
 body {
@@ -28,6 +35,21 @@ body {
     background-color: var(--light-color);
     color: var(--text-color);
     transition: var(--transition);
+}
+
+/* Dark mode text fixes */
+[data-theme="dark"] body,
+[data-theme="dark"] .about-text p,
+[data-theme="dark"] .about-text h3,
+[data-theme="dark"] .section-title h2,
+[data-theme="dark"] .skills h4,
+[data-theme="dark"] .nav-links a,
+[data-theme="dark"] .logo,
+[data-theme="dark"] .contact-item h4,
+[data-theme="dark"] .contact-item p,
+[data-theme="dark"] .submission-confirmation h1,
+[data-theme="dark"] .submission-confirmation p {
+    color: var(--text-color);
 }
 
 /* ========== Container ========== */
@@ -65,6 +87,10 @@ header {
     color: black;
 }
 
+[data-theme="dark"] .logo {
+    color: var(--text-color);
+}
+
 .logo span {
     color: var(--primary-color);
 }
@@ -81,6 +107,10 @@ header {
     font-weight: 600;
     position: relative;
     text-decoration: none;
+}
+
+[data-theme="dark"] .nav-links a {
+    color: var(--text-color);
 }
 
 .nav-links a::after {
@@ -163,6 +193,10 @@ footer {
     min-height: 80vh;
 }
 
+[data-theme="dark"] .about {
+    background-color: var(--dark-color);
+}
+
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -177,11 +211,19 @@ footer {
     margin-bottom: 20px;
 }
 
+[data-theme="dark"] .about-text h3 {
+    color: var(--text-color);
+}
+
 .about-text p {
     color: var(--text-color);
     line-height: 1.8;
     margin-bottom: 20px;
     font-size: 1.1rem;
+}
+
+[data-theme="dark"] .about-text p {
+    color: var(--text-color);
 }
 
 .about-image {
@@ -207,6 +249,10 @@ footer {
     font-size: 1.5rem;
     color: var(--dark-color);
     margin-bottom: 20px;
+}
+
+[data-theme="dark"] .skills h4 {
+    color: var(--text-color);
 }
 
 .skills-grid {
@@ -244,14 +290,8 @@ footer {
     display: inline-block;
 }
 
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 3px;
-    background-color: var(--primary-color);
-    bottom: -10px;
-    left: 25%;
+[data-theme="dark"] .section-title h2 {
+    color: var(--text-color);
 }
 
 .section-title p {
@@ -259,6 +299,10 @@ footer {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto;
+}
+
+[data-theme="dark"] .section-title p {
+    color: var(--text-color);
 }
 
 /* ========== Responsive ========== */

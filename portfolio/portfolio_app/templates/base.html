@@ -8,7 +8,7 @@
     <title>{% block title %}My Portfolio{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="icon" type="image/x-icon" href="/static/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon2.ico">
     <style>
         :root {
             --primary-color: #2563eb;
@@ -20,9 +20,9 @@
         }
 
         [data-theme="dark"] {
-            --primary-color: #3b82f6;
-            --secondary-color: #2563eb;
-            --text-color: #e5e7eb;
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #000000;
             --light-color: #1f2937;
             --dark-color: #f9fafb;
         }
@@ -119,11 +119,7 @@
                         <li><a href="{% url 'about' %}">About</a></li>
                         <li><a href="{% url 'projects' %}">Projects</a></li>
                         <li><a href="{% url 'contact' %}">Contact</a></li>
-                        <li>
-                        </li>
                     </ul>
-                    <div class="hamburger"><i class="fas fa-bars"></i></div>
-                </nav>
             </div>
         </div>
     </header>

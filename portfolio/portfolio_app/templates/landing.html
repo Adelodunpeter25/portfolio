@@ -4,29 +4,18 @@
 {% block title %}My Portfolio - Home{% endblock %}
 
 {% block home_section %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio - Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
     <style>
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
-            --text-color: #1f2937;
+            --text-color: #000000;
             --light-color: #f9fafb;
-            --dark-color: #111827;
+            --dark-color: #000000;
             --transition: all 0.3s ease;
         }
 
         [data-theme="dark"] {
-            --primary-color: #3b82f6;
+            --primary-color: #2563eb;
             --secondary-color: #2563eb;
             --text-color: #e5e7eb;
             --light-color: #1f2937;
@@ -261,26 +250,6 @@
         }
     </style>
 </head>
-
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-inner">
-                <a href="#" class="logo">My Port<span>folio</span></a>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="/landing">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/projects">Projects</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -304,7 +273,6 @@
         </div>
     </section>
 
-    <!-- Dark Mode Script -->
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
