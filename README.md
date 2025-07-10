@@ -59,6 +59,9 @@ Homepage
 ![Homepage](screenshots/homepage.png)
 
 
+About Section
+![About](screenshots/about.png)
+
 
 Contact Section
 ![Contact](screenshots/contact.png)
@@ -68,8 +71,7 @@ Projects Section
 ![Projects](screenshots/projects.png)
 
 
-About Section
-![About](screenshots/about.png)
+
 
 
 Place your screenshot images in a folder named screenshots/ in your repository.
