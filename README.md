@@ -18,7 +18,7 @@
 
 ## About the Project
 
-Welcome to my personal portfolio. This site showcases my skills, projects, and experience as a web developer. It is designed to be clean, responsive, and user-friendly, providing visitors with an immersive overview of my work.
+Welcome to my personal portfolio. This site showcases my skills, projects, and experience as a web developer. It is designed to be clean, responsive, and user-friendly and easily navigated, providing visitors with an immersive overview of my work.
 
 Key objectives:
 
@@ -143,7 +143,7 @@ Refer to the official Django deployment checklist for best practices.
 Peter Adelodun
 
 * Email: [adelodunpeter69@gmail.com]
-* GitHub: github.com/Adelodunpeter25
+* GitHub: [github.com/Adelodunpeter25]
 
 I'd love to hear your feedback and collaborate on exciting projects!
 
@@ -151,4 +151,4 @@ I'd love to hear your feedback and collaborate on exciting projects!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`] for more information.
