@@ -53,7 +53,6 @@ A live demo of the portfolio is available at
 ---
 Screenshots
 
-Add screenshots of your project below. For example:
 
 Homepage
 ![Homepage](screenshots/homepage.png)
