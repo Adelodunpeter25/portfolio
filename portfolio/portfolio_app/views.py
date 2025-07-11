@@ -1,21 +1,20 @@
 from django.shortcuts import render
-from .models import Project
-import requests
 from django.conf import settings
+import requests
+from .models import Project
 
 def landing(request):
-    return render(request, 'landing.html', {'title': 'My Portfolio - Home'})
+    return render(request, 'landing.html')
 
 def about(request):
-    return render(request, 'about.html', {'title': 'My Portfolio - About'})
+    return render(request, 'about.html')
 
 def projects(request):
     projects = Project.objects.all()
-    return render(request, 'projects.html', {'title': 'My Portfolio - Projects', 'projects': projects})
+    return render(request, 'projects.html', {'projects': projects})
 
 def contact(request):
-    return render(request, 'contact.html', {'title': 'My Portfolio - Contact'})
-
+    return render(request, 'contact.html')
 
 def form_submission(request):
     if request.method == 'POST':
@@ -25,7 +24,7 @@ def form_submission(request):
 
         data = {
             "from": "Portfolio Contact <onboarding@resend.dev>",
-            "to": ["adelodunpeter69@gmail.com"], 
+            "to": ["adelodunpeter69@gmail.com"],
             "subject": "New Contact Form Submission from Portfolio",
             "html": f"<p><strong>Name:</strong> {name}</p>"
                     f"<p><strong>Email:</strong> {email}</p>"
@@ -37,9 +36,6 @@ def form_submission(request):
             "Content-Type": "application/json"
         }
 
-        print("Sending Resend Email with headers:", headers)
-        print("Payload:", data)
-
         try:
             response = requests.post(
                 "https://api.resend.com/emails",
@@ -47,27 +43,12 @@ def form_submission(request):
                 json=data
             )
 
-            print("Resend Response Status:", response.status_code)
-            print("Resend Response Body:", response.text)
-
             if response.status_code in [200, 202]:
-                return render(request, 'form_submission.html', {
-                    'title': 'My Portfolio - Form Submission',
-                    'success': True
-                })
+                return render(request, 'form_submission.html', {'success': True})
             else:
-                return render(request, 'form_submission.html', {
-                    'title': 'My Portfolio - Form Submission',
-                    'error': response.text
-                })
+                return render(request, 'form_submission.html', {'error': response.text})
 
         except Exception as e:
-            print("Exception during Resend request:", str(e))
-            return render(request, 'form_submission.html', {
-                'title': 'My Portfolio - Form Submission',
-                'error': str(e)
-            })
+            return render(request, 'form_submission.html', {'error': str(e)})
 
-    return render(request, 'form_submission.html', {
-        'title': 'My Portfolio - Form Submission'
-    })
+    return render(request, 'form_submission.html')

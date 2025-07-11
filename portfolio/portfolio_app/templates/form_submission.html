@@ -4,6 +4,23 @@
 
 {% block form_submission %}
 <style>
+    :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --text-color: #000000;
+        --light-color: #ffffff;
+        --dark-color: #111827;
+        --transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+        --primary-color: #1740d3ff;
+        --secondary-color: #062a95ff;
+        --text-color: #ffffff;
+        --light-color: #1a1a1a;
+        --dark-color: #ffffff;
+    }
+
     .submission-confirmation {
         max-width: 500px;
         max-height: fit-content;
@@ -14,6 +31,21 @@
         box-shadow: 0 4px 20px rgba(7, 49, 141, 0.2);
         text-align: center;
         transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .submission-confirmation {
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .submission-confirmation img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        filter: brightness(1);
+    }
+
+    [data-theme="dark"] .submission-confirmation img {
+        filter: brightness(1.2) contrast(1.1);
     }
 
     .submission-confirmation h1 {
@@ -30,8 +62,8 @@
 
     .submission-confirmation button {
         display: inline-block;
-        background-color: var(--dark-color);
-        color: var(--light-color);
+        background-color: var(--primary-color);
+        color: white;
         padding: 12px 30px;
         border-radius: 15px;
         font-weight: 600;
@@ -43,7 +75,7 @@
     }
 
     .submission-confirmation button:hover {
-        background-color: var(--primary-color);
+        background-color: var(--secondary-color);
     }
 
     @media (max-width: 770px) {

@@ -5,15 +5,23 @@
 {% block about_section %}
 <style>
     :root {
-        --primary-color: #1758e5;
-        --secondary-color: #112a7b;
-        --light-color: #f3f4f6;
-        --dark-color: #000000;
-        --text-color: #1d2026;
-        --transition: 0.3s ease;
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --text-color: #000000;
+        --light-color: #ffffff;
+        --heading-color: #000000;
+        --transition: all 0.3s ease;
     }
 
-    /* About Section */
+    [data-theme="dark"] {
+        --primary-color: #3b82f6;
+        --secondary-color: #60a5fa;
+        --text-color: #ffffff;
+        --light-color: #1a1a1a;
+        --heading-color: #ffffff;
+    }
+
+
     .about {
         background-color: var(--light-color);
         padding: 80px 20px;
@@ -35,7 +43,7 @@
 
     .about-text h3 {
         font-size: 2.7rem;
-        color: var(--dark-color);
+        color: var(--heading-color);
         margin-bottom: 20px;
     }
 
@@ -60,6 +68,10 @@
         border: 3px solid var(--primary-color);
     }
 
+    [data-theme="dark"] .about-image img {
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+    }
+
     .skills {
         margin-top: 90px;
         text-transform: capitalize;
@@ -67,7 +79,7 @@
 
     .skills h4 {
         font-size: 1.8rem;
-        color: var(--dark-color);
+        color: var(--heading-color);
         margin-bottom: 20px;
     }
 
@@ -99,7 +111,7 @@
 
     .section-title h2 {
         font-size: 2.5rem;
-        color: var(--dark-color);
+        color: var(--heading-color);
         margin-bottom: 15px;
         position: relative;
         display: inline-block;

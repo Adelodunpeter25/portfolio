@@ -4,6 +4,23 @@
 
 {% block projects_section %}
 <style>
+    :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --text-color: #000000;
+        --light-color: #ffffff;
+        --dark-color: #111827;
+        --transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+        --primary-color: #3b82f6;
+        --secondary-color: #60a5fa;
+        --text-color: #ffffff;
+        --light-color: #1a1a1a;
+        --dark-color: #ffffff;
+    }
+
     .projects {
         background-color: var(--light-color);
         padding: 80px 0;
@@ -18,12 +35,22 @@
     }
 
     .project-card {
-        background-color: white;
+        background-color: var(--light-color);
         border-radius: 15px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: var(--transition);
         position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] .project-card {
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .project-card:hover {
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
     }
 
     

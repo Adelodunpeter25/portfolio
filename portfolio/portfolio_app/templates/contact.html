@@ -4,6 +4,23 @@
 
 {% block contact_section %}
 <style>
+    :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --text-color: #000000;
+        --light-color: #ffffff;
+        --dark-color: #111827;
+        --transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+        --primary-color: #3b82f6;
+        --secondary-color: #60a5fa;
+        --text-color: #ffffff;
+        --light-color: #1a1a1a;
+        --dark-color: #ffffff;
+    }
+
     .contact {
         background-color: var(--light-color);
         padding: 80px 0;
@@ -63,7 +80,7 @@
     }
 
     [data-theme="dark"] .contact-form {
-        background-color: var(--dark-color);
+        background-color: var(--light-color);
         box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
     }
 
