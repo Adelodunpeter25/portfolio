@@ -8,6 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-dev-secret-key')
 DEBUG = os.environ.get('DEBUG', '') != 'False'
 
+
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
+print("RESEND KEY:", RESEND_API_KEY)
+
+
 # Allow all hosts in dev; restrict in production
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
