@@ -100,9 +100,17 @@
 </style>
 
 <section class="submission-confirmation">
-    <img src="https://imgs.search.brave.com/aaoLv1ZzCwGUngYzUUFwq5LS-8oUEPR1i_sBEDhZEiM/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL3ByZW1p/dW0vcG5nLTI1Ni10/aHVtYi9jb25maXJt/LWljb24tZG93bmxv/YWQtaW4tc3ZnLXBu/Zy1naWYtZmlsZS1m/b3JtYXRzLS1hY2Nl/cHQtdmVyaWZ5LWJ1/c2luZXNzLXZvbC0y/LXBhY2staWNvbnMt/ODg4MzQxLnBuZz9m/PXdlYnAmdz0xMjg" alt="Confirmation" />
-    <h1>Thank you for your message!</h1>
-    <p>I appreciate it and will get back to you shortly.</p>
-    <button onclick="window.location.href='/landing'" class="home-button">Return Home</button>
+    {% if success %}
+        <img src="https://imgs.search.brave.com/aaoLv1ZzCwGUngYzUUFwq5LS-8oUEPR1i_sBEDhZEiM/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL3ByZW1p/dW0vcG5nLTI1Ni10/aHVtYi9jb25maXJt/LWljb24tZG93bmxv/YWQtaW4tc3ZnLXBu/Zy1naWYtZmlsZS1m/b3JtYXRzLS1hY2Nl/cHQtdmVyaWZ5LWJ1/c2luZXNzLXZvbC0y/LXBhY2staWNvbnMt/ODg4MzQxLnBuZz9m/PXdlYnAmdz0xMjg" alt="Confirmation" />
+        <h1>Thank you for your message!</h1>
+        <p>I appreciate it and will get back to you shortly.</p>
+    {% elif error %}
+        <h1>Oops! Something went wrong</h1>
+        <p>{{ error }}</p>
+    {% else %}
+        <h1>Form Submission</h1>
+        <p>Please use the contact form to send a message.</p>
+    {% endif %}
+    <button onclick="window.location.href='{% url "home" %}'" class="home-button">Return Home</button>
 </section>
 {% endblock %}

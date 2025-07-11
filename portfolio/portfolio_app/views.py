@@ -18,9 +18,19 @@ def contact(request):
 
 def form_submission(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        message = request.POST.get('message', '').strip()
+
+        if not all([name, email, message]):
+            return render(request, 'form_submission.html', {
+                'error': 'All fields are required.'
+            })
+
+        if not settings.RESEND_API_KEY:
+            return render(request, 'form_submission.html', {
+                'error': 'Email service is not configured.'
+            })
 
         data = {
             "from": "Portfolio Contact <onboarding@resend.dev>",
@@ -40,15 +50,24 @@ def form_submission(request):
             response = requests.post(
                 "https://api.resend.com/emails",
                 headers=headers,
-                json=data
+                json=data,
+                timeout=10
             )
 
             if response.status_code in [200, 202]:
                 return render(request, 'form_submission.html', {'success': True})
             else:
-                return render(request, 'form_submission.html', {'error': response.text})
+                return render(request, 'form_submission.html', {
+                    'error': 'Failed to send message. Please try again.'
+                })
 
-        except Exception as e:
-            return render(request, 'form_submission.html', {'error': str(e)})
+        except requests.exceptions.RequestException:
+            return render(request, 'form_submission.html', {
+                'error': 'Network error. Please try again later.'
+            })
+        except Exception:
+            return render(request, 'form_submission.html', {
+                'error': 'An unexpected error occurred. Please try again.'
+            })
 
     return render(request, 'form_submission.html')
