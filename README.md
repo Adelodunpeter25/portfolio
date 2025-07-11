@@ -10,9 +10,9 @@
 * Installation
 * Usage
 * Deployment
+* Email Integration
 * Contact
 * License
-
 
 ---
 
@@ -48,28 +48,25 @@ This portfolio leverages modern web technologies:
 
 A live demo of the portfolio is available at
 
-[https://portfolio-14b1.onrender.com]
+\[[https://myportfolio25.onrender.com](https://myportfolio25.onrender.com)]
 
 ---
-Screenshots
 
+## Screenshots
 
 Homepage
 ![Homepage](screenshots/homepage.png)
 
-
 About Section
 ![About](screenshots/about.png)
-
-
 
 Projects Section
 ![Projects](screenshots/projects.png)
 
-
 Contact Section
 ![Contact](screenshots/contact.png)
 
+---
 
 ## Installation
 
@@ -98,7 +95,7 @@ Follow these steps to run the portfolio locally:
 4. Configure environment variables
 
    * Create a .env file in the root directory.
-   * Add necessary keys (e.g., SECRET\_KEY, DATABASE\_URL, EMAIL\_HOST, etc.).
+   * Add necessary keys (e.g., SECRET\_KEY, DATABASE\_URL, RESEND\_API\_KEY, etc.).
 
 5. Apply migrations and collect static files
 
@@ -113,7 +110,7 @@ Follow these steps to run the portfolio locally:
    python manage.py runserver
    ```
 
-Visit [http://127.0.0.1:8000] in your browser.
+Visit \[[http://127.0.0.1:8000](http://127.0.0.1:8000)] in your browser.
 
 ---
 
@@ -133,8 +130,36 @@ To deploy on a production server:
 1. Set environment variables on your hosting platform.
 2. Use a PostgreSQL or any of your preferred kind for production
 3. Install and configure a web server and WSGI server (e.g., Gunicorn).
+4. Ensure `DEBUG=False` and set proper `ALLOWED_HOSTS` in `.env`
+5. Use WhiteNoise or similar for serving static files
 
 Refer to the official Django deployment checklist for best practices.
+
+---
+
+## Email Integration
+
+This project uses [Resend](https://resend.com/) to handle contact form submissions via email.
+
+### Configuration Steps:
+
+1. Create a Resend account and generate an API key.
+
+2. Add the key to your `.env` file:
+
+   ```env
+   RESEND_API_KEY=re_your_actual_key
+   ```
+
+3. In development, use the built-in sender:
+
+   ```python
+   "from": "Portfolio Contact <onboarding@resend.dev>"
+   ```
+
+4. In production, verify your own domain at [resend.com/domains](https://resend.com/domains) to send from custom email addresses.
+
+5. All form data is sent securely, and errors are gracefully handled with success/failure feedback.
 
 ---
 
@@ -142,8 +167,8 @@ Refer to the official Django deployment checklist for best practices.
 
 Peter Adelodun
 
-* Email: [adelodunpeter69@gmail.com]
-* GitHub: [github.com/Adelodunpeter25]
+* Email: \[[adelodunpeter69@gmail.com](mailto:adelodunpeter69@gmail.com)]
+* GitHub: \[github.com/Adelodunpeter25]
 
 I'd love to hear your feedback and collaborate on exciting projects!
 
@@ -151,4 +176,4 @@ I'd love to hear your feedback and collaborate on exciting projects!
 
 ## License
 
-Distributed under the MIT License. See [`LICENSE`] for more information.
+Distributed under the MIT License. See \[`LICENSE`] for more information.
