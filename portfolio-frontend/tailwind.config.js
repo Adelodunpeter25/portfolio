@@ -7,13 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0EA5E9',
-        'bg-dark': '#000000',
-        'text-secondary': '#94A3B8',
+        primary: '#0284c7',
         'border-dark': '#1E293B',
+        'text-secondary': '#94A3B8',
       },
       fontFamily: {
-        mono: ['JetBrains Mono', 'Fira Code', 'Source Code Pro', 'Consolas', 'Monaco', 'monospace'],
+        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'monospace'],
       },
     },
   },

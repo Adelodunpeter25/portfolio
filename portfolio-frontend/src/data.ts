@@ -56,7 +56,7 @@ export const portfolioData = {
       },
     ],
   },
-  email: "adelodunpeter240@gmail.com",
+  email: "adelodunpeter24@gmail.com",
   social: {
     github: "https://github.com/Adelodunpeter25",
     linkedin: "https://linkedin.com/in/adelodunpeter",
@@ -67,18 +67,21 @@ export const portfolioData = {
       description: "A modern web application built with React and TypeScript",
       tech: ["React", "TypeScript", "Tailwind"],
       link: "https://github.com/Adelodunpeter25/project1",
+      demo: "https://project1-demo.com",
     },
     {
       title: "Project Two",
       description: "Full-stack application with real-time features",
       tech: ["Node.js", "Express", "MongoDB"],
       link: "https://github.com/Adelodunpeter25/project2",
+      demo: "https://project2-demo.com",
     },
     {
       title: "Project Three",
       description: "Mobile-first responsive design showcase",
       tech: ["React", "CSS3", "Vite"],
       link: "https://github.com/Adelodunpeter25/project3",
+      demo: "https://project3-demo.com",
     },
     {
       title: "Project Four",
@@ -91,12 +94,14 @@ export const portfolioData = {
       description: "E-commerce platform with payment integration",
       tech: ["Next.js", "Stripe", "PostgreSQL"],
       link: "https://github.com/Adelodunpeter25/project5",
+      demo: "https://project5-demo.com",
     },
     {
       title: "Project Six",
       description: "Real-time chat application with WebSocket",
       tech: ["Socket.io", "Redis", "Docker"],
       link: "https://github.com/Adelodunpeter25/project6",
+      demo: "https://project6-demo.com",
     },
   ],
   skills: {

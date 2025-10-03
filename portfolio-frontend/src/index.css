@@ -10,4 +10,64 @@
   body {
     @apply bg-black text-white font-mono;
   }
+
+  html.light body {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  /* Light mode overrides */
+  html.light .bg-black {
+    @apply bg-white;
+  }
+
+  html.light .text-white {
+    @apply text-gray-900;
+  }
+
+  html.light .text-text-secondary,
+  html.light .text-neutral-400 {
+    @apply text-gray-600;
+  }
+
+  html.light .text-neutral-300 {
+    @apply text-gray-700;
+  }
+
+  html.light .bg-neutral-900 {
+    @apply bg-gray-200;
+  }
+
+  html.light .border-border-dark,
+  html.light .border-neutral-800 {
+    @apply border-gray-300;
+  }
+
+  html.light .bg-border-dark {
+    @apply bg-gray-200;
+  }
+
+  html.light .hover\:border-primary:hover {
+    @apply border-primary;
+  }
+
+  html.light nav {
+    @apply bg-white/90 border-gray-300;
+  }
+
+  /* Light mode input focus */
+  html.light input:focus,
+  html.light textarea:focus {
+    @apply border-primary ring-2 ring-primary/20;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

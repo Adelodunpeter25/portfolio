@@ -16,7 +16,7 @@ export default function HowIWork({ heading, subheading, approach, principles, fe
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            How I Build Systems That <span className="text-primary">Matter</span>
+            How I Build Systems That <span className="text-primary">Last</span>
           </h2>
           <p className="text-xl text-text-secondary">{subheading}</p>
         </div>

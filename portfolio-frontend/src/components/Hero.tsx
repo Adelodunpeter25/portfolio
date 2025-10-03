@@ -32,7 +32,7 @@ export default function Hero({ name, tagline, mission, subtext, features }: Hero
         <div className="flex gap-4 flex-wrap mb-16">
           <a
             href="#skills"
-            className="px-6 py-3 bg-primary text-white rounded-md hover:bg-blue-700 transition-colors duration-200 text-base"
+            className="px-6 py-3 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-base"
           >
             View Skills
           </a>

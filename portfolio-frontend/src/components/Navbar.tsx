@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -21,7 +22,7 @@ export default function Navbar({ name }: { name: string }) {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' }
     );
 
     navLinks.forEach(({ href }) => {
@@ -37,34 +38,37 @@ export default function Navbar({ name }: { name: string }) {
       <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
         <a href="#home" className="text-lg font-bold text-primary">{name}</a>
         
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white"
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-white"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
 
-        <div className="hidden md:flex gap-8">
-          {navLinks.map(({ name, href }) => (
-            <a
-              key={href}
-              href={href}
-              className={`text-sm transition-all duration-200 ${
-                activeSection === href.slice(1) 
-                  ? 'text-primary border-b-2 border-primary' 
-                  : 'text-white hover:text-primary'
-              }`}
-            >
-              {name}
-            </a>
-          ))}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map(({ name, href }) => (
+              <a
+                key={href}
+                href={href}
+                className={`text-sm transition-all duration-200 ${
+                  activeSection === href.slice(1) 
+                    ? 'text-primary border-b-2 border-primary' 
+                    : 'text-white hover:text-primary'
+                }`}
+              >
+                {name}
+              </a>
+            ))}
+            <ThemeToggle />
+          </div>
         </div>
       </div>
 

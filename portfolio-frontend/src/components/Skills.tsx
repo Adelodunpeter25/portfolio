@@ -23,7 +23,7 @@ export default function Skills({ categories }: SkillsProps) {
         <div className="mb-12">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">Technical Infrastructure</h2>
           <p className="text-xl text-text-secondary">
-            Tools and systems I use to build production-grade solutions
+            My Stack for Reliable, Usable and Scalable Software
           </p>
         </div>
 
