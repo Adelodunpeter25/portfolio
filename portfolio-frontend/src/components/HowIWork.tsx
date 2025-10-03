@@ -10,13 +10,13 @@ interface HowIWorkProps {
   }>;
 }
 
-export default function HowIWork({subheading, approach, principles, features }: HowIWorkProps) {
+export default function HowIWork({ heading, subheading, approach, principles, features }: HowIWorkProps) {
   return (
     <section id="about" className="py-32 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            Building Systems That <span className="text-primary">Last</span>
+            How I Build Systems That <span className="text-primary">Matter</span>
           </h2>
           <p className="text-xl text-text-secondary">{subheading}</p>
         </div>
@@ -24,7 +24,7 @@ export default function HowIWork({subheading, approach, principles, features }: 
         <div className="grid md:grid-cols-2 gap-16 mb-20">
           <div className="bg-black border border-border-dark rounded-xl p-10">
             <h3 className="text-2xl text-primary font-semibold mb-6">The Approach</h3>
-            <p className="text-white leading-relaxed">{approach}</p>
+            <p className="text-text-secondary leading-relaxed">{approach}</p>
           </div>
 
           <div className="bg-black border border-border-dark rounded-xl p-10">
@@ -35,7 +35,7 @@ export default function HowIWork({subheading, approach, principles, features }: 
                   <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-white">{principle}</span>
+                  <span className="text-text-secondary">{principle}</span>
                 </li>
               ))}
             </ul>
