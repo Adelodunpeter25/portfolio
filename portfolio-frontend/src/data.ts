@@ -11,9 +11,9 @@ export const portfolioData = {
         description: "Rapid development cycles with production-ready code from day one.",
       },
       {
-        icon: "🎯",
-        title: "User-Focused",
-        description: "Every decision is made with the end user and business goals in mind.",
+        icon: "🔒",
+        title: "Secure by Design",
+        description: "I build with security in mind—protecting data, users, and systems from the ground up.",
       },
       {
         icon: "🔧",
@@ -35,24 +35,14 @@ export const portfolioData = {
     ],
     features: [
       {
-        icon: "🚀",
-        title: "From Zero to Ship",
-        description: "I take projects from concept to production, handling architecture, development, and deployment with speed and precision.",
+        icon: "🎯",
+        title: "User-Centered",
+        description: "Every feature is shaped with real people in mind, ensuring clarity, accessibility, and impact.",
       },
       {
-        icon: "🗺️",
-        title: "Context-Aware Engineering",
-        description: "Every technical decision is made with business goals in mind. I build solutions that solve real problems, not just technical ones.",
-      },
-      {
-        icon: "📚",
-        title: "Reusable Infrastructure",
-        description: "I create modular, maintainable systems that scale. Write once, use everywhere, modify with confidence.",
-      },
-      {
-        icon: "❤️",
-        title: "Deep Ownership",
-        description: "I take full responsibility for my work—from initial design through production monitoring and beyond.",
+        icon: "📈",
+        title: "Ship, Monitor, Improve",
+        description: "I stay involved at every stage — from design to deployment, monitoring, and continuous improvement.",
       },
     ],
   },
