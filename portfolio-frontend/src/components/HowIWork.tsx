@@ -10,13 +10,13 @@ interface HowIWorkProps {
   }>;
 }
 
-export default function HowIWork({ heading, subheading, approach, principles, features }: HowIWorkProps) {
+export default function HowIWork({subheading, approach, principles, features }: HowIWorkProps) {
   return (
     <section id="about" className="py-32 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            How I Build Systems That <span className="text-primary">Matter</span>
+            Building Systems That <span className="text-primary">Last</span>
           </h2>
           <p className="text-xl text-text-secondary">{subheading}</p>
         </div>

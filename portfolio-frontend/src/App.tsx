@@ -12,8 +12,8 @@ export default function App() {
       <Navbar name={portfolioData.name} />
       <Hero name={portfolioData.name} tagline={portfolioData.tagline} />
       <HowIWork {...portfolioData.about} />
+      <Skills categories={portfolioData.skills} />
       <Projects projects={portfolioData.projects} />
-      <Skills skills={portfolioData.skills} />
       <Contact email={portfolioData.email} social={portfolioData.social} />
       <footer className="py-8 text-center text-text-secondary text-sm border-t border-border-dark">
         © {new Date().getFullYear()} {portfolioData.name}. All rights reserved.

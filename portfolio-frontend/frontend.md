@@ -595,3 +595,481 @@ css/* Section Styles */
 
 Version
 v1.1 - Added "How I Work" section design system
+
+
+Technical Infrastructure / Skills Section Design System
+Layout Structure
+Section Header
+Heading: "Technical Infrastructure"
+Font Size: 48-56px
+Color: #FFFFFF
+Font Weight: 700
+Margin Bottom: 16px
+
+Subtitle: "Tools and systems I use..."
+Font Size: 18-20px
+Color: #94A3B8
+Margin Bottom: 48px
+Tab Navigation
+Display: Flex / Horizontal scroll
+Gap: 16-24px
+Margin Bottom: 48px
+Overflow: Auto (mobile)
+
+Tab Button:
+  Background: Transparent
+  Border: 1px solid #1E293B
+  Border Radius: 8px
+  Padding: 12px 20px
+  Color: #94A3B8
+  Font Size: 14-16px
+  Display: Flex
+  Align Items: Center
+  Gap: 8px
+  
+Active Tab:
+  Background: rgba(14, 165, 233, 0.1)
+  Border Color: #0EA5E9
+  Color: #0EA5E9
+  
+Tab Icon:
+  Size: 18-20px
+  Color: Inherits from button
+Tab Options
+
+Languages - <> icon
+Frameworks & Libraries - Cube/box icon
+Databases & Storage - Database/cylinder icon
+DevOps & Infra - Server/layers icon
+Systems & Patterns - Wrench/tool icon
+
+Category Section
+Section Header (Within Tab Content)
+Display: Flex
+Justify Content: Space Between
+Align Items: Center
+Margin Bottom: 24px
+
+Left Side:
+  Icon + Category Name
+  Icon Size: 24px
+  Icon Color: #FFFFFF
+  Gap: 12px
+  
+Category Name:
+  Font Size: 24-28px
+  Font Weight: 600
+  Color: #FFFFFF
+
+Right Side:
+  Proficiency Label + Progress Bar + Percentage
+  Display: Flex
+  Align Items: Center
+  Gap: 12px
+Proficiency Indicator
+Label "Proficiency":
+  Font Size: 14px
+  Color: #94A3B8
+  Margin Right: 8px
+
+Progress Bar:
+  Width: 100-120px
+  Height: 8px
+  Background: #1E293B
+  Border Radius: 4px
+  
+Progress Fill:
+  Background: #0EA5E9
+  Height: 100%
+  Border Radius: 4px
+  Width: Variable (88%, 90%, etc.)
+  
+Percentage Text:
+  Font Size: 14-16px
+  Font Weight: 600
+  Color: #0EA5E9
+  Margin Left: 8px
+Skills Grid
+Grid Structure
+Display: Grid
+Grid Template Columns: repeat(4, 1fr)
+Gap: 16px
+Margin Bottom: 48px (between categories)
+
+Tablet (768px-1023px):
+  Columns: repeat(3, 1fr)
+  
+Mobile (<768px):
+  Columns: repeat(2, 1fr)
+  Gap: 12px
+Skill Card/Pill
+Background: #0A0A0A or #0F0F0F
+Border: 1px solid #1E293B
+Border Radius: 8px
+Padding: 16px 20px
+Text Align: Center or Left
+Transition: All 200ms ease
+
+Font Size: 15-16px
+Color: #FFFFFF
+Font Weight: 400
+
+Hover State:
+  Border Color: #0EA5E9
+  Background: rgba(14, 165, 233, 0.05)
+  Transform: translateY(-2px)
+Specific Categories
+Languages Category
+Skills Display: 
+  - TypeScript
+  - Python
+  - C++
+  - Java
+  - C
+  - Solidity (basic)
+  - JavaScript
+
+Grid: 4 columns (3 on row 1, 4 on row 2)
+Proficiency: 90%
+Icon: Code brackets <>
+Frameworks & Libraries
+Skills Display:
+  - FastAPI
+  - Express
+  - Prisma
+  - SQLAlchemy
+  - Next.js
+  - React
+  - Tailwind CSS
+  - React Native
+
+Grid: 4 columns (4 per row)
+Proficiency: 88%
+Icon: Cube/Package
+Databases & Storage
+Skills Display:
+  - PostgreSQL
+  - SQLite
+  - Redis
+  - MongoDB
+  - Backblaze B2
+  - Supabase
+  - MySQL
+
+Grid: 4 columns 
+Proficiency: 90%
+Icon: Database/Cylinder
+Spacing & Rhythm
+Section Padding: 96-128px vertical, 48-64px horizontal
+Tab Navigation to Content: 48px
+Category Header to Grid: 24px
+Between Category Sections: 48-64px
+Card Internal Padding: 16px 20px
+Color Palette for Skills Section
+Backgrounds:
+  - Section: #000000
+  - Cards: #0A0A0A or #0F0F0F
+  - Active Tab: rgba(14, 165, 233, 0.1)
+  
+Borders:
+  - Default: #1E293B
+  - Active/Hover: #0EA5E9
+  
+Text:
+  - Primary: #FFFFFF
+  - Secondary: #94A3B8
+  - Accent: #0EA5E9
+  
+Progress Bar:
+  - Background: #1E293B
+  - Fill: #0EA5E9
+Interactive States
+Tab Button States:
+css/* Default */
+.tab-button {
+  background: transparent;
+  border: 1px solid #1E293B;
+  color: #94A3B8;
+  transition: all 200ms ease;
+}
+
+/* Hover */
+.tab-button:hover {
+  border-color: #0EA5E9;
+  color: #0EA5E9;
+}
+
+/* Active */
+.tab-button.active {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: #0EA5E9;
+  color: #0EA5E9;
+}
+Skill Card States:
+css/* Default */
+.skill-card {
+  background: #0A0A0A;
+  border: 1px solid #1E293B;
+  transition: all 200ms ease;
+}
+
+/* Hover */
+.skill-card:hover {
+  border-color: #0EA5E9;
+  background: rgba(14, 165, 233, 0.05);
+  transform: translateY(-2px);
+}
+Code Example for Skills Section
+css/* Section Container */
+.skills-section {
+  padding: 128px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header h2 {
+  font-size: 56px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 20px;
+  color: #94A3B8;
+  margin-bottom: 48px;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 48px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  color: #94A3B8;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  border-color: #0EA5E9;
+  color: #0EA5E9;
+}
+
+.tab-button.active {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: #0EA5E9;
+  color: #0EA5E9;
+}
+
+.tab-icon {
+  font-size: 18px;
+}
+
+/* Category Section */
+.category-section {
+  margin-bottom: 64px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-icon {
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.category-name {
+  font-size: 28px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* Proficiency Indicator */
+.proficiency-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.proficiency-label {
+  font-size: 14px;
+  color: #94A3B8;
+}
+
+.progress-bar {
+  width: 120px;
+  height: 8px;
+  background: #1E293B;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #0EA5E9;
+  border-radius: 4px;
+  transition: width 300ms ease;
+}
+
+.proficiency-percentage {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0EA5E9;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.skill-card {
+  background: #0A0A0A;
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  padding: 16px 20px;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 15px;
+  transition: all 200ms ease;
+  cursor: default;
+}
+
+.skill-card:hover {
+  border-color: #0EA5E9;
+  background: rgba(14, 165, 233, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 64px 24px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .section-header h2 {
+    font-size: 40px;
+  }
+  
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+HTML Structure Example
+html<section class="skills-section">
+  <!-- Header -->
+  <div class="section-header">
+    <h2>Technical Infrastructure</h2>
+    <p>Tools and systems I use to build production-grade solutions</p>
+  </div>
+  
+  <!-- Tab Navigation -->
+  <div class="tab-navigation">
+    <button class="tab-button active">
+      <span class="tab-icon">&lt;&gt;</span>
+      Languages
+    </button>
+    <button class="tab-button">
+      <span class="tab-icon">📦</span>
+      Frameworks & Libraries
+    </button>
+    <button class="tab-button">
+      <span class="tab-icon">🗄️</span>
+      Databases & Storage
+    </button>
+    <!-- More tabs... -->
+  </div>
+  
+  <!-- Category Section -->
+  <div class="category-section">
+    <div class="category-header">
+      <div class="category-title">
+        <span class="category-icon">&lt;&gt;</span>
+        <h3 class="category-name">Languages</h3>
+      </div>
+      <div class="proficiency-indicator">
+        <span class="proficiency-label">Proficiency</span>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 90%"></div>
+        </div>
+        <span class="proficiency-percentage">90%</span>
+      </div>
+    </div>
+    
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+      <div class="skill-card">TypeScript</div>
+      <div class="skill-card">Python</div>
+      <div class="skill-card">C++</div>
+      <div class="skill-card">Java</div>
+      <div class="skill-card">C</div>
+      <div class="skill-card">Solidity (basic)</div>
+      <div class="skill-card">JavaScript</div>
+    </div>
+  </div>
+  
+  <!-- More categories... -->
+</section>
+Design Notes
+Tab Navigation:
+
+Uses horizontal scrolling on mobile
+Active state clearly indicates current section
+Icons provide visual categorization
+
+Proficiency Indicators:
+
+Provide quick visual feedback on expertise level
+Progress bars use consistent blue accent color
+Percentages give precise proficiency metrics
+
+Skill Cards:
+
+Simple, clean design without overcrowding
+Hover effects provide subtle interactivity
+Grid adapts responsively to screen size
+
+Information Architecture:
+
+Skills grouped by logical categories
+Tab structure prevents overwhelming users
+Each category has clear visual separation
+

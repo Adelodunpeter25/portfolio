@@ -1,10 +1,10 @@
 export const portfolioData = {
-  name: "Abraham Adelodun",
-  tagline: "Full Stack Developer & Problem Solver",
+  name: "Adelodun Peter",
+  tagline: "FullStack Developer & Problem Solver",
   about: {
-    heading: "How I Build Systems That Matter",
-    subheading: "Engineering philosophy focused on impact, scalability, and craftsmanship",
-    approach: "I believe great software is built through a combination of technical excellence and a deep understanding of the problem space. My approach centers on continuous learning, and building systems that work reliably at scale.\n\nI focus on creating solutions that are practical and reliable, with the user always in mind. For me, it's not just about writing code — it's about building products that work well in the real world and stand the test of time.",
+    heading: "Building Systems That Last",
+    subheading: "Focused on real-world impact, growth, and quality.",
+    approach: "I build software that is technically strong, scalable, and rooted in real-world relevance. My focus is on delivering solutions that are both functional and impactful, ensuring that every aspect of the product is designed with the end-user in mind.\n\n For me, successful software goes beyond mere functionality; it must perform reliably in the real world.",
     principles: [
       "Production-first mindset — I build for real-world reliability, not just development",
       "Clear communication — code, docs, and conversations should all be easy to understand.",
@@ -34,53 +34,67 @@ export const portfolioData = {
       },
     ],
   },
-  email: "your.email@example.com",
+  email: "adelodunpeter240@gmail.com",
   social: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
+    github: "https://github.com/Adelodunpeter25",
+    linkedin: "https://linkedin.com/in/adelodunpeter",
   },
   projects: [
     {
       title: "Project One",
       description: "A modern web application built with React and TypeScript",
       tech: ["React", "TypeScript", "Tailwind"],
-      link: "https://github.com/yourusername/project1",
+      link: "https://github.com/Adelodunpeter25/project1",
     },
     {
       title: "Project Two",
       description: "Full-stack application with real-time features",
       tech: ["Node.js", "Express", "MongoDB"],
-      link: "https://github.com/yourusername/project2",
+      link: "https://github.com/Adelodunpeter25/project2",
     },
     {
       title: "Project Three",
       description: "Mobile-first responsive design showcase",
       tech: ["React", "CSS3", "Vite"],
-      link: "https://github.com/yourusername/project3",
+      link: "https://github.com/Adelodunpeter25/project3",
     },
     {
       title: "Project Four",
       description: "API integration and data visualization",
       tech: ["Python", "FastAPI", "Chart.js"],
-      link: "https://github.com/yourusername/project4",
+      link: "https://github.com/Adelodunpeter25/project4",
     },
     {
       title: "Project Five",
       description: "E-commerce platform with payment integration",
       tech: ["Next.js", "Stripe", "PostgreSQL"],
-      link: "https://github.com/yourusername/project5",
+      link: "https://github.com/Adelodunpeter25/project5",
     },
     {
       title: "Project Six",
       description: "Real-time chat application with WebSocket",
       tech: ["Socket.io", "Redis", "Docker"],
-      link: "https://github.com/yourusername/project6",
+      link: "https://github.com/Adelodunpeter25/project6",
     },
   ],
-  skills: [
-    "JavaScript", "TypeScript", "React", "Node.js", 
-    "Python", "HTML/CSS", "Tailwind", "Git",
-    "MongoDB", "PostgreSQL", "REST APIs", "AWS",
-    "Docker", "Next.js", "Express", "FastAPI"
-  ],
+  skills: {
+    Languages: {
+      name: "Languages",
+      icon: "<>",
+      proficiency: 90,
+      skills: ["TypeScript", "Python", "C++", "Java", "C", "Solidity (basic)", "JavaScript"],
+    },
+    "Frameworks & Libraries": {
+      name: "Frameworks & Libraries",
+      icon: "📦",
+      proficiency: 88,
+      skills: ["FastAPI", "Django", "Prisma", "SQLAlchemy", "Next.js", "React", "Tailwind CSS", "React Native"],
+    },
+    "Databases & Storage": {
+      name: "Databases & Storage",
+      icon: "🗄️",
+      proficiency: 90,
+      skills: ["PostgreSQL", "SQLite", "Redis", "MongoDB", "Backblaze B2", "Supabase", "MySQL"],
+    },
+  },
 };
