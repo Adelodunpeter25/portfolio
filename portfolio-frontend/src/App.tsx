@@ -12,7 +12,7 @@ export default function App() {
       <Navbar name={portfolioData.name} />
       <Hero name={portfolioData.name} {...portfolioData.hero} />
       <HowIWork {...portfolioData.about} />
-      <Skills categories={portfolioData.skills} />
+      <Skills skills={portfolioData.skills} />
       <Projects projects={portfolioData.projects} />
       <Contact email={portfolioData.email} social={portfolioData.social} />
       <footer className="py-8 text-center text-text-secondary text-sm border-t border-border-dark">

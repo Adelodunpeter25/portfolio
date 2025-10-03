@@ -2,7 +2,7 @@ export const portfolioData = {
   name: "Adelodun Peter",
    hero: {
     tagline: "FullStack Developer",
-    mission: "Building Systems That Last",
+    mission: "Developing solutions to real-world problems.",
     subtext: "I create robust, scalable solutions that solve real-world problems. From concept to deployment, I focus on building software that works reliably and makes an impact.",
     features: [
       {
@@ -28,10 +28,10 @@ export const portfolioData = {
     subheading: "Focused on real-world impact, growth, and quality.",
     approach: "I build software that is technically strong, scalable, and rooted in real-world relevance. My focus is on delivering solutions that are both functional and impactful, ensuring that every aspect of the product is designed with the end-user in mind.\n\n For me, successful software goes beyond mere functionality; it must perform reliably in the real world.",
     principles: [
-      "Production-first mindset — I build for real-world reliability, not just development",
+      "Listen First — I begin by understanding your challenges and goals, ensuring solutions are clear, sound, and aligned with what truly matters.",
+      "Production mindset — I build for real-world reliability, not just development. I don't just build, I ship.",
       "Clear communication — code, docs, and conversations should all be easy to understand.",
-      "Build for growth — design with the future in mind, not just today",
-      "Measure what matters — track the outcomes that truly impact users and business.",
+      "Build for growth — design with the future in mind, not just today.",
     ],
     features: [
       {
@@ -94,24 +94,8 @@ export const portfolioData = {
       demo: "https://project6-demo.com",
     },
   ],
-  skills: {
-    Languages: {
-      name: "Languages",
-      icon: "<>",
-      proficiency: 90,
-      skills: ["TypeScript", "Python", "C++", "Java", "C", "Solidity (basic)", "JavaScript"],
-    },
-    "Frameworks & Libraries": {
-      name: "Frameworks & Libraries",
-      icon: "📦",
-      proficiency: 88,
-      skills: ["FastAPI", "Django", "Prisma", "SQLAlchemy", "Next.js", "React", "Tailwind CSS", "React Native"],
-    },
-    "Databases & Storage": {
-      name: "Databases & Storage",
-      icon: "🗄️",
-      proficiency: 90,
-      skills: ["PostgreSQL", "SQLite", "Redis", "MongoDB", "Backblaze B2", "Supabase", "MySQL"],
-    },
-  },
+  skills: [
+    "Python", "Django", "FastAPI", "React", "CSS", "HTML",
+    "PostgreSQL", "SQLite", "Git",
+  ],
 };
