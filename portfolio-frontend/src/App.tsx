@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Navbar name={portfolioData.name} />
-      <Hero name={portfolioData.name} tagline={portfolioData.tagline} />
+      <Hero name={portfolioData.name} {...portfolioData.hero} />
       <HowIWork {...portfolioData.about} />
       <Skills categories={portfolioData.skills} />
       <Projects projects={portfolioData.projects} />

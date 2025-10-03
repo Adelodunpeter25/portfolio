@@ -1,5 +1,27 @@
 export const portfolioData = {
   name: "Adelodun Peter",
+   hero: {
+    tagline: "FullStack Developer",
+    mission: "Building Systems That Last",
+    subtext: "I create robust, scalable solutions that solve real-world problems. From concept to deployment, I focus on building software that works reliably and makes an impact.",
+    features: [
+      {
+        icon: "⚡",
+        title: "Fast Execution",
+        description: "Rapid development cycles with production-ready code from day one.",
+      },
+      {
+        icon: "🎯",
+        title: "User-Focused",
+        description: "Every decision is made with the end user and business goals in mind.",
+      },
+      {
+        icon: "🔧",
+        title: "Built to Last",
+        description: "Clean, maintainable code that scales with your business needs.",
+      },
+    ],
+  },
   tagline: "FullStack Developer & Problem Solver",
   about: {
     heading: "Building Systems That Last",
