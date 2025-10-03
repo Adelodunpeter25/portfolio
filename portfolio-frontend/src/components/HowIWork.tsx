@@ -1,5 +1,4 @@
 interface HowIWorkProps {
-  heading: string;
   subheading: string;
   approach: string;
   principles: string[];
@@ -10,7 +9,7 @@ interface HowIWorkProps {
   }>;
 }
 
-export default function HowIWork({ heading, subheading, approach, principles, features }: HowIWorkProps) {
+export default function HowIWork({ subheading, approach, principles, features }: HowIWorkProps) {
   return (
     <section id="about" className="py-32 px-8">
       <div className="max-w-7xl mx-auto">
