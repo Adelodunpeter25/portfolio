@@ -1,3 +1,5 @@
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 interface HowIWorkProps {
   subheading: string;
   approach: string;
@@ -10,8 +12,16 @@ interface HowIWorkProps {
 }
 
 export default function HowIWork({ subheading, approach, principles, features }: HowIWorkProps) {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="about" className="py-32 px-8">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="about" 
+      className={`py-32 px-8 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -50,6 +60,9 @@ export default function HowIWork({ subheading, approach, principles, features }:
             <div
               key={index}
               className="bg-black border border-border-dark rounded-xl p-8 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(14,165,233,0.15)] transition-all duration-300"
+              style={{ 
+                animation: isVisible ? `fadeInUp 0.6s ease-out ${index * 0.2}s both` : 'none'
+              }}
             >
               <div className="text-4xl mb-5">{feature.icon}</div>
               <h4 className="text-xl font-semibold text-white mb-3">{feature.title}</h4>

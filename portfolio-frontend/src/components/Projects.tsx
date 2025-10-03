@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ProjectCard from './ProjectCard';
 
 interface Project {
@@ -11,6 +12,7 @@ interface Project {
 
 export default function Projects({ projects }: { projects: Project[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { ref, isVisible } = useScrollAnimation();
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -40,7 +42,13 @@ export default function Projects({ projects }: { projects: Project[] }) {
   };
 
   return (
-    <section id="projects" className="py-24 px-8">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="projects" 
+      className={`py-24 px-8 transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">Projects</h2>

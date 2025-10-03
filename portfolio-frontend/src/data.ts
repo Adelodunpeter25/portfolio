@@ -95,7 +95,14 @@ export const portfolioData = {
     },
   ],
   skills: [
-    "Python", "Django", "FastAPI", "React", "CSS", "HTML",
-    "PostgreSQL", "SQLite", "Git",
+    { name: "Python", proficiency: 90 },
+    { name: "Django", proficiency: 90 },
+    { name: "FastAPI", proficiency: 88 },
+    { name: "React", proficiency: 84 },
+    { name: "CSS", proficiency: 85 },
+    { name: "HTML", proficiency: 90 },
+    { name: "PostgreSQL", proficiency: 87 },
+    { name: "SQLite", proficiency: 85 },
+    { name: "Git", proficiency: 90 },
   ],
 };

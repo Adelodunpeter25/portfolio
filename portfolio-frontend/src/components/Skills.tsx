@@ -1,10 +1,25 @@
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+interface Skill {
+  name: string;
+  proficiency: number;
+}
+
 interface SkillsProps {
-  skills: string[];
+  skills: Skill[];
 }
 
 export default function Skills({ skills }: SkillsProps) {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="skills" className="py-32 px-8 relative">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="skills" 
+      className={`py-32 px-8 relative transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -15,16 +30,32 @@ export default function Skills({ skills }: SkillsProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skills.map((skill, index) => (
             <div
-              key={skill}
-              className="group bg-black border border-border-dark rounded-lg px-6 py-5 text-center hover:border-primary hover:bg-primary/5 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(2,132,199,0.15)] transition-all duration-200"
-              style={{ animationDelay: `${index * 50}ms` }}
+              key={skill.name}
+              className="group"
+              style={{ 
+                animation: isVisible ? `fadeInUp 0.4s ease-out ${index * 0.1}s both` : 'none'
+              }}
             >
-              <span className="text-base font-medium group-hover:text-primary transition-colors">
-                {skill}
-              </span>
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-lg font-medium group-hover:text-primary transition-colors">
+                  {skill.name}
+                </span>
+                <span className="text-sm text-text-secondary">
+                  {skill.proficiency}%
+                </span>
+              </div>
+              <div className="h-3 bg-border-dark rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-primary to-blue-400 rounded-full transition-all duration-1000 ease-out"
+                  style={{
+                    width: isVisible ? `${skill.proficiency}%` : '0%',
+                    transitionDelay: `${index * 0.1}s`
+                  }}
+                />
+              </div>
             </div>
           ))}
         </div>
