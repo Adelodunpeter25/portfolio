@@ -1,233 +1,597 @@
-# Implementation Guide — Replicate adelodunabraham.vercel.app (excluding terminal)
-
-> Scope: build a single-page React frontend that reproduces the visual design, layout, and interactions of adelodunabraham.vercel.app, excluding the interactive terminal. This is a high-level, step‑by‑step implementation guide — no code included.
-
----
-
-## 1. Summary and objectives
-
-* **Goal:** Recreate the look and feel (visual design, spacing, typography, components, interactions) of the reference site while keeping the implementation simple, accessible, and performant.
-* **Platform:** React frontend (your choice of bundler/framework tooling). Use a utility-first CSS approach for rapid implementation (Tailwind recommended) and host on a platform optimized for static/edge deployments (Vercel recommended).
-* **Exclusions:** The interactive terminal component is intentionally omitted.
+# Design System Documentation
+## Abraham Adelodun Portfolio
 
 ---
 
-## 2. Prerequisites & setup checklist (non-technical phrasing)
+## Color Palette
 
-1. Choose and install your development environment and tools:
+### Primary Colors
+- **Primary Blue**: `#0EA5E9` (or similar - used for hero text, buttons, accents)
+- **Black/Dark Background**: `#000000` or `#0A0A0A`
+- **White/Light Text**: `#FFFFFF` or `#F5F5F5`
 
-   * Code editor (e.g., VS Code)
-   * Node.js environment and a package manager
-   * GitHub (or other Git provider) account for source control
-   * Vercel account for deployment
-2. Collect content and assets you will need:
+### Semantic Colors
+- **Accent Blue (CTAs)**: `#0EA5E9` - Primary call-to-action buttons
+- **Info Blue**: Lighter blue variant for informational elements
+- **Border/Outline**: Dark gray/blue `#1E293B` or similar
 
-   * Your name and short tagline
-   * Short bio / about paragraph
-   * Project list (title, short description, link to demo or repo, tech list, optional screenshot)
-   * Skill list (names and optional short proficiency notes)
-   * Profile image or avatar (optional)
-   * Social links (GitHub, LinkedIn, email)
-3. Decide on the exact fonts and accent color to use so the visual match is consistent.
-
----
-
-## 3. High-level implementation plan (phases)
-
-1. **Scaffold project & install styling** — get a React app created and integrate a utility CSS system.
-2. **Global styles & tokens** — define fonts, spacing scale, breakpoints, and the accent color.
-3. **Create core layout and sections** — Navbar, Hero, About, Projects, Skills, Contact.
-4. **Implement responsive behavior** — mobile menu, grid behavior, typography scaling.
-5. **Add interactions** — smooth scrolling, active nav highlighting, hover and focus transitions.
-6. **Accessibility & SEO** — semantic markup, keyboard focus, meta tags, Open Graph image.
-7. **Performance polish & testing** — image optimization, font loading, Lighthouse checks.
-8. **Deploy** — push to GitHub and connect to Vercel for automatic deploys.
+### Text Colors
+- **Primary Text**: `#FFFFFF` (White)
+- **Secondary Text**: `#94A3B8` or `#CBD5E1` (Light gray/blue)
+- **Accent Text**: `#0EA5E9` (Bright blue)
 
 ---
 
-## 4. Design tokens and global choices
+## Typography
 
-Before building components, decide and document these global settings. They function as your design system reference.
+### Font Family
+- **Primary Font**: Monospace font (appears to be `JetBrains Mono`, `Fira Code`, or `Source Code Pro`)
+- **Fallback**: `Consolas, Monaco, 'Courier New', monospace`
 
-* **Container width & layout:** Use a centered single-column container with a comfortable maximum width. Keep generous side padding on small screens and moderate on large screens.
-* **Vertical spacing:** Adopt consistent vertical rhythm. For example, create a rule for "section spacing" and use it consistently across Hero, About, Projects, Skills, Contact.
-* **Typography:** Choose a neutral sans-serif (Inter, Roboto, or system UI). Use a clear hierarchy: large bold headings, medium subtitles, and readable body copy. Ensure line height is generous for body text.
-* **Accent color:** Pick one accent color for CTAs and active states (teal/green was used in the reference). Use a slightly darker tint for hover states.
-* **Rounded corners & elevation:** Use small to medium corner radii and subtle shadows for cards to achieve the soft, modern feel.
-* **Motion:** Keep motion minimal and purposeful — micro-transitions on hover and focus, and small lift effects on interactive cards.
+### Font Sizes
+- **Hero Heading (H1)**: ~72-96px
+- **Name/Header**: ~18-20px
+- **Section Headings**: ~20-24px
+- **Body Text**: ~16px
+- **Small Text/Labels**: ~14px
+- **Pro Tip**: ~14px
 
-Document these choices in a short reference sheet so they can be reused across components.
+### Font Weights
+- **Bold**: 700 (Headings, emphasis)
+- **Medium**: 500-600 (Subheadings)
+- **Regular**: 400 (Body text)
 
----
-
-## 5. Page structure & content sections
-
-Create the following major sections in this order. Each section should be its own self-contained component or view so you can iterate on them independently.
-
-1. **Navigation (top)**
-
-   * Minimal left-aligned brand (name) and right-aligned anchor links.
-   * Transparent/translucent background with slight blur and a bottom divider line.
-   * On mobile, collapse into a simple toggle menu (hamburger) that opens a stacked list of anchors.
-
-2. **Hero / Landing**
-
-   * Large, central heading with your name and a very short tagline/subtitle that describes what you do.
-   * Two CTAs: a primary action (View projects) and a secondary action (Contact or Email).
-   * Keep this section tall enough to feel like an "entry" point for the page.
-
-3. **About**
-
-   * Short, conversational description about who you are and what you build. Keep it succinct — two to four sentences.
-   * Optionally include a small avatar or decorative element.
-
-4. **Projects**
-
-   * Present projects as a simple two-column grid on wide screens and single column on small screens.
-   * Each project block should include: title, short one-line summary, technology badges, and a link to demo/repo.
-   * Cards should have subtle shadow, rounded corners, and a hover state.
-
-5. **Skills**
-
-   * Display skill badges or pills in a wrapped row. Keep them small and scannable.
-
-6. **Contact**
-
-   * Provide an email link and social icons. Optionally include a small contact form (see notes on handling below).
+### Line Height
+- **Headings**: 1.1-1.2
+- **Body**: 1.6-1.8
 
 ---
 
-## 6. Component responsibilities (what each component should do — no code)
+## Spacing System
 
-* **Navbar component**: renders brand and anchor links; manages mobile toggle; exposes active state styling for the currently-in-view section.
-* **Hero component**: renders the main heading, tagline, and primary/secondary CTAs.
-* **About component**: renders short paragraphs; manages layout and optional avatar.
-* **ProjectCard component**: renders project title, description, tech badges, and links; has a consistent card layout and hover/focus states.
-* **Projects container**: lays out cards in a responsive grid and provides light filtering or ordering if required.
-* **Skills component**: renders skill pills and optionally groups them into categories (Languages, Frameworks, Tools).
-* **Contact component**: renders link collection and optional contact form handler configuration.
+### Scale (8px base)
+```
+xs:  4px   (0.5rem)
+sm:  8px   (1rem)
+md:  16px  (2rem)
+lg:  24px  (3rem)
+xl:  32px  (4rem)
+2xl: 48px  (6rem)
+3xl: 64px  (8rem)
+4xl: 96px  (12rem)
+```
 
-Each component should accept plain data inputs (title, description, list of badges, link) so the UI remains data-driven.
-
----
-
-## 7. Behavior and interactions (how things should feel)
-
-* **Navigation highlight:** As the user scrolls, the nav link corresponding to the section in view should be visually emphasized.
-* **Smooth scrolling:** Clicking an anchor link should scroll smoothly to the target section.
-* **Mobile menu:** Tapping the hamburger slides down a simple stacked menu. When a link is selected, the menu closes automatically.
-* **Hover & focus states:** Buttons and cards should change opacity/raise slightly on hover and have visible focus outlines for keyboard users.
-* **Project links:** Open external project demos/repos in a new tab, and include `noopener` behavior where applicable.
+### Component Spacing
+- **Section Padding**: 96-128px vertical, 48-64px horizontal
+- **Card Padding**: 24-32px
+- **Button Padding**: 12px 24px
+- **Navigation Items**: 16px horizontal gap
 
 ---
 
-## 8. Responsiveness rules (what to change at breakpoints)
+## Components
 
-* **Small screens (phones):** Use single-column layout, larger touch targets, stacked nav menu, and reduced horizontal padding.
-* **Medium screens (tablets):** Two-column project grid; keep hero typography slightly reduced relative to desktop.
-* **Large screens (desktops):** Maximize readable line length by using a centered container of moderate width; increase hero font size and spacing for drama.
+### Buttons
 
-Test on typical device widths: ~375px, ~768px, ~1024px, ~1280px.
+#### Primary Button (CTA)
+```
+Background: #0EA5E9 (Bright blue)
+Text: #FFFFFF
+Padding: 12px 24px
+Border Radius: 6-8px
+Font Weight: 500-600
+Icon: Optional (right arrow →)
+Hover: Slightly lighter blue or shadow effect
+```
 
----
+#### Secondary Button
+```
+Background: Transparent
+Border: 1px solid #0EA5E9
+Text: #0EA5E9
+Padding: 12px 24px
+Border Radius: 6-8px
+Icon: Optional
+Hover: Background #0EA5E9 with opacity
+```
 
-## 9. Accessibility & semantic considerations
+### Navigation
+```
+Position: Fixed top
+Background: Transparent or slightly dark (#0A0A0A)
+Height: 64-72px
+Items: Right-aligned
+Active State: Underline or blue highlight
+Font Size: 14-16px
+```
 
-* Use semantic structural elements for sections and navigation so assistive technologies can parse the page easily.
-* Ensure all interactive elements are reachable and usable by keyboard (tab order, visible focus states).
-* Provide meaningful link text and skip-link if appropriate.
-* Validate color contrast for body text and buttons to meet WCAG recommendations.
+### Cards/Sections
+```
+Background: Transparent or very dark (#0F0F0F)
+Border: 1px solid #1E293B (subtle)
+Border Radius: 8-12px
+Padding: 32px
+Icon Size: 24-32px
+Icon Color: #0EA5E9
+```
 
----
+### Pro Tip Banner
+```
+Background: Dark with blue border or accent
+Border: 1px solid #0EA5E9
+Border Radius: 6px
+Padding: 12px 16px
+Icon: Lightbulb or similar (blue)
+Text: 14px
+```
 
-## 10. Content handling & contact form options
-
-* **Simple approach:** Use a mailto link for email contact—quick to implement and no backend required.
-* **Form approach (recommended for professionalism):** Implement a minimal serverless endpoint or use a form service to forward submissions to your email. Ensure spam protection and headers are configured so messages aren’t blocked.
-
----
-
-## 11. Performance and optimization checklist
-
-* Optimize and compress all images; prefer modern formats and serve responsive sizes.
-* Load fonts with a strategy that avoids layout shift (preconnect to font host and use `font-display: swap` or equivalent behavior in your tooling).
-* Defer non-critical JavaScript; keep the bundle small by lazy-loading heavy components if needed.
-* Use the hosting platform’s CDN and caching features.
-* Remove unused dependencies and minimize large icon libraries (use SVGs or a small subset).
-
----
-
-## 12. SEO, meta, and social sharing
-
-* Add a descriptive page title and meta description.
-* Create an Open Graph image that represents you or your brand for social shares.
-* Add metadata for Twitter/LinkedIn cards.
-
----
-
-## 13. Testing and validation
-
-* Run Lighthouse audits and iterate on Accessibility, Performance, and Best Practices until scores are acceptable.
-* Test the site in multiple browsers and devices to ensure consistent rendering and interactions.
-* Run a keyboard-only navigation test to verify focus order and reachability.
-
----
-
-## 14. Deployment & continuous delivery (non-technical steps)
-
-1. Create a repository and push your project source.
-2. Connect the repository to the hosting platform and set up automatic deploys from the main branch.
-3. Configure environment variables and build settings if using a form endpoint or third-party integrations.
-4. After the first deploy, verify that the site loads correctly over HTTPS and that images, fonts, and scripts are served from the CDN.
-
----
-
-## 15. Polishing: micro‑interactions and final visual match
-
-To get the look to match precisely, pay attention to these details:
-
-* **Translucent fixed navigation** with slight blur and a thin bottom border.
-* **Hero vertical dominance:** the hero should feel spacious, slightly taller than other sections, with centered text and CTAs.
-* **Card scale and spacing:** project cards should be compact but airy, with consistent internal padding and small rounded corners.
-* **Badge sizing:** skill badges should be small, pill-shaped, and consistently spaced.
-* **Subtle transitions:** add very short transitions for hover states and link color changes.
-* **Minimal color usage:** the overall palette should be restrained — mostly neutrals with a single accent color.
+### Terminal/Code Elements
+```
+Background: Very dark (#0A0A0A or darker)
+Border: 1px solid #1E293B
+Font: Monospace
+Color: #0EA5E9 for commands
+Padding: 16px
+Border Radius: 4-6px
+```
 
 ---
 
-## 16. Launch checklist (pre-launch items)
+## Icons
 
-* Verify all links and external targets open and are correct.
-* Run accessibility and lighthouse checks and resolve major warnings.
-* Confirm contact flow works (mail link or form submissions arrive reliably).
-* Test mobile layout and interactions, including the mobile nav.
-* Add analytics or tracking if desired.
+### Icon Style
+- **Type**: Line icons (outline style)
+- **Stroke Width**: 1.5-2px
+- **Size**: 20-24px (standard), 32px (section headings)
+- **Color**: `#0EA5E9` (primary) or `#FFFFFF` (neutral)
 
----
-
-## 17. Optional enhancements (post-launch)
-
-* Add a dark mode toggle and ensure all colors have dark-mode equivalents.
-* Implement project detail pages or modal dialogs for deeper case studies.
-* Integrate an automated screenshot builder to generate Open Graph images dynamically.
-* Add small onboarding microcopy or a short "tour" feature for first-time visitors (non-terminalized).
+### Icon Usage
+- Navigation: User, folder, grid icons
+- Sections: Grid, settings, target icons
+- Buttons: Arrow right (→)
+- Terminal: Command prompt (>_)
 
 ---
 
-## 18. How to confirm parity with the reference site
+## Layout
 
-Create a short checklist to compare your build with the reference: typography, spacing, hero proportions, nav translucency, card shapes and shadows, badge design, and active-link behavior. Iterate until each point feels visually aligned.
+### Grid System
+```
+Max Width: 1280px (container)
+Columns: 12-column grid
+Gap: 24-32px
+Breakpoints:
+  - Mobile: 320px+
+  - Tablet: 768px+
+  - Desktop: 1024px+
+  - Large: 1280px+
+```
+
+### Hero Section
+```
+Full viewport height or near-full
+Centered content with left alignment
+Large hero text with blue accent
+CTA buttons below
+```
+
+### Three-Column Cards
+```
+Grid: 3 equal columns on desktop
+Gap: 24-32px
+Each card: Icon + Heading + Description
+Mobile: Stacks vertically
+```
 
 ---
 
-## 19. Appendix — recommended file and component organization (descriptive)
+## Effects & Animations
 
-* Keep all visual components in a components directory.
-* Store project and skill data in simple data files or a small JSON/data module so the UI remains data-driven.
-* Keep global styles and token configuration in a single location for easy future tweaks.
+### Hover States
+- **Buttons**: Scale (1.02-1.05) or brightness increase
+- **Links**: Underline appears or color change
+- **Cards**: Subtle border glow or shadow
+
+### Transitions
+```
+Duration: 200-300ms
+Easing: cubic-bezier(0.4, 0, 0.2, 1) or ease-in-out
+Properties: background, color, transform, border
+```
+
+### Terminal Cursor
+- Blinking cursor effect (optional)
+- Blue color matching theme
 
 ---
 
-### Final note
+## Accessibility
 
-This guide is intentionally implementation-focused and descriptive so you can follow it regardless of the exact React setup or build tools you choose. If you'd like, I can export this guide into a downloadable Markdown file, create a ready-to-use repository structure (with files pre-created but without code), or produce a version that maps exact design tokens to Tailwind utility names for faster implementation.
+### Contrast Ratios
+- **Text on Dark Background**: Ensure 4.5:1 minimum
+- **Blue (#0EA5E9) on Black**: Meets WCAG AA standards
+
+### Focus States
+- Visible outline on interactive elements
+- Color: `#0EA5E9` with 2px offset
+- Never remove focus indicators
+
+### Screen Reader Text
+- Descriptive alt text for icons
+- ARIA labels where needed
+- Semantic HTML structure
+
+---
+
+## Usage Guidelines
+
+### Do's
+✅ Use monospace font for technical/code aesthetic  
+✅ Maintain high contrast between text and background  
+✅ Keep blue accent consistent across interactive elements  
+✅ Use icons sparingly and consistently  
+✅ Maintain generous whitespace
+
+### Don'ts
+❌ Don't use multiple accent colors  
+❌ Don't overcrowd sections with text  
+❌ Don't use non-monospace fonts  
+❌ Don't reduce contrast for "aesthetics"  
+❌ Don't animate excessively
+
+---
+
+## Code Example
+
+### CSS Variables
+```css
+:root {
+  /* Colors */
+  --color-primary: #0EA5E9;
+  --color-bg-dark: #000000;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-border: #1E293B;
+  
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --font-size-hero: 72px;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  /* Transitions */
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+```
+
+---
+
+## Design Philosophy
+
+This design system reflects a **developer-first, terminal-inspired aesthetic**:
+
+- **Minimal & Functional**: Every element serves a purpose
+- **High Contrast**: Easy to read, professional appearance
+- **Monospace Typography**: Technical authenticity
+- **Blue as Power Color**: Strategic use for CTAs and accents
+- **Dark Mode Native**: Designed for dark environments
+- **Performance First**: Lightweight, fast-loading design
+
+---
+
+## Version
+**v1.0** - Initial documentation based on landing page analysis
+
+
+"How I Work" Section Design System
+Layout Structure
+Two-Column Layout (Top)
+Grid: 2 equal columns
+Gap: 48-64px
+Left: "The Approach" text block
+Right: "Core Principles" checklist
+Padding: 64-96px vertical
+Four-Card Grid (Bottom)
+Grid: 2x2 grid (4 cards total)
+Gap: 24-32px between cards
+Each card: Icon + Heading + Description
+Cards span full width on mobile
+Section Components
+Section Header
+Heading: "How I Build Systems That M[atter]"
+Font Size: 48-56px
+Color: #FFFFFF
+Font Weight: 700
+Margin Bottom: 16px
+
+Subheading: "Engineering philosophy..."
+Font Size: 18-20px
+Color: #94A3B8 (muted gray)
+Margin Bottom: 64px
+Text Blocks
+"The Approach" Block:
+Background: Transparent or very dark (#0A0A0A)
+Border: 1px solid #1E293B
+Border Radius: 12px
+Padding: 32-40px
+
+Heading Color: #0EA5E9 (bright blue)
+Heading Size: 20-24px
+Margin Bottom: 16px
+
+Body Text Color: #FFFFFF or #E2E8F0
+Body Text Size: 16px
+Line Height: 1.7
+Emphasis/Highlight Text:
+*work* styling:
+  Font Style: Italic
+  Color: Slightly brighter white or blue tint
+  Background: Optional subtle highlight
+Core Principles Checklist
+Container:
+Background: Transparent or dark (#0A0A0A)
+Border: 1px solid #1E293B
+Border Radius: 12px
+Padding: 32-40px
+
+Heading: "Core Principles"
+Color: #0EA5E9
+Size: 20-24px
+Margin Bottom: 24px
+Checklist Items:
+Display: Flex
+Gap: 12-16px (between icon and text)
+Margin Bottom: 16-20px
+
+Icon:
+  Type: Check circle (✓ in circle)
+  Color: #0EA5E9
+  Size: 20-24px
+  
+Text:
+  Color: #FFFFFF or #E2E8F0
+  Size: 16px
+  Line Height: 1.6
+  
+Bold Text in Items:
+  Font Weight: 600
+  Same color as body text
+Feature Cards (Bottom Grid)
+Card Structure:
+Background: #0A0A0A or slightly lighter dark
+Border: 1px solid #1E293B
+Border Radius: 12px
+Padding: 32px
+Transition: All 300ms ease
+
+Hover State:
+  Border Color: #0EA5E9 (subtle glow)
+  Transform: translateY(-2px)
+  Box Shadow: 0 8px 24px rgba(14, 165, 233, 0.1)
+Card Icon:
+Size: 28-32px
+Color: #0EA5E9
+Margin Bottom: 20px
+Type: Outline/line style icons
+  - Rocket (From Zero to Ship)
+  - Map/Chart (Context-Aware Engineering)
+  - Layers (Reusable Infrastructure)
+  - Heart (Deep Ownership)
+Card Heading:
+Font Size: 18-20px
+Font Weight: 600-700
+Color: #FFFFFF
+Margin Bottom: 12px
+Card Description:
+Font Size: 15-16px
+Color: #94A3B8 or #CBD5E1
+Line Height: 1.6
+Specific Card Styling
+"From Zero to Ship"
+Icon: Rocket (🚀) - Blue outline
+Text: Standard card styling
+"Context-Aware Engineering"
+Icon: Map/Chart - Blue outline
+Text: Standard card styling
+"Reusable Infrastructure"
+Icon: Layers/Stack - Blue outline
+Text: Standard card styling
+"Deep Ownership"
+Icon: Heart - Blue outline
+Text: Standard card styling
+Spacing & Rhythm
+Section Padding Top: 96-128px
+Section Padding Bottom: 96-128px
+Section Padding Horizontal: 48-64px
+
+Between Section Header and Content: 48-64px
+Between Two-Column and Four-Card Grid: 64-80px
+
+Card Internal Spacing:
+  Icon to Heading: 20px
+  Heading to Description: 12px
+Responsive Behavior
+Desktop (1024px+):
+
+Two-column layout for approach/principles
+2x2 grid for cards
+
+Tablet (768px-1023px):
+
+Two-column layout maintained
+2x2 grid for cards (smaller gaps)
+
+Mobile (<768px):
+
+Single column for approach/principles
+Single column stack for cards
+Reduced padding: 24-32px
+Smaller font sizes (scale down 10-15%)
+
+Typography Hierarchy
+Section H2 (Main): 48-56px, Weight 700, White
+Section Subtitle: 18-20px, Weight 400, Muted gray
+Block Heading: 20-24px, Weight 600, Blue
+Card Heading: 18-20px, Weight 600, White
+Body Text: 16px, Weight 400, White/Light gray
+Card Description: 15-16px, Weight 400, Muted gray
+Color Usage in This Section
+Background Layers:
+  - Page: #000000
+  - Cards/Blocks: #0A0A0A or #0F0F0F
+  
+Borders:
+  - Default: #1E293B (dark blue-gray)
+  - Hover: #0EA5E9 (bright blue)
+  
+Text:
+  - Primary: #FFFFFF
+  - Secondary: #E2E8F0
+  - Muted: #94A3B8
+  - Accent/Headings: #0EA5E9
+  
+Icons:
+  - All icons: #0EA5E9
+Interactive States
+Card Hover:
+css.card {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: #0EA5E9;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.15);
+}
+Link Hover (if applicable):
+css.link:hover {
+  color: #0EA5E9;
+  text-decoration: underline;
+}
+Code Example for This Section
+css/* Section Styles */
+.how-i-work-section {
+  padding: 128px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header h2 {
+  font-size: 56px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 20px;
+  color: #94A3B8;
+  margin-bottom: 64px;
+}
+
+/* Two Column Layout */
+.two-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+
+.text-block {
+  background: #0A0A0A;
+  border: 1px solid #1E293B;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.text-block h3 {
+  font-size: 24px;
+  color: #0EA5E9;
+  margin-bottom: 20px;
+}
+
+.text-block p {
+  color: #E2E8F0;
+  line-height: 1.7;
+}
+
+/* Checklist */
+.checklist-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.checklist-icon {
+  color: #0EA5E9;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+/* Four Card Grid */
+.four-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.feature-card {
+  background: #0A0A0A;
+  border: 1px solid #1E293B;
+  border-radius: 12px;
+  padding: 32px;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+  border-color: #0EA5E9;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.15);
+}
+
+.feature-card-icon {
+  color: #0EA5E9;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.feature-card h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .two-column-grid,
+  .four-card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .how-i-work-section {
+    padding: 64px 24px;
+  }
+}
+
+Version
+v1.1 - Added "How I Work" section design system

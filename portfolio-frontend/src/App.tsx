@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import HowIWork from './components/HowIWork';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import { portfolioData } from './data';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen">
+      <Navbar name={portfolioData.name} />
+      <Hero name={portfolioData.name} tagline={portfolioData.tagline} />
+      <HowIWork {...portfolioData.about} />
+      <Projects projects={portfolioData.projects} />
+      <Skills skills={portfolioData.skills} />
+      <Contact email={portfolioData.email} social={portfolioData.social} />
+      <footer className="py-8 text-center text-text-secondary text-sm border-t border-border-dark">
+        © {new Date().getFullYear()} {portfolioData.name}. All rights reserved.
+      </footer>
+    </div>
+  );
 }
-
-export default App
