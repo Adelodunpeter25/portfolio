@@ -245,6 +245,12 @@ export default function Terminal() {
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!windowRef.current) return;
     
+    // Don't drag if clicking on input, buttons, or interactive elements
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'INPUT' || target.tagName === 'BUTTON' || target.closest('button')) {
+      return;
+    }
+    
     const rect = windowRef.current.getBoundingClientRect();
     setDragStart({
       x: e.clientX - rect.left,
@@ -283,6 +289,16 @@ export default function Terminal() {
     
     if (trimmed === 'clear') {
       setHistory([]);
+      setTimeout(() => {
+        const output = [
+          'Ah, a fresh start. How refreshing.',
+          '',
+          'Terminal display cleared. All systems nominal.',
+          'Ready for your next command, sir.',
+        ];
+        setHistory([{ input: '', output: [] }]);
+        typeOutput(output);
+      }, 100);
       return;
     }
 
@@ -380,17 +396,33 @@ export default function Terminal() {
 
   return (
     <>
+      {/* Minimized Terminal Bar */}
+      {isMinimized && (
+        <div
+          onClick={() => setIsMinimized(false)}
+          className="fixed bottom-8 left-8 z-50 bg-neutral-900 border border-primary/30 rounded-lg px-6 py-3 cursor-pointer hover:bg-neutral-800 transition-all duration-200 animate-terminal-open"
+        >
+          <div className="flex items-center gap-3">
+            <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span className="text-white font-mono text-base">Terminal</span>
+          </div>
+        </div>
+      )}
+
       {/* Terminal Window */}
-      {isOpen && (
+      {isOpen && !isMinimized && (
         <div
           ref={windowRef}
+          onMouseDown={handleMouseDown}
           style={{
             position: 'fixed',
             right: terminalPosition.x === 0 && terminalPosition.y === 0 ? '2rem' : 'auto',
             bottom: terminalPosition.x === 0 && terminalPosition.y === 0 ? '6rem' : 'auto',
             left: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.x}px` : 'auto',
             top: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.y}px` : 'auto',
-            cursor: isDragging ? 'grabbing' : 'default',
+            cursor: isDragging ? 'grabbing' : 'grab',
           }}
           className="z-50 select-none animate-terminal-open"
         >
@@ -399,9 +431,7 @@ export default function Terminal() {
           }`}>
             {/* Header */}
             <div
-              onMouseDown={handleMouseDown}
-              onClick={() => isMinimized && setIsMinimized(false)}
-              className="flex items-center justify-between bg-neutral-900 px-4 py-2 rounded-t-lg border-b border-primary/30 select-none cursor-grab"
+              className="flex items-center justify-between bg-neutral-900 px-4 py-2 rounded-t-lg border-b border-primary/30 select-none"
             >
               <div className="flex items-center gap-2">
                 <div className="flex gap-1">
@@ -444,9 +474,8 @@ export default function Terminal() {
             </div>
 
             {/* Terminal Content */}
-            {!isMinimized && (
-              <>
-                {/* Fixed JARVIS Header */}
+            <>
+              {/* Fixed JARVIS Header */}
                 <div className="px-4 pt-4 pb-2 border-b border-primary/20">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary tracking-[0.3rem]" style={{ textShadow: '0 0 10px rgba(2, 132, 199, 0.5)' }}>
@@ -464,6 +493,7 @@ export default function Terminal() {
                   className={`p-4 font-mono text-sm cursor-text transition-all duration-300 ${
                     isExpanded ? 'h-[calc(90vh-8rem)]' : 'h-[540px]'
                   } overflow-y-auto terminal-scroll`}
+                  onMouseDown={(e) => e.stopPropagation()}
                 >
                 {history.map((cmd, i) => (
                   <div key={i} className="mb-4">
@@ -500,8 +530,7 @@ export default function Terminal() {
                   />
                 </form>
               </div>
-              </>
-            )}
+            </>
           </div>
         </div>
       )}
