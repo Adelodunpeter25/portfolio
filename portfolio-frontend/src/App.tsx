@@ -3,9 +3,8 @@ import Hero from './components/Hero';
 import HowIWork from './components/HowIWork';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Terminal from './components/Terminal';
 import Contact from './components/Contact';
-import BackToTop from './components/BackToTop';
+import Terminal from './components/Terminal';
 import { portfolioData } from './data';
 
 export default function App() {
@@ -16,12 +15,11 @@ export default function App() {
       <HowIWork {...portfolioData.about} />
       <Skills skills={portfolioData.skills} />
       <Projects projects={portfolioData.projects} />
-      <Terminal />
       <Contact email={portfolioData.email} social={portfolioData.social} />
       <footer className="py-8 text-center text-text-secondary text-sm border-t border-border-dark">
         © {new Date().getFullYear()} {portfolioData.name}. All rights reserved.
       </footer>
-      <BackToTop />
+      <Terminal />
     </div>
   );
 }
