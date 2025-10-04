@@ -144,10 +144,10 @@ const commands: Record<string, string[]> = {
     '     adelodunpeter24@gmail.com',
     '',
     '  💻 GitHub',
-    '     github.com/Adelodunpeter25',
+    '     https://github.com/Adelodunpeter25',
     '',
     '  💼 LinkedIn',
-    '     linkedin.com/in/adelodun-peter',
+    '     https://linkedin.com/in/adelodun-peter',
     '',
     'He is quite responsive to inquiries regarding collaboration',
     'opportunities, project discussions, or professional',
@@ -196,7 +196,7 @@ export default function Terminal() {
     { 
       input: '', 
       output: [
-        'Good day. I am JARVIS, the digital assistant to Mr. Adelodun Peter.',
+        'Good day. I am JARVIS, a personal assistant to Mr. Adelodun Peter.',
         '',
         'Welcome to the portfolio interface. I am here to assist you in',
         'navigating Mr. Adelodun\'s professional profile and technical expertise.',
@@ -291,10 +291,10 @@ export default function Terminal() {
       setHistory([]);
       setTimeout(() => {
         const output = [
-          'Ah, a fresh start. How refreshing.',
+          'Ah!, a fresh start. How refreshing.',
           '',
           'Terminal display cleared. All systems nominal.',
-          'Ready for your next command, sir.',
+          'Ready for your next command, sir!.',
         ];
         setHistory([{ input: '', output: [] }]);
         typeOutput(output);
