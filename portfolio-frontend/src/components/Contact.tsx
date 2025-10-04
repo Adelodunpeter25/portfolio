@@ -31,11 +31,18 @@ export default function Contact({ email, social }: ContactProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          to: email,
+          website_name: 'Portfolio',
+          website_url: window.location.origin,
+          ...formData,
+        }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(data.detail || 'Failed to send message');
       }
 
       setSubmitStatus('success');
