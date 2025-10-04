@@ -18,12 +18,14 @@ export default function Contact({ email, social }: ContactProps) {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'pending'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setStatusMessage('');
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/submit`, {
@@ -33,7 +35,7 @@ export default function Contact({ email, social }: ContactProps) {
         },
         body: JSON.stringify({
           to: email,
-          website_name: 'Portfolio',
+          website_name: 'Adelodun Peter Portfolio',
           website_url: window.location.origin,
           ...formData,
         }),
@@ -42,17 +44,30 @@ export default function Contact({ email, social }: ContactProps) {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.detail || 'Failed to send message');
+        setSubmitStatus('error');
+        setStatusMessage(data.detail || 'Failed to send message');
+        return;
       }
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      // Check if activation is required
+      if (data.message === 'Activation required' || data.message === 'Pending activation') {
+        setSubmitStatus('pending');
+        setStatusMessage(data.detail || data.message);
+      } else {
+        setSubmitStatus('success');
+        setStatusMessage(data.message || 'Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
+      setStatusMessage('Failed to send message. Please try again or email me directly.');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setStatusMessage('');
+      }, 8000);
     }
   };
 
@@ -201,13 +216,19 @@ export default function Contact({ email, social }: ContactProps) {
 
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-500/10 border border-green-500/50 rounded-lg text-green-500 text-sm">
-                  ✓ Message sent successfully! I'll get back to you soon.
+                  ✓ {statusMessage}
+                </div>
+              )}
+
+              {submitStatus === 'pending' && (
+                <div className="p-4 bg-yellow-500/10 border border-yellow-500/50 rounded-lg text-yellow-500 text-sm">
+                  ⏳ {statusMessage}
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-500 text-sm">
-                  ✗ Failed to send message. Please try again or email me directly.
+                  ✗ {statusMessage}
                 </div>
               )}
             </form>
