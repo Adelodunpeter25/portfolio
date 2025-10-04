@@ -63,6 +63,41 @@
   html.light textarea:focus {
     @apply border-primary ring-2 ring-primary/20;
   }
+
+  /* Remove terminal input styling */
+  .terminal-input {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  html.light .terminal-input {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* Fast terminal scrolling */
+  .terminal-scroll {
+    scroll-behavior: auto;
+  }
+
+  .terminal-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .terminal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .terminal-scroll::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 4px;
+  }
+
+  .terminal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #0284c7;
+  }
 }
 
 @layer utilities {
@@ -85,4 +120,19 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s infinite;
+  margin-left: 2px;
 }

@@ -8,41 +8,56 @@ interface Command {
 const commands: Record<string, string[]> = {
   help: [
     'Available commands:',
-    '  about    - Learn about me',
-    '  skills   - View my technical skills',
-    '  projects - See my projects',
-    '  contact  - Get contact information',
+    '  about    - Navigate to About section',
+    '  skills   - Navigate to Skills section',
+    '  projects - Navigate to Projects section',
+    '  contact  - Navigate to Contact section',
+    '  tour     - Take a guided orientation',
     '  clear    - Clear terminal',
     '  help     - Show this message',
   ],
   about: [
-    'Adelodun Peter - FullStack Developer',
+    'ADELODUN PETER',
+    'FullStack Developer & Problem Solver',
     '',
-    'I create robust, scalable solutions that solve real-world problems.',
-    'From concept to deployment, I focus on building software that works',
-    'reliably and makes an impact.',
+    'Mr. Adelodun creates robust, scalable solutions that solve',
+    'real-world problems. From concept to deployment, he focuses',
+    'on building software that works reliably and makes an impact.',
   ],
   skills: [
-    'Technical Skills:',
-    '  • Python (Django, FastAPI)',
-    '  • React & TypeScript',
-    '  • PostgreSQL & SQLite',
-    '  • Git & Version Control',
-    '  • HTML & CSS',
+    'TECHNICAL EXPERTISE:',
+    '  ▸ Python (Django, FastAPI)      [████████░░] 90%',
+    '  ▸ React & TypeScript            [████████░░] 84%',
+    '  ▸ PostgreSQL & SQLite           [████████░░] 87%',
+    '  ▸ Git & Version Control         [█████████░] 90%',
+    '  ▸ HTML & CSS                    [████████░░] 88%',
   ],
   projects: [
-    'Featured Projects:',
-    '  1. Project One - React & TypeScript',
-    '  2. Project Two - Node.js & MongoDB',
-    '  3. Project Three - Mobile-first design',
+    'PORTFOLIO PROJECTS:',
+    '  [1] Project One - React & TypeScript',
+    '  [2] Project Two - Node.js & MongoDB',
+    '  [3] Project Three - Mobile-first design',
     '',
-    'Type "projects <number>" for details or scroll down to view all.',
+    'Scroll down the page to view detailed project information.',
   ],
   contact: [
-    'Contact Information:',
-    '  Email: adelodunpeter24@gmail.com',
-    '  GitHub: github.com/Adelodunpeter25',
-    '  LinkedIn: linkedin.com/in/adelodunpeter',
+    'CONTACT INFORMATION:',
+    '  Email     : adelodunpeter24@gmail.com',
+    '  GitHub    : github.com/Adelodunpeter25',
+    '  LinkedIn  : linkedin.com/in/adelodunpeter',
+    '',
+    'Feel free to reach out for collaboration opportunities.',
+  ],
+  tour: [
+    'ORIENTATION TOUR:',
+    '',
+    '1. Navigate using the menu at the top',
+    '2. Explore the About section to learn about the approach',
+    '3. Review Skills to see technical proficiency',
+    '4. Browse Projects to see work samples',
+    '5. Use Contact form to get in touch',
+    '',
+    'Type any command to continue exploring.',
   ],
 };
 
@@ -51,12 +66,30 @@ export default function Terminal() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [history, setHistory] = useState<Command[]>([
-    { input: '', output: ['Welcome! Type "help" for available commands.'] },
+    { 
+      input: '', 
+      output: [
+        '<div style="text-align: center; margin: 20px 0 5px 0;">',
+        '<span style="font-size: 2.5rem; font-weight: bold; color: #0284c7; letter-spacing: 0.3rem; text-shadow: 0 0 10px rgba(2, 132, 199, 0.5);">J.A.R.V.I.S</span>',
+        '<div style="color: #94A3B8; font-size: 0.75rem; margin-top: 8px; letter-spacing: 0.1rem;">Just A Rather Very Intelligent System</div>',
+        '</div>',
+        'Good day. I am JARVIS, the digital assistant to Mr. Adelodun Peter.',
+        '',
+        'Welcome to the portfolio interface. I am here to assist you in',
+        'navigating Mr. Adelodun\'s professional profile and technical expertise.',
+        '',
+        'Should you require an orientation tour, simply type "tour".',
+        'Otherwise, you may proceed at your discretion using "help" to',
+        'view available commands.',
+        '',
+        'At your service.',
+      ] 
+    },
   ]);
   const [input, setInput] = useState('');
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const dragOffset = useRef({ x: 0, y: 0 });
   
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -70,20 +103,23 @@ export default function Terminal() {
     if (!isDragging) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const newX = e.clientX - dragStart.x;
-      const newY = e.clientY - dragStart.y;
+      if (!windowRef.current) return;
       
-      const maxX = window.innerWidth - (windowRef.current?.offsetWidth || 500);
-      const maxY = window.innerHeight - (windowRef.current?.offsetHeight || 400);
+      const newX = e.clientX - dragOffset.current.x;
+      const newY = e.clientY - dragOffset.current.y;
       
-      setPosition({
-        x: Math.max(0, Math.min(newX, maxX)),
-        y: Math.max(0, Math.min(newY, maxY)),
-      });
+      windowRef.current.style.transform = `translate3d(${newX}px, ${newY}px, 0)`;
     };
 
-    const handleMouseUp = () => {
+    const handleMouseUp = (e: MouseEvent) => {
       setIsDragging(false);
+      const newX = e.clientX - dragOffset.current.x;
+      const newY = e.clientY - dragOffset.current.y;
+      
+      // Only update position if we actually moved
+      if (Math.abs(newX) > 1 || Math.abs(newY) > 1) {
+        setPosition({ x: newX, y: newY });
+      }
     };
 
     document.addEventListener('mousemove', handleMouseMove);
@@ -93,18 +129,24 @@ export default function Terminal() {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging, dragStart]);
+  }, [isDragging]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (windowRef.current) {
-      const rect = windowRef.current.getBoundingClientRect();
-      setDragStart({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-      setIsDragging(true);
-      e.preventDefault();
+    // Don't drag if clicking on input, buttons, or interactive elements
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'INPUT' || target.tagName === 'BUTTON' || target.closest('button')) {
+      return;
     }
+    
+    if (!windowRef.current) return;
+    
+    const rect = windowRef.current.getBoundingClientRect();
+    dragOffset.current = {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    };
+    setIsDragging(true);
+    e.preventDefault();
   };
 
   const handleCommand = (cmd: string) => {
@@ -112,6 +154,31 @@ export default function Terminal() {
     
     if (trimmed === 'clear') {
       setHistory([]);
+      return;
+    }
+
+    // Handle navigation commands
+    if (trimmed === 'about') {
+      document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+      setHistory([...history, { input: cmd, output: ['Navigating to About section...'] }]);
+      return;
+    }
+
+    if (trimmed === 'skills') {
+      document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
+      setHistory([...history, { input: cmd, output: ['Navigating to Skills section...'] }]);
+      return;
+    }
+
+    if (trimmed === 'projects') {
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+      setHistory([...history, { input: cmd, output: ['Navigating to Projects section...'] }]);
+      return;
+    }
+
+    if (trimmed === 'contact') {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      setHistory([...history, { input: cmd, output: ['Navigating to Contact section...'] }]);
       return;
     }
 
@@ -130,6 +197,9 @@ export default function Terminal() {
   const handleClose = () => {
     setIsOpen(false);
     setPosition({ x: 0, y: 0 });
+    if (windowRef.current) {
+      windowRef.current.style.transform = 'none';
+    }
   };
 
   const handleMinimize = () => {
@@ -144,25 +214,26 @@ export default function Terminal() {
           ref={windowRef}
           style={{
             position: 'fixed',
-            left: position.x ? `${position.x}px` : 'auto',
-            top: position.y ? `${position.y}px` : 'auto',
+            left: !position.x && !position.y ? 'auto' : '0',
+            top: !position.x && !position.y ? 'auto' : '0',
             right: !position.x && !position.y ? '2rem' : 'auto',
             bottom: !position.x && !position.y ? '6rem' : 'auto',
+            transform: position.x || position.y ? `translate3d(${position.x}px, ${position.y}px, 0)` : 'none',
             cursor: isDragging ? 'grabbing' : 'default',
           }}
           className="z-50 select-none animate-in fade-in slide-in-from-bottom-4 duration-300"
         >
           <div className={`bg-black border border-primary/30 rounded-lg shadow-2xl transition-all duration-300 ${
-            isExpanded ? 'w-[90vw] h-[90vh]' : 'w-[500px] max-w-[calc(100vw-4rem)]'
+            isExpanded ? 'w-[90vw] h-[90vh]' : 'w-[650px] max-w-[calc(100vw-4rem)]'
           }`}>
             {/* Header */}
             <div
               onMouseDown={handleMouseDown}
               onClick={() => isMinimized && setIsMinimized(false)}
-              className="flex items-center justify-between bg-neutral-900 px-4 py-2 rounded-t-lg border-b border-primary/30 cursor-grab active:cursor-grabbing select-none"
+              className="flex items-center justify-between bg-neutral-900 px-4 py-2 rounded-t-lg border-b border-primary/30 select-none cursor-grab"
             >
               <div className="flex items-center gap-2">
-                <div className="flex gap-1" onMouseDown={(e) => e.stopPropagation()}>
+                <div className="flex gap-1">
                   <button
                     onClick={handleClose}
                     className="p-1.5 rounded-full hover:bg-neutral-800 transition-colors cursor-pointer group"
@@ -206,32 +277,39 @@ export default function Terminal() {
               <div 
                 ref={terminalRef}
                 onClick={() => inputRef.current?.focus()}
-                className={`p-4 font-mono text-sm overflow-y-auto cursor-text transition-all duration-300 ${
-                  isExpanded ? 'h-[calc(90vh-3rem)]' : 'h-80'
-                }`}
+                className={`p-4 font-mono text-sm cursor-text transition-all duration-300 ${
+                  isExpanded ? 'h-[calc(90vh-3rem)]' : 'h-[500px]'
+                } overflow-y-auto terminal-scroll`}
               >
                 {history.map((cmd, i) => (
                   <div key={i} className="mb-4">
                     {cmd.input && (
-                      <div className="flex gap-2 text-primary">
-                        <span>$</span>
-                        <span>{cmd.input}</span>
+                      <div className="flex gap-2">
+                        <span className="text-green-400">peter@portfolio</span>
+                        <span className="text-white">:</span>
+                        <span className="text-blue-400">~</span>
+                        <span className="text-white">$</span>
+                        <span className="text-white">{cmd.input}</span>
                       </div>
                     )}
-                    <div className="text-text-secondary whitespace-pre-line">
-                      {cmd.output.join('\n')}
-                    </div>
+                    <div 
+                      className="text-text-secondary whitespace-pre-line"
+                      dangerouslySetInnerHTML={{ __html: cmd.output.join('\n') }}
+                    />
                   </div>
                 ))}
                 
-                <form onSubmit={handleSubmit} className="flex gap-2 text-primary">
-                  <span>$</span>
+                <form onSubmit={handleSubmit} className="flex gap-2">
+                  <span className="text-green-400">peter@portfolio</span>
+                  <span className="text-white">:</span>
+                  <span className="text-blue-400">~</span>
+                  <span className="text-white">$</span>
                   <input
                     ref={inputRef}
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    className="flex-1 bg-transparent outline-none"
+                    className="flex-1 bg-transparent outline-none text-white terminal-cursor terminal-input"
                     spellCheck={false}
                   />
                 </form>
