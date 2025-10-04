@@ -7,57 +7,184 @@ interface Command {
 
 const commands: Record<string, string[]> = {
   help: [
-    'Available commands:',
-    '  about    - Navigate to About section',
-    '  skills   - Navigate to Skills section',
-    '  projects - Navigate to Projects section',
-    '  contact  - Navigate to Contact section',
+    'Certainly. Here are the available commands:',
+    '',
+    '  about    - Learn about Mr. Adelodun\'s approach',
+    '  skills   - Review his technical expertise',
+    '  projects - Examine his portfolio work',
+    '  contact  - Obtain contact information',
     '  tour     - Take a guided orientation',
-    '  clear    - Clear terminal',
-    '  help     - Show this message',
+    '  clear    - Clear terminal display',
+    '  help     - Display this message',
+    '',
   ],
   about: [
-    'ADELODUN PETER',
-    'FullStack Developer & Problem Solver',
+    'Ah yes, let me tell you about Mr. Adelodun\'s approach.',
     '',
-    'Mr. Adelodun creates robust, scalable solutions that solve',
-    'real-world problems. From concept to deployment, he focuses',
-    'on building software that works reliably and makes an impact.',
+    '═══════════════════════════════════════════════════════════',
+    '                    BUILDING SYSTEMS THAT LAST',
+    '═══════════════════════════════════════════════════════════',
+    '',
+    'Mr. Adelodun builds software that is technically strong,',
+    'scalable, and rooted in real-world relevance. His focus is',
+    'on delivering solutions that are both functional and',
+    'impactful, ensuring that every aspect of the product is',
+    'designed with the end-user in mind.',
+    '',
+    'For him, successful software goes beyond mere functionality;',
+    'it must perform reliably in the real world.',
+    '',
+    'HIS CORE PRINCIPLES:',
+    '',
+    '  → Listen First',
+    '    He begins by understanding challenges and goals,',
+    '    ensuring solutions are clear, sound, and aligned with',
+    '    what truly matters.',
+    '',
+    '  → Production Mindset',
+    '    He builds for real-world reliability, not just',
+    '    development. He doesn\'t just build, he ships.',
+    '',
+    '  → Clear Communication',
+    '    His code, documentation, and conversations are all',
+    '    designed to be easily understood.',
+    '',
+    '  → Build for Growth',
+    '    He designs with the future in mind, not just today.',
+    '',
+    'DISTINGUISHING FEATURES:',
+    '',
+    '  🎯 User-Centered Approach',
+    '     Every feature he creates is shaped with real people',
+    '     in mind, ensuring clarity, accessibility, and impact.',
+    '',
+    '  📈 Complete Involvement',
+    '     He stays involved at every stage — from design to',
+    '     deployment, monitoring, and continuous improvement.',
+    '',
+    'Quite impressive, if I may say so.',
+    '',
   ],
   skills: [
-    'TECHNICAL EXPERTISE:',
-    '  ▸ Python (Django, FastAPI)      [████████░░] 90%',
-    '  ▸ React & TypeScript            [████████░░] 84%',
-    '  ▸ PostgreSQL & SQLite           [████████░░] 87%',
-    '  ▸ Git & Version Control         [█████████░] 90%',
-    '  ▸ HTML & CSS                    [████████░░] 88%',
+    'Allow me to present Mr. Adelodun\'s technical proficiencies.',
+    '',
+    '═══════════════════════════════════════════════════════════',
+    '                    TECHNICAL EXPERTISE',
+    '═══════════════════════════════════════════════════════════',
+    '',
+    '  ▸ Python                        [█████████░] 90%',
+    '  ▸ Django                        [█████████░] 90%',
+    '  ▸ FastAPI                       [████████░░] 88%',
+    '  ▸ React                         [████████░░] 84%',
+    '  ▸ CSS                           [████████░░] 85%',
+    '  ▸ HTML                          [█████████░] 90%',
+    '  ▸ PostgreSQL                    [████████░░] 87%',
+    '  ▸ SQLite                        [████████░░] 85%',
+    '  ▸ Git                           [█████████░] 90%',
+    '',
+    'He is particularly proficient in Python-based frameworks',
+    'and modern web technologies, as you can see.',
+    '',
   ],
   projects: [
-    'PORTFOLIO PROJECTS:',
-    '  [1] Project One - React & TypeScript',
-    '  [2] Project Two - Node.js & MongoDB',
-    '  [3] Project Three - Mobile-first design',
+    'Here is a selection of Mr. Adelodun\'s notable work.',
     '',
-    'Scroll down the page to view detailed project information.',
+    '═══════════════════════════════════════════════════════════',
+    '                    PORTFOLIO PROJECTS',
+    '═══════════════════════════════════════════════════════════',
+    '',
+    '[1] Project One',
+    '    He developed a modern web application using React',
+    '    and TypeScript with a focus on type safety.',
+    '    Tech: React, TypeScript, Tailwind',
+    '    → github.com/Adelodunpeter25/project1',
+    '',
+    '[2] Project Two',
+    '    A full-stack application featuring real-time',
+    '    capabilities and robust backend architecture.',
+    '    Tech: Node.js, Express, MongoDB',
+    '    → github.com/Adelodunpeter25/project2',
+    '',
+    '[3] Project Three',
+    '    He created a mobile-first responsive design that',
+    '    adapts seamlessly across all device sizes.',
+    '    Tech: React, CSS3, Vite',
+    '    → github.com/Adelodunpeter25/project3',
+    '',
+    '[4] Project Four',
+    '    This project demonstrates his API integration skills',
+    '    and data visualization capabilities.',
+    '    Tech: Python, FastAPI, Chart.js',
+    '    → github.com/Adelodunpeter25/project4',
+    '',
+    '[5] Project Five',
+    '    An e-commerce platform with secure payment processing',
+    '    and comprehensive database management.',
+    '    Tech: Next.js, Stripe, PostgreSQL',
+    '    → github.com/Adelodunpeter25/project5',
+    '',
+    '[6] Project Six',
+    '    A real-time chat application showcasing his expertise',
+    '    in WebSocket technology and containerization.',
+    '    Tech: Socket.io, Redis, Docker',
+    '    → github.com/Adelodunpeter25/project6',
+    '',
+    'Each project demonstrates his commitment to quality and',
+    'practical problem-solving.',
+    '',
   ],
   contact: [
-    'CONTACT INFORMATION:',
-    '  Email     : adelodunpeter24@gmail.com',
-    '  GitHub    : github.com/Adelodunpeter25',
-    '  LinkedIn  : linkedin.com/in/adelodunpeter',
+    'Of course. Here is how you may reach Mr. Adelodun.',
     '',
-    'Feel free to reach out for collaboration opportunities.',
+    '═══════════════════════════════════════════════════════════',
+    '                    CONTACT INFORMATION',
+    '═══════════════════════════════════════════════════════════',
+    '',
+    '  📧 Email',
+    '     adelodunpeter24@gmail.com',
+    '',
+    '  💻 GitHub',
+    '     github.com/Adelodunpeter25',
+    '',
+    '  💼 LinkedIn',
+    '     linkedin.com/in/adelodun-peter',
+    '',
+    'He is quite responsive to inquiries regarding collaboration',
+    'opportunities, project discussions, or professional',
+    'networking.',
+    '',
+    'Shall I assist you with anything else?',
+    '',
   ],
   tour: [
-    'ORIENTATION TOUR:',
+    'Excellent choice. Allow me to guide you through this interface.',
     '',
-    '1. Navigate using the menu at the top',
-    '2. Explore the About section to learn about the approach',
-    '3. Review Skills to see technical proficiency',
-    '4. Browse Projects to see work samples',
-    '5. Use Contact form to get in touch',
+    '═══════════════════════════════════════════════════════════',
+    '                    ORIENTATION TOUR',
+    '═══════════════════════════════════════════════════════════',
     '',
-    'Type any command to continue exploring.',
+    '1. Navigation',
+    '   You may use the menu at the top to navigate the site,',
+    '   or simply use commands here in the terminal.',
+    '',
+    '2. About Section',
+    '   Type "about" to learn about Mr. Adelodun\'s approach',
+    '   and development philosophy.',
+    '',
+    '3. Skills Assessment',
+    '   Type "skills" to review his technical proficiencies',
+    '   and areas of expertise.',
+    '',
+    '4. Portfolio Review',
+    '   Type "projects" to examine his work samples and',
+    '   completed projects.',
+    '',
+    '5. Contact Information',
+    '   Type "contact" when you wish to reach out to him',
+    '   for collaboration or inquiries.',
+    '',
+    'I am at your service. Type any command to continue.',
+    '',
   ],
 };
 
@@ -69,10 +196,6 @@ export default function Terminal() {
     { 
       input: '', 
       output: [
-        '<div style="text-align: center; margin: 20px 0 5px 0;">',
-        '<span style="font-size: 2.5rem; font-weight: bold; color: #0284c7; letter-spacing: 0.3rem; text-shadow: 0 0 10px rgba(2, 132, 199, 0.5);">J.A.R.V.I.S</span>',
-        '<div style="color: #94A3B8; font-size: 0.75rem; margin-top: 8px; letter-spacing: 0.1rem;">Just A Rather Very Intelligent System</div>',
-        '</div>',
         'Good day. I am JARVIS, the digital assistant to Mr. Adelodun Peter.',
         '',
         'Welcome to the portfolio interface. I am here to assist you in',
@@ -87,9 +210,12 @@ export default function Terminal() {
     },
   ]);
   const [input, setInput] = useState('');
-  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const dragOffset = useRef({ x: 0, y: 0 });
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [terminalPosition, setTerminalPosition] = useState({ x: 0, y: 0 });
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
+  const [isTyping, setIsTyping] = useState(false);
   
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -99,55 +225,58 @@ export default function Terminal() {
     terminalRef.current?.scrollTo(0, terminalRef.current.scrollHeight);
   }, [history]);
 
-  useEffect(() => {
-    if (!isDragging) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!windowRef.current) return;
-      
-      const newX = e.clientX - dragOffset.current.x;
-      const newY = e.clientY - dragOffset.current.y;
-      
-      windowRef.current.style.transform = `translate3d(${newX}px, ${newY}px, 0)`;
-    };
-
-    const handleMouseUp = (e: MouseEvent) => {
-      setIsDragging(false);
-      const newX = e.clientX - dragOffset.current.x;
-      const newY = e.clientY - dragOffset.current.y;
-      
-      // Only update position if we actually moved
-      if (Math.abs(newX) > 1 || Math.abs(newY) > 1) {
-        setPosition({ x: newX, y: newY });
-      }
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [isDragging]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    // Don't drag if clicking on input, buttons, or interactive elements
-    const target = e.target as HTMLElement;
-    if (target.tagName === 'INPUT' || target.tagName === 'BUTTON' || target.closest('button')) {
-      return;
+  const typeOutput = async (output: string[]) => {
+    setIsTyping(true);
+    const fullText = output.join('\n');
+    const tempHistory = [...history];
+    let currentText = '';
+    
+    for (let i = 0; i < fullText.length; i++) {
+      currentText += fullText[i];
+      await new Promise(resolve => setTimeout(resolve, 7));
+      tempHistory[tempHistory.length - 1].output = currentText.split('\n');
+      setHistory([...tempHistory]);
     }
     
+    setIsTyping(false);
+    setTimeout(() => inputRef.current?.focus(), 50);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
     if (!windowRef.current) return;
     
     const rect = windowRef.current.getBoundingClientRect();
-    dragOffset.current = {
+    setDragStart({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
-    };
+    });
     setIsDragging(true);
     e.preventDefault();
   };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging || !windowRef.current) return;
+    
+    const newX = e.clientX - dragStart.x;
+    const newY = e.clientY - dragStart.y;
+    
+    setTerminalPosition({ x: newX, y: newY });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [isDragging, dragStart]);
 
   const handleCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase();
@@ -157,49 +286,92 @@ export default function Terminal() {
       return;
     }
 
-    // Handle navigation commands
-    if (trimmed === 'about') {
-      document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-      setHistory([...history, { input: cmd, output: ['Navigating to About section...'] }]);
-      return;
+    // Add to command history
+    if (trimmed) {
+      setCommandHistory(prev => [...prev, trimmed]);
+      setHistoryIndex(-1);
     }
 
-    if (trimmed === 'skills') {
-      document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
-      setHistory([...history, { input: cmd, output: ['Navigating to Skills section...'] }]);
-      return;
+    // Navigate to section if applicable
+    const sectionMap: Record<string, string> = {
+      about: 'about',
+      skills: 'skills',
+      projects: 'projects',
+      contact: 'contact',
+    };
+    
+    if (sectionMap[trimmed]) {
+      setTimeout(() => {
+        document.getElementById(sectionMap[trimmed])?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
 
-    if (trimmed === 'projects') {
-      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-      setHistory([...history, { input: cmd, output: ['Navigating to Projects section...'] }]);
-      return;
-    }
-
-    if (trimmed === 'contact') {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-      setHistory([...history, { input: cmd, output: ['Navigating to Contact section...'] }]);
-      return;
-    }
-
-    const output = commands[trimmed] || [`Command not found: ${cmd}. Type "help" for available commands.`];
-    setHistory([...history, { input: cmd, output }]);
+    const output = commands[trimmed] || [
+      `I'm afraid I don't recognize that command: "${cmd}"`,
+      '',
+      'Perhaps you meant one of these? Type "help" to see all',
+      'available commands.',
+    ];
+    
+    setHistory([...history, { input: cmd, output: [] }]);
+    typeOutput(output);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input.trim()) {
+    if (input.trim() && !isTyping) {
       handleCommand(input);
       setInput('');
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Tab completion
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const availableCommands = Object.keys(commands);
+      const matches = availableCommands.filter(cmd => cmd.startsWith(input.toLowerCase()));
+      
+      if (matches.length === 1) {
+        setInput(matches[0]);
+      } else if (matches.length > 1) {
+        setHistory([...history, { 
+          input: '', 
+          output: matches.map(cmd => `  ${cmd}`).concat(['']) 
+        }]);
+      }
+    }
+    
+    // Command history navigation
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandHistory.length > 0) {
+        const newIndex = historyIndex === -1 
+          ? commandHistory.length - 1 
+          : Math.max(0, historyIndex - 1);
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[newIndex]);
+      }
+    }
+    
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex !== -1) {
+        const newIndex = historyIndex + 1;
+        if (newIndex >= commandHistory.length) {
+          setHistoryIndex(-1);
+          setInput('');
+        } else {
+          setHistoryIndex(newIndex);
+          setInput(commandHistory[newIndex]);
+        }
+      }
+    }
+  };
+
   const handleClose = () => {
     setIsOpen(false);
-    setPosition({ x: 0, y: 0 });
-    if (windowRef.current) {
-      windowRef.current.style.transform = 'none';
-    }
+    setTerminalPosition({ x: 0, y: 0 });
   };
 
   const handleMinimize = () => {
@@ -214,17 +386,16 @@ export default function Terminal() {
           ref={windowRef}
           style={{
             position: 'fixed',
-            left: !position.x && !position.y ? 'auto' : '0',
-            top: !position.x && !position.y ? 'auto' : '0',
-            right: !position.x && !position.y ? '2rem' : 'auto',
-            bottom: !position.x && !position.y ? '6rem' : 'auto',
-            transform: position.x || position.y ? `translate3d(${position.x}px, ${position.y}px, 0)` : 'none',
+            right: terminalPosition.x === 0 && terminalPosition.y === 0 ? '2rem' : 'auto',
+            bottom: terminalPosition.x === 0 && terminalPosition.y === 0 ? '6rem' : 'auto',
+            left: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.x}px` : 'auto',
+            top: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.y}px` : 'auto',
             cursor: isDragging ? 'grabbing' : 'default',
           }}
-          className="z-50 select-none animate-in fade-in slide-in-from-bottom-4 duration-300"
+          className="z-50 select-none animate-terminal-open"
         >
           <div className={`bg-black border border-primary/30 rounded-lg shadow-2xl transition-all duration-300 ${
-            isExpanded ? 'w-[90vw] h-[90vh]' : 'w-[650px] max-w-[calc(100vw-4rem)]'
+            isExpanded ? 'w-[90vw] h-[90vh]' : 'w-[750px] max-w-[calc(100vw-4rem)]'
           }`}>
             {/* Header */}
             <div
@@ -274,13 +445,26 @@ export default function Terminal() {
 
             {/* Terminal Content */}
             {!isMinimized && (
-              <div 
-                ref={terminalRef}
-                onClick={() => inputRef.current?.focus()}
-                className={`p-4 font-mono text-sm cursor-text transition-all duration-300 ${
-                  isExpanded ? 'h-[calc(90vh-3rem)]' : 'h-[500px]'
-                } overflow-y-auto terminal-scroll`}
-              >
+              <>
+                {/* Fixed JARVIS Header */}
+                <div className="px-4 pt-4 pb-2 border-b border-primary/20">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary tracking-[0.3rem]" style={{ textShadow: '0 0 10px rgba(2, 132, 199, 0.5)' }}>
+                      J.A.R.V.I.S
+                    </div>
+                    <div className="text-text-secondary text-xs mt-1 tracking-[0.1rem]">
+                      Just A Rather Very Intelligent System
+                    </div>
+                  </div>
+                </div>
+
+                <div 
+                  ref={terminalRef}
+                  onClick={() => inputRef.current?.focus()}
+                  className={`p-4 font-mono text-sm cursor-text transition-all duration-300 ${
+                    isExpanded ? 'h-[calc(90vh-8rem)]' : 'h-[540px]'
+                  } overflow-y-auto terminal-scroll`}
+                >
                 {history.map((cmd, i) => (
                   <div key={i} className="mb-4">
                     {cmd.input && (
@@ -309,11 +493,14 @@ export default function Terminal() {
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    className="flex-1 bg-transparent outline-none text-white terminal-cursor terminal-input"
+                    onKeyDown={handleKeyDown}
+                    disabled={isTyping}
+                    className="flex-1 bg-transparent outline-none text-white terminal-cursor terminal-input disabled:opacity-50"
                     spellCheck={false}
                   />
                 </form>
               </div>
+              </>
             )}
           </div>
         </div>
