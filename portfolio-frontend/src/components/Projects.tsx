@@ -3,14 +3,24 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ProjectCard from './ProjectCard';
 
 interface Project {
+  id: string;
   title: string;
   description: string;
   tech: string[];
   link: string;
   demo?: string;
+  fullDescription: string;
+  features: string[];
+  challenges: string;
+  outcome: string;
 }
 
-export default function Projects({ projects }: { projects: Project[] }) {
+interface ProjectsProps {
+  projects: Project[];
+  onProjectSelect: (project: Project) => void;
+}
+
+export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { ref, isVisible } = useScrollAnimation();
 
@@ -59,8 +69,11 @@ export default function Projects({ projects }: { projects: Project[] }) {
           className="flex gap-8 overflow-x-auto py-4 pb-8 snap-x snap-mandatory scrollbar-hide mb-8"
         >
           {projects.map((project) => (
-            <div key={project.title} className="min-w-[350px] md:min-w-[400px] snap-start">
-              <ProjectCard {...project} />
+            <div key={project.id} className="min-w-[350px] md:min-w-[400px] snap-start">
+              <ProjectCard 
+                {...project} 
+                onViewDetails={() => onProjectSelect(project)}
+              />
             </div>
           ))}
         </div>
