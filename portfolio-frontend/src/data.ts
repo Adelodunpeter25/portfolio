@@ -53,11 +53,11 @@ export const portfolioData = {
   },
   projects: [
     {
-      title: "Project One",
-      description: "A modern web application built with React and TypeScript",
-      tech: ["React", "TypeScript", "Tailwind"],
-      link: "https://github.com/Adelodunpeter25/project1",
-      demo: "https://project1-demo.com",
+      title: "ContactFast",
+      description: "A FastAPI-powered email endpoint for frontend-only portfolios. Add a simple snippet to your contact form and start receiving messages directly in your inbox. No backend setup, no third-party service, no hassle.",
+      tech: ["FastApi", "Resend", "PostgreSQL",],
+      link: "https://github.com/Adelodunpeter25/ContactFast",
+      demo: "https://contact-fast.vercel.app",
     },
     {
       title: "Project Two",
