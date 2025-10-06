@@ -26,20 +26,38 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    if (!scrollContainer || !isVisible) return;
 
-    const scrollInterval = setInterval(() => {
-      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      
-      if (scrollContainer.scrollLeft >= maxScroll) {
-        scrollContainer.scrollLeft = 0;
-      } else {
-        scrollContainer.scrollBy({ left: 420, behavior: 'smooth' });
-      }
-    }, 3000);
+    let userInteracted = false;
+    const handleUserScroll = () => {
+      userInteracted = true;
+      setTimeout(() => { userInteracted = false; }, 5000);
+    };
 
-    return () => clearInterval(scrollInterval);
-  }, []);
+    scrollContainer.addEventListener('scroll', handleUserScroll, { passive: true });
+
+    const initialDelay = setTimeout(() => {
+      const scrollInterval = setInterval(() => {
+        if (userInteracted) return;
+        
+        const cardWidth = 420;
+        const totalWidth = cardWidth * projects.length;
+        
+        if (scrollContainer.scrollLeft >= totalWidth) {
+          scrollContainer.scrollLeft = 0;
+        }
+        
+        scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }, 5000);
+
+      return () => clearInterval(scrollInterval);
+    }, 5000);
+
+    return () => {
+      clearTimeout(initialDelay);
+      scrollContainer.removeEventListener('scroll', handleUserScroll);
+    };
+  }, [isVisible, projects.length]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -68,8 +86,8 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
           ref={scrollRef}
           className="flex gap-8 overflow-x-auto py-4 pb-8 snap-x snap-mandatory scrollbar-hide mb-8"
         >
-          {projects.map((project) => (
-            <div key={project.id} className="min-w-[350px] md:min-w-[400px] snap-start">
+          {[...projects, ...projects].map((project, index) => (
+            <div key={`${project.id}-${index}`} className="min-w-[350px] md:min-w-[400px] snap-start">
               <ProjectCard 
                 {...project} 
                 onViewDetails={() => onProjectSelect(project)}
