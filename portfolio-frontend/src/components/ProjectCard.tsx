@@ -12,7 +12,6 @@ export default function ProjectCard({
   title,
   description,
   tech,
-  link,
   demo,
   image,
   onViewDetails,
