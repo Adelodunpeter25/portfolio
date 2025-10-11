@@ -65,26 +65,28 @@ export const portfolioData = {
         "Email delivery powered by Resend for 99.9% deliverability",
         "Rate limiting and spam protection built-in",
         "Activation system to prevent abuse",
+        "Built-in email and domain verification system"
       ],
       challenges: "The main challenge was designing a system that's both secure and easy to use. I implemented a domain activation system to prevent spam while keeping the integration process simple for legitimate users.",
       outcome: "Successfully deployed and being used in multiple production portfolios."
     },
     {
-      id: "project-two",
-      title: "Project Two",
-      description: "Full-stack application with real-time features",
-      tech: ["Node.js", "Express", "MongoDB"],
-      link: "https://github.com/Adelodunpeter25/project2",
-      demo: "https://project2-demo.com",
+      id: "gitcli",
+      title: "GitCLI",
+      description: "GitCLI is a user-friendly command-line tool for Git that simplifies everyday operations. Perfect for developers who want powerful Git functionality without the complexity.",
+      tech: ["Python"],
+      link: "https://github.com/Adelodunpeter25/GitCLI",
+      demo: "https://pypi.org/project/gitcli-automation/",
       fullDescription: "A real-time collaborative application built with Node.js and MongoDB, featuring WebSocket connections for instant updates across multiple clients.",
       features: [
-        "Real-time data synchronization",
-        "User authentication and authorization",
-        "RESTful API architecture",
-        "MongoDB aggregation pipelines for analytics"
+        "Tab completion in interactive mode",
+        "Intuitive command structure",
+        "Safety checks for destructive operations",
+        "Cross-platform (macOS, Linux, Windows)",
+        "Automation of common Git tasks",
       ],
-      challenges: "Implementing efficient real-time updates while maintaining data consistency across multiple concurrent users.",
-      outcome: "Achieved sub-100ms latency for real-time updates with support for 1000+ concurrent connections."
+      challenges: "I've been searching for a suitable Git command-line tool that’s simple, intuitive, and doesn’t overwhelm you with dozens of commands.",
+      outcome: "No overwhelming GUI or dozens of commands — only what’s necessary. No memorization of complex flags or commands. Commands are intuitive, prompts guide the user",
     },
     {
       id: "project-three",
