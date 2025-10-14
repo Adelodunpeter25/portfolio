@@ -56,7 +56,7 @@ export const portfolioData = {
       id: "contactfast",
       title: "ContactFast",
       description: "A FastAPI-powered email endpoint for frontend-only portfolios. Add a simple snippet to your contact form and start receiving messages directly in your inbox. No backend setup, no third-party service, no hassle.",
-      tech: ["FastApi", "Resend", "PostgreSQL"],
+      tech: ["FastAPI", "Resend", "PostgreSQL"],
       link: "https://github.com/Adelodunpeter25/ContactFast",
       demo: "https://contact-fast.vercel.app",
       fullDescription: "ContactFast is a production-ready email service designed specifically for developers who want to add contact form functionality to their static sites without managing backend infrastructure. Built with FastAPI for high performance and reliability.",
@@ -77,7 +77,7 @@ export const portfolioData = {
       tech: ["Python"],
       link: "https://github.com/Adelodunpeter25/GitCLI",
       demo: "https://pypi.org/project/gitcli-automation/",
-      fullDescription: "A real-time collaborative application built with Node.js and MongoDB, featuring WebSocket connections for instant updates across multiple clients.",
+      fullDescription: "GitCLI is a user-friendly command-line tool designed to simplify everyday Git operations. It provides developers with a clean and intuitive interface to perform common Git tasks — such as committing, branching, pushing, and merging — without the overwhelming syntax or steep learning curve. Whether you’re a beginner learning Git or an experienced developer looking to speed up your workflow, GitCLI offers powerful Git functionality in a streamlined, hassle-free experience.",
       features: [
         "Tab completion in interactive mode",
         "Intuitive command structure",
@@ -89,37 +89,38 @@ export const portfolioData = {
       outcome: "No overwhelming GUI or dozens of commands — only what’s necessary. No memorization of complex flags or commands. Commands are intuitive, prompts guide the user",
     },
     {
-      id: "project-three",
-      title: "Project Three",
-      description: "Mobile-first responsive design showcase",
-      tech: ["React", "CSS3", "Vite"],
-      link: "https://github.com/Adelodunpeter25/project3",
-      demo: "https://project3-demo.com",
-      fullDescription: "A modern, mobile-first web application demonstrating advanced CSS techniques and responsive design patterns.",
+      id: "resumade",
+      title: "Resumade",
+      description: "A modern resume builder built with FastAPI and React, designed to simplify professional resume creation with real-time previews, ATS optimization, and responsive design.",
+      tech: ["FastAPI", "React", "PostgreSQL", "Supabase", "Google Oauth"],
+      link: "https://github.com/Adelodunpeter25/Resumade",
+      demo: "https://resumade.vercel.app",
+      fullDescription: "Resumade is a modern, web-based resume builder powered by FastAPI and React. It offers an intuitive, mobile-first experience for creating professional, ATS-friendly resumes with real-time editing, dynamic templates, and multi-format export options while retaining simplicity",
       features: [
-        "Fully responsive across all device sizes",
-        "CSS Grid and Flexbox layouts",
-        "Custom animations and transitions",
-        "Optimized for performance with Vite"
+        "Real-time resume editing with instant preview",
+        "Multiple modern, ATS-friendly templates",
+        "Export in PDF, DOCX, and TXT formats",
+        "Clean and intuitive interface designed for all users"
       ],
-      challenges: "Creating a consistent experience across different screen sizes while maintaining performance.",
-      outcome: "Achieved 95+ Lighthouse scores across all metrics with seamless mobile experience."
+      challenges: "Building a free and easy-to-use resume builder that anyone can use — even without design experience — while keeping it fast, modern, functional.",
+      outcome: "Created a simple yet powerful resume builder that helps users craft professional resumes effortlessly, making the resume-building process accessible to everyone.",
     },
     {
-      id: "project-four",
-      title: "Project Four",
-      description: "API integration and data visualization",
-      tech: ["Python", "FastAPI", "Chart.js"],
-      link: "https://github.com/Adelodunpeter25/project4",
-      fullDescription: "A data visualization dashboard that integrates multiple APIs to provide real-time insights through interactive charts and graphs.",
+      id: "image-processor-api",
+      title: "Image-Processor-API",
+      description: "A Flask-based image processing service with user authentication, image upload, background removal, and transformation capabilities.",
+      tech: ["Flask", "Pillow", "PostgreSQL", "Supabase"],
+      link: "https://github.com/Adelodunpeter25/image-processor-api",
+      demo: "https://image-forge.onrender.com",
+      fullDescription: "A powerful Flask-based image processing service that enables users to upload, remove backgrounds, and transform images in real time. Built with scalability and performance in mind, it showcases advanced backend logic, RESTful API design, and seamless integration with modern frontend technologies.",
       features: [
-        "Multiple API integrations",
-        "Interactive data visualizations",
-        "Real-time data updates",
-        "Export functionality for reports"
+        "User authentication and API Key authorization",
+        "Image upload and download functionality",
+        "Background removal using AI technology",
+        "Image transformation capabilities"
       ],
-      challenges: "Handling large datasets efficiently while maintaining smooth UI interactions.",
-      outcome: "Successfully processes and visualizes 10,000+ data points with smooth 60fps animations."
+      challenges: "Building an API that could process and handle image files efficiently while keeping response times fast and reliable.",
+      outcome: "Developed a robust Flask-based API that processes images quickly, ensuring smooth performance for any connected frontend or client application."
     },
     {
       id: "project-five",

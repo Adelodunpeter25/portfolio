@@ -105,17 +105,18 @@ const commands: Record<string, string[]> = {
     '    Tech: Python',
     '    → https://github.com/Adelodunpeter25/GitCLI',
     '',
-    '[3] Project Three',
-    '    He created a mobile-first responsive design that',
-    '    adapts seamlessly across all device sizes.',
-    '    Tech: React, CSS3, Vite',
-    '    → github.com/Adelodunpeter25/project3',
+    '[3] Resumade',
+    '    He designed a clean, intuitive resume builder that removes complexity —',
+        'offering everyone free, seamless access to professional-grade resume crafting tools.',
+    '    Tech: FastAPI, React, PostgreSQL, Supabase, Google Oauth' ,
+    '    → https://github.com/Adelodunpeter25/Resumade',
     '',
-    '[4] Project Four',
-    '    This project demonstrates his API integration skills',
-    '    and data visualization capabilities.',
-    '    Tech: Python, FastAPI, Chart.js',
-    '    → github.com/Adelodunpeter25/project4',
+    '[4] Image-Processor-API',
+    '    A showcase of his backend development skills —',
+    '    creating a Flask-powered API that processes and transforms images',
+    '    turning complex data into clear visual results.',
+    '    Tech: Flask, Pillow, Supabase, PostgreSQL',
+    '    → https://github.com/Adelodunpeter25/image-processor-api',
     '',
     '[5] Project Five',
     '    An e-commerce platform with secure payment processing',
@@ -469,7 +470,7 @@ export default function Terminal() {
                     </div>
                   </button>
                 </div>
-                <span className="text-text-secondary text-sm ml-2">terminal</span>
+                <span className="text-text-secondary text-sm ml-2">Terminal</span>
               </div>
             </div>
 
