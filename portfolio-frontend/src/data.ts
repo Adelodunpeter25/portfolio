@@ -109,7 +109,7 @@ export const portfolioData = {
       id: "image-processor-api",
       title: "Image-Processor-API",
       description: "A Flask-based image processing service with user authentication, image upload, and transformation capabilities.",
-      tech: ["Flask", "Pillow", "PostgreSQL", "Supabase"],
+      tech: ["Flask", "Pillow", "Supabase"],
       link: "https://github.com/Adelodunpeter25/image-processor-api",
       demo: "https://image-processor-api.vercel.app",
       fullDescription: "A powerful Flask-based image processing service that enables users to upload, and transform images in real time. Built with scalability and performance in mind, it showcases advanced backend logic, RESTful API design, and seamless integration with modern frontend technologies.",

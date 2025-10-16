@@ -115,7 +115,7 @@ const commands: Record<string, string[]> = {
     '    A showcase of his backend development skills —',
     '    creating a Flask-powered API that processes and transforms images',
     '    turning complex data into clear visual results.',
-    '    Tech: Flask, Pillow, Supabase, PostgreSQL',
+    '    Tech: Flask, Pillow, Supabase',
     '    → https://github.com/Adelodunpeter25/image-processor-api',
     '',
     '[5] Project Five',
