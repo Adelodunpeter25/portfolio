@@ -122,13 +122,13 @@ export const portfolioData = {
       outcome: "Developed a robust Flask-based API that processes images quickly, ensuring smooth performance for any connected frontend or client application."
     },
     {
-      id: "project-five",
-      title: "Project Five",
-      description: "E-commerce platform with payment integration",
-      tech: ["Next.js", "Stripe", "PostgreSQL"],
-      link: "https://github.com/Adelodunpeter25/project5",
-      demo: "https://project5-demo.com",
-      fullDescription: "A full-featured e-commerce platform with secure payment processing, inventory management, and order tracking.",
+      id: "content-hub",
+      title: "Content-Hub",
+      description: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media with intelligent recommendations and user personalization.",
+      tech: ["FastAPI", "Supabase", "Redis"],
+      link: "https://github.com/Adelodunpeter25/content-hub",
+      demo: "https://content-hub-demo.com",
+      fullDescription: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media with intelligent recommendations and user personalization.",
       features: [
         "Stripe payment integration",
         "Product catalog with search and filters",
