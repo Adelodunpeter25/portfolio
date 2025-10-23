@@ -426,16 +426,23 @@ export default function Terminal() {
           onMouseDown={handleMouseDown}
           style={{
             position: 'fixed',
-            right: terminalPosition.x === 0 && terminalPosition.y === 0 ? '2rem' : 'auto',
-            bottom: terminalPosition.x === 0 && terminalPosition.y === 0 ? '6rem' : 'auto',
-            left: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.x}px` : 'auto',
-            top: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.y}px` : 'auto',
+            ...(isExpanded ? {
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            } : {
+              right: terminalPosition.x === 0 && terminalPosition.y === 0 ? '2rem' : 'auto',
+              bottom: terminalPosition.x === 0 && terminalPosition.y === 0 ? '6rem' : 'auto',
+              left: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.x}px` : 'auto',
+              top: terminalPosition.x !== 0 || terminalPosition.y !== 0 ? `${terminalPosition.y}px` : 'auto',
+            }),
             cursor: isDragging ? 'grabbing' : 'grab',
           }}
           className="z-50 select-none animate-terminal-open"
         >
-          <div className={`bg-black border border-primary/30 rounded-lg shadow-2xl transition-all duration-300 ${
-            isExpanded ? 'w-[90vw] h-[90vh]' : 'w-[750px] max-w-[calc(100vw-4rem)]'
+          <div className={`bg-black border border-primary/30 shadow-2xl transition-all duration-300 ${
+            isExpanded ? 'w-full h-full rounded-none' : 'w-[750px] max-w-[calc(100vw-4rem)] rounded-lg'
           }`}>
             {/* Header */}
             <div
@@ -499,7 +506,7 @@ export default function Terminal() {
                   ref={terminalRef}
                   onClick={() => inputRef.current?.focus()}
                   className={`p-4 font-mono text-sm cursor-text transition-all duration-300 ${
-                    isExpanded ? 'h-[calc(90vh-8rem)]' : 'h-[540px]'
+                    isExpanded ? 'h-[calc(100vh-8rem)]' : 'h-[540px]'
                   } overflow-y-auto terminal-scroll`}
                   onMouseDown={(e) => e.stopPropagation()}
                 >
