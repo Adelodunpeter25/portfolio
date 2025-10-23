@@ -86,7 +86,7 @@ export const portfolioData = {
         "Automation of common Git tasks",
       ],
       challenges: "I've been searching for a suitable Git command-line tool that’s simple, intuitive, and doesn’t overwhelm you with dozens of commands.",
-      outcome: "No overwhelming GUI or dozens of commands — only what’s necessary. No memorization of complex flags or commands. Commands are intuitive, prompts guide the user",
+      outcome: "No overwhelming GUI or dozens of commands — only what’s necessary. No memorization of complex commands. Commands are intuitive, prompts guide the user",
     },
     {
       id: "resumade",
@@ -168,5 +168,6 @@ export const portfolioData = {
     { name: "PostgreSQL", proficiency: 80 },
     { name: "SQLite", proficiency: 85 },
     { name: "Git", proficiency: 90 },
+    { name: "Redis", proficiency: 55 },
   ],
 };
