@@ -127,7 +127,7 @@ export const portfolioData = {
       description: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media with intelligent recommendations and user personalization.",
       tech: ["FastAPI", "Supabase", "Redis"],
       link: "https://github.com/Adelodunpeter25/content-hub",
-      demo: "https://content-hub-demo.com",
+      demo: "https://content-hubb.vercel.app",
       fullDescription: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media with intelligent recommendations and user personalization.",
       features: [
         "Stripe payment integration",

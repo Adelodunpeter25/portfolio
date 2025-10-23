@@ -7,20 +7,12 @@ export default function NotFound() {
         <p className="text-xl text-text-secondary mb-8 leading-relaxed">
           Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
         </p>
-        <div className="flex gap-4 justify-center flex-wrap">
-          <a
-            href="/"
-            className="px-6 py-3 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-base"
-          >
-            Go Home
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-base"
-          >
-            Contact Me
-          </a>
-        </div>
+        <a
+          href="/"
+          className="inline-block px-6 py-3 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-base"
+        >
+          Go Home
+        </a>
       </div>
     </div>
   );
