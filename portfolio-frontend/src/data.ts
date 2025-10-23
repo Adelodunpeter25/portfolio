@@ -130,14 +130,14 @@ export const portfolioData = {
       demo: "https://content-hubb.vercel.app",
       fullDescription: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media with intelligent recommendations and user personalization.",
       features: [
-        "Stripe payment integration",
-        "Product catalog with search and filters",
-        "Order management system",
-        "Admin dashboard for inventory",
-        "Email notifications for orders"
+        "RSS feed aggregation from multiple sources",
+        "Web scraping for content collection",
+        "Social media integration",
+        "Intelligent content recommendations",
+        "User personalization and preferences"
       ],
-      challenges: "Implementing secure payment processing while maintaining a smooth checkout experience.",
-      outcome: "Platform successfully processes transactions with PCI compliance and 99.9% uptime."
+      challenges: "People constantly jump between different websites to discover relevant content, leading to fragmented and inefficient browsing experiences.",
+      outcome: "Developed an intelligent content aggregator that unifies feeds from multiple sources and tailors them to user preferences in real time."
     },
     {
       id: "project-six",
