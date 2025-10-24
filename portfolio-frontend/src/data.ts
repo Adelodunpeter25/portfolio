@@ -92,7 +92,7 @@ export const portfolioData = {
       id: "resumade",
       title: "Resumade",
       description: "A modern resume builder built with FastAPI and React, designed to simplify professional resume creation with real-time previews, ATS optimization, and responsive design.",
-      tech: ["FastAPI", "React", "PostgreSQL", "Supabase", "Google Oauth"],
+      tech: ["FastAPI", "React", "Supabase", "Google Oauth", "Gemini"],
       link: "https://github.com/Adelodunpeter25/Resumade",
       demo: "https://resumade.vercel.app",
       fullDescription: "Resumade is a modern, web-based resume builder powered by FastAPI and React. It offers an intuitive, mobile-first experience for creating professional, ATS-friendly resumes with real-time editing, dynamic templates, and multi-format export options while retaining simplicity",

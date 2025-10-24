@@ -120,7 +120,7 @@ const commands: Record<string, string[]> = {
     '    real-time preview, ATS optimization, and responsive design.',
     '    Free, seamless access to professional-grade resume tools.',
     '    Showcasing his problem-solving skills.',
-    '    Tech: FastAPI, React, Supabase, Gemini',
+    '    Tech: FastAPI, React, Supabase, Gemini, Google Oauth',
     '    → https://github.com/Adelodunpeter25/Resumade',
     '',
     '[4] Image-Processor-API',
