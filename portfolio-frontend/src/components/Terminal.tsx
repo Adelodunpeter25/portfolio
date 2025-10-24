@@ -133,7 +133,7 @@ const commands: Record<string, string[]> = {
     '    Quite ingenious. A personal feed aggregator that collects',
     '    content from RSS feeds, web scraping, and social media with',
     '    intelligent recommendations and user personalization.',
-    '    Tech: FastAPI, React, Supabase, Redis',
+    '    Tech: Flask, React, Supabase',
     '    → https://github.com/Adelodunpeter25/content-hub',
     '',
     'Each project demonstrates his thoughtful approach to',
