@@ -80,7 +80,7 @@ export const portfolioData = {
       fullDescription: "GitCLI is a user-friendly command-line tool designed to simplify everyday Git operations. It provides developers with a clean and intuitive interface to perform common Git tasks — such as committing, branching, pushing, and merging — without the overwhelming syntax or steep learning curve. Whether you’re a beginner learning Git or an experienced developer looking to speed up your workflow, GitCLI offers powerful Git functionality in a streamlined, hassle-free experience.",
       features: [
         "Tab completion in interactive mode",
-        "Intuitive command structure",
+        "Fully Configurable, every behavior matches your style",
         "Safety checks for destructive operations",
         "Cross-platform (macOS, Linux, Windows)",
         "Automation of common Git tasks",
