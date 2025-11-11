@@ -55,7 +55,7 @@ export const portfolioData = {
     {
       id: "contactfast",
       title: "ContactFast",
-      description: "A FastAPI-powered email endpoint for frontend-only portfolios. Add a simple snippet to your contact form and start receiving messages directly in your inbox. No backend setup, no third-party service, no hassle.",
+      description: "A FastAPI-powered email endpoint for frontend-only websites. Add a simple snippet to your contact form and start receiving messages directly in your inbox. No backend setup, no third-party service, no hassle.",
       tech: ["FastAPI", "Resend", "PostgreSQL"],
       link: "https://github.com/Adelodunpeter25/ContactFast",
       demo: "https://contact-fast.vercel.app",
@@ -69,25 +69,7 @@ export const portfolioData = {
       ],
       challenges: "The main challenge was designing a system that's both secure and easy to use. I implemented a domain activation system to prevent spam while keeping the integration process simple for legitimate users.",
       outcome: "Successfully deployed and being used in multiple production portfolios."
-    },
-    {
-      id: "gitcli",
-      title: "GitCLI",
-      description: "GitCLI is a user-friendly command-line tool for Git that simplifies everyday operations. Perfect for developers who want powerful Git functionality without the complexity.",
-      tech: ["Python"],
-      link: "https://github.com/Adelodunpeter25/GitCLI",
-      demo: "https://pypi.org/project/gitcli-automation/",
-      fullDescription: "GitCLI is a user-friendly command-line tool designed to simplify everyday Git operations. It provides developers with a clean and intuitive interface to perform common Git tasks — such as committing, branching, pushing, and merging — without the overwhelming syntax or steep learning curve. Whether you’re a beginner learning Git or an experienced developer looking to speed up your workflow, GitCLI offers powerful Git functionality in a streamlined, hassle-free experience.",
-      features: [
-        "Tab completion in interactive mode",
-        "Fully Configurable, every behavior matches your style",
-        "Safety checks for destructive operations",
-        "Cross-platform (macOS, Linux, Windows)",
-        "Automation of common Git tasks",
-      ],
-      challenges: "I've been searching for a suitable Git command-line tool that’s simple, intuitive, and doesn’t overwhelm you with dozens of commands.",
-      outcome: "No overwhelming GUI or dozens of commands — only what’s necessary. No memorization of complex commands. Commands are intuitive, prompts guide the user",
-    },
+    }, 
     {
       id: "resumade",
       title: "Resumade",
@@ -99,36 +81,20 @@ export const portfolioData = {
       features: [
         "Real-time resume editing with instant preview",
         "Multiple modern, ATS-friendly templates",
-        "Export in PDF, DOCX, and TXT formats",
+        "Export in PDF and TXT formats",
         "Clean and intuitive interface designed for all users"
       ],
-      challenges: "Building a free and easy-to-use resume builder that anyone can use — even without design experience — while keeping it fast, modern, functional.",
+      challenges: "Building a free and easy-to-use resume builder that anyone can use — even without design experience, while keeping it fast, modern, functional.",
       outcome: "Created a simple yet powerful resume builder that helps users craft professional resumes effortlessly, making the resume-building process accessible to everyone.",
-    },
-    {
-      id: "image-processor-api",
-      title: "Image-Processor-API",
-      description: "A Flask-based image processing service with user authentication, image upload, and transformation capabilities.",
-      tech: ["Flask", "Pillow", "Supabase"],
-      link: "https://github.com/Adelodunpeter25/image-processor-api",
-      demo: "https://image-processor-api.vercel.app",
-      fullDescription: "A powerful Flask-based image processing service that enables users to upload, and transform images in real time. Built with scalability and performance in mind, it showcases advanced backend logic, RESTful API design, and seamless integration with modern frontend technologies.",
-      features: [
-        "User authentication and API Key authorization",
-        "Image upload and download functionality",
-        "Image transformation capabilities"
-      ],
-      challenges: "Building an API that could process and handle image files efficiently while keeping response times fast and reliable.",
-      outcome: "Developed a robust Flask-based API that processes images quickly, ensuring smooth performance for any connected frontend or client application."
     },
     {
       id: "content-hub",
       title: "Content-Hub",
-      description: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media with intelligent recommendations and user personalization.",
+      description: "A personal feed aggregator that collects content from RSS feeds, web scraping with intelligent recommendations and user personalization.",
       tech: ["Flask", "React", "Supabase"],
       link: "https://github.com/Adelodunpeter25/content-hub",
       demo: "https://content-hubb.vercel.app",
-      fullDescription: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media with intelligent recommendations and user personalization.",
+      fullDescription: "A personal feed aggregator that collects content from RSS feeds, web scraping, and social media apps like Youtube and Reddit with intelligent recommendations and user personalization.",
       features: [
         "RSS feed aggregation from multiple sources",
         "Web scraping for content collection",
@@ -139,22 +105,22 @@ export const portfolioData = {
       outcome: "Developed an intelligent content aggregator that unifies feeds from multiple sources and tailors them to user preferences in real time."
     },
     {
-      id: "project-six",
-      title: "Project Six",
-      description: "Real-time chat application with WebSocket",
-      tech: ["Socket.io", "Redis", "Docker"],
-      link: "https://github.com/Adelodunpeter25/project6",
+      id: "allinbox",
+      title: "ALLInbox",
+      description: "AllInbox is a mobile app that aggregates notifications and messages from multiple platforms (Gmail, GitHub, Slack, Discord, and more) into a single, unified inbox.",
+      tech: ["FastAPI", "React Native", "PostgreSQL"],
+      link: "https://github.com/Adelodunpeter25/AllInbox",
       demo: "https://project6-demo.com",
-      fullDescription: "A scalable real-time chat application with support for multiple rooms, direct messaging, and file sharing.",
+      fullDescription: "AllInbox is a mobile app that aggregates notifications and messages from multiple platforms (Gmail, GitHub, Slack, Discord, and more) into a single, unified inbox. Users connect their accounts via secure OAuth, and AllInbox fetches, normalizes, and displays all actionable items in one place.",
       features: [
-        "Real-time messaging with Socket.io",
-        "Redis for session management",
-        "Docker containerization for easy deployment",
-        "File upload and sharing",
-        "Message history and search"
+        "Unified inbox for multiple platforms",
+        "Secure OAuth integration",
+        "Real-time notifications",
+        "Customizable notification settings",
+        "Search and filter capabilities"
       ],
-      challenges: "Scaling WebSocket connections and maintaining message delivery guarantees.",
-      outcome: "Successfully handles 5000+ concurrent users with message delivery in under 50ms."
+      challenges: "Users struggle to keep up with notifications spread across various apps, leading to missed messages and decreased productivity.",
+      outcome: "Successfully created a unified inbox that improves user productivity by reducing the need to switch between different apps."
     },
   ],
   skills: [
@@ -164,9 +130,9 @@ export const portfolioData = {
     { name: "React", proficiency: 50 },
     { name: "CSS", proficiency: 80 },
     { name: "HTML", proficiency: 80 },
-    { name: "PostgreSQL", proficiency: 80 },
+    { name: "PostgreSQL", proficiency: 70 },
     { name: "SQLite", proficiency: 85 },
-    { name: "Git", proficiency: 90 },
+    { name: "Git", proficiency: 80 },
     { name: "Redis", proficiency: 55 },
     { name: "Supabase", proficiency: 50 },
   ],
