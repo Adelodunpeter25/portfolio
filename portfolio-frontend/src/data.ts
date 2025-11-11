@@ -105,22 +105,21 @@ export const portfolioData = {
       outcome: "Developed an intelligent content aggregator that unifies feeds from multiple sources and tailors them to user preferences in real time."
     },
     {
-      id: "allinbox",
-      title: "ALLInbox",
-      description: "AllInbox is a mobile app that aggregates notifications and messages from multiple platforms (Gmail, GitHub, Slack, Discord, and more) into a single, unified inbox.",
-      tech: ["FastAPI", "React Native", "PostgreSQL"],
-      link: "https://github.com/Adelodunpeter25/AllInbox",
-      demo: "https://project6-demo.com",
-      fullDescription: "AllInbox is a mobile app that aggregates notifications and messages from multiple platforms (Gmail, GitHub, Slack, Discord, and more) into a single, unified inbox. Users connect their accounts via secure OAuth, and AllInbox fetches, normalizes, and displays all actionable items in one place.",
+      id: "price-insight",
+      title: "Price Insight",
+      description: "A comprehensive price tracking and deal aggregation system that monitors prices across multiple categories.",
+      tech: ["FastAPI", "PostgreSQL", "APScheduler", "Resend API"],
+      link: "https://github.com/Adelodunpeter25/price-insight",
+      demo: "https://price-insight-demo.com",
+      fullDescription: "Price Insight is a comprehensive price tracking and deal aggregation system that monitors prices across multiple categories including e-commerce, travel, real estate, and utility services. The platform features automated web scraping, real-time price monitoring, intelligent deal detection, and email alert notifications when prices drop or deals become available.",
       features: [
-        "Unified inbox for multiple platforms",
-        "Secure OAuth integration",
-        "Real-time notifications",
-        "Customizable notification settings",
-        "Search and filter capabilities"
+        "Multi-category price tracking (e-commerce, travel, real estate, utilities)",
+        "Real-time price and deals alerts via email notifications",
+        "Currency normalization to Nigerian Naira using exchange rate APIs",
+        "Export functionality (PDF/CSV reports)",
       ],
-      challenges: "Users struggle to keep up with notifications spread across various apps, leading to missed messages and decreased productivity.",
-      outcome: "Successfully created a unified inbox that improves user productivity by reducing the need to switch between different apps."
+      challenges: "Building a scalable system that can handle multiple data sources, different price formats, and real-time monitoring while maintaining accuracy and performance across diverse categories.",
+      outcome: "Successfully developed a comprehensive price tracking platform that helps users save money by monitoring deals across multiple categories with intelligent notifications."
     },
   ],
   skills: [
