@@ -118,8 +118,8 @@ export const portfolioData = {
         "Currency normalization to Nigerian Naira using exchange rate APIs",
         "Export functionality (PDF/CSV reports)",
       ],
-      challenges: "Building a scalable system that can handle multiple data sources, different price formats, and real-time monitoring while maintaining accuracy and performance across diverse categories.",
-      outcome: "Successfully developed a comprehensive price tracking platform that helps users save money by monitoring deals across multiple categories with intelligent notifications."
+      challenges: "Users miss deals and overpay due to fragmented price information across multiple platforms.",
+      outcome: "Unified platform that saves users money through automated price monitoring and instant deal alerts."
     },
   ],
   skills: [
