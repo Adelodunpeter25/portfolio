@@ -121,6 +121,24 @@ export const portfolioData = {
       challenges: "Users miss deals and overpay due to fragmented price information across multiple platforms.",
       outcome: "Unified platform that saves users money through automated price monitoring and instant deal alerts."
     },
+    {
+    id: "migrator",
+    title: "Migrator",
+    description: "Migrator is a lightweight, framework-agnostic database migration tool for Python projects that simplifies SQLAlchemy migrations by wrapping Alembic with a Django-like developer experience.",
+    tech: ["Python", "SQLAlchemy", "Alembic"],
+    link: "https://github.com/Adelodunpeter25/migrator",
+    demo: "https://pypi.org/project/migrator-cli/",
+    fullDescription: "Migrator is a zero-configuration database migration tool that eliminates the complexity of Alembic setup for Python developers. It automatically detects SQLAlchemy models, generates migrations, and provides Django-style commands for seamless database schema management across FastAPI, Flask, and other Python frameworks.",
+    features: [
+      "Zero-config setup - works out of the box with any Python project",
+      "Django-style commands: makemigrations and migrate",
+      "Automatic model detection and import",
+      "Framework-agnostic design (FastAPI, Flask, etc.)",
+      "Built-in rollback and migration history management",
+    ],
+    challenges: "Alembic requires manual configuration of alembic.ini, env.py, and model imports, creating friction for developers who want Django's simple makemigrations workflow.",
+    outcome: "Built a zero-config database migration CLI that brings Django's simplicity to FastAPI/Flask projects, reducing setup time from 30 minutes to 30 seconds."
+  },
   ],
   skills: [
     { name: "Python", proficiency: 90 },
