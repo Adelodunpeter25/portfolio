@@ -129,6 +129,7 @@ const commands: Record<string, string[]> = {
     '    intelligent recommendations and user personalization.',
     '    Tech: Flask, React, Supabase',
     '    → https://github.com/Adelodunpeter25/content-hub',
+    '',
     '[5] AllInbox',
     '    Quite ingenious. AllInbox is a mobile app that aggregates notifications and messages',
     '    from multiple platforms (Gmail, GitHub, Slack, Discord, and more)',
