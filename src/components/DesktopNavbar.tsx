@@ -21,7 +21,7 @@ export default function DesktopNavbar() {
           }
         });
       },
-      { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' }
+      { threshold: 0.1, rootMargin: '-20% 0px -60% 0px' }
     );
 
     navLinks.forEach(({ href }) => {
@@ -40,7 +40,7 @@ export default function DesktopNavbar() {
           <a 
             href="#home" 
             className={`text-lg font-bold transition-colors ${
-              activeSection === 'home' ? 'text-primary' : 'text-white'
+              activeSection ? 'text-primary' : 'text-white'
             }`}
           >
             Adelodun Peter
