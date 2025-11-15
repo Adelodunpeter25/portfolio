@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Home, User, Zap, Briefcase, Mail } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { name: 'Home', href: '#home', Icon: Home },
@@ -36,7 +35,7 @@ export default function MobileBottomBar() {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
       <div className="bg-black/95 backdrop-blur-md border-t border-border-dark px-4 py-2">
-        <div className="flex items-center justify-between max-w-sm mx-auto">
+        <div className="flex items-center justify-around max-w-sm mx-auto">
           {navLinks.map(({ name, href, Icon }) => (
             <a
               key={href}
@@ -51,10 +50,6 @@ export default function MobileBottomBar() {
               <span className="text-xs">{name}</span>
             </a>
           ))}
-          <div className="flex flex-col items-center py-2 px-3">
-            <ThemeToggle />
-            <span className="text-xs text-white mt-1">Theme</span>
-          </div>
         </div>
       </div>
     </nav>

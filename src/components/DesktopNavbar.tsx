@@ -35,8 +35,8 @@ export default function DesktopNavbar() {
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
       <div className="bg-black/90 backdrop-blur-md border border-border-dark rounded-full px-6 py-3 flex items-center gap-6">
-        {/* Mobile: Show only name with active section highlighting */}
-        <div className="md:hidden">
+        {/* Mobile: Show name and theme toggle */}
+        <div className="md:hidden flex items-center justify-between w-full">
           <a 
             href="#home" 
             className={`text-lg font-bold transition-colors ${
@@ -45,6 +45,7 @@ export default function DesktopNavbar() {
           >
             Adelodun Peter
           </a>
+          <ThemeToggle />
         </div>
         
         {/* Desktop: Show full navigation */}
