@@ -17,16 +17,22 @@ export default function MobileBottomBar() {
       (entries) => {
         let mostVisible = null;
         let maxRatio = 0;
+        let hasIntersecting = false;
         
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-            maxRatio = entry.intersectionRatio;
-            mostVisible = entry.target.id;
+          if (entry.isIntersecting) {
+            hasIntersecting = true;
+            if (entry.intersectionRatio > maxRatio) {
+              maxRatio = entry.intersectionRatio;
+              mostVisible = entry.target.id;
+            }
           }
         });
         
         if (mostVisible) {
           setActiveSection(mostVisible);
+        } else if (!hasIntersecting) {
+          setActiveSection('');
         }
       },
       { threshold: [0.1, 0.3, 0.5, 0.7], rootMargin: '-10% 0px -70% 0px' }
