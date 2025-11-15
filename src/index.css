@@ -65,6 +65,11 @@
     @apply bg-white/90;
   }
 
+  /* Mobile bottom bar light mode */
+  html.light .bg-black\/95 {
+    @apply bg-white/95;
+  }
+
   /* Light mode input focus */
   html.light input:focus,
   html.light textarea:focus {
