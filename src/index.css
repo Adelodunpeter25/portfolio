@@ -60,6 +60,11 @@
     @apply bg-white/90 border-gray-300;
   }
 
+  /* Desktop navbar light mode */
+  html.light .bg-black\/90 {
+    @apply bg-white/90;
+  }
+
   /* Light mode input focus */
   html.light input:focus,
   html.light textarea:focus {

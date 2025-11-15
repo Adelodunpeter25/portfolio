@@ -34,7 +34,7 @@ export default function DesktopNavbar() {
 
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block">
-      <div className="bg-black/90 light:bg-white/90 backdrop-blur-md border border-border-dark light:border-gray-300 rounded-full px-6 py-3 flex items-center gap-6">
+      <div className="bg-black/90 backdrop-blur-md border border-border-dark rounded-full px-6 py-3 flex items-center gap-6">
         {navLinks.map(({ name, href }) => (
           <a
             key={href}
@@ -42,7 +42,7 @@ export default function DesktopNavbar() {
             className={`text-sm px-4 py-2 rounded-full transition-all duration-200 ${
               activeSection === href.slice(1)
                 ? 'bg-primary text-white'
-                : 'text-white light:text-gray-900 hover:text-primary hover:bg-primary/10'
+                : 'text-white hover:text-primary hover:bg-primary/10'
             }`}
           >
             {name}
