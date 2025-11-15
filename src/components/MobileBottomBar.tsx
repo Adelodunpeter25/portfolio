@@ -28,6 +28,7 @@ export default function MobileBottomBar() {
 
     navLinks.forEach(({ href }) => {
       const element = document.querySelector(href);
+      console.log(`Observing ${href}:`, element);
       if (element) observer.observe(element);
     });
 
