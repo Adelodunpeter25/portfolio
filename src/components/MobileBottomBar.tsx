@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { Home, User, Zap, Briefcase, Mail } from 'lucide-react';
 
 const navLinks = [
@@ -9,7 +9,7 @@ const navLinks = [
   { name: 'Contact', href: '#contact', Icon: Mail },
 ];
 
-export default function MobileBottomBar() {
+function MobileBottomBar() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
@@ -58,3 +58,5 @@ export default function MobileBottomBar() {
     </nav>
   );
 }
+
+export default memo(MobileBottomBar);

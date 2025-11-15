@@ -1,9 +1,15 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
 
 export default function ParticlesBackground() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
@@ -45,7 +51,7 @@ export default function ParticlesBackground() {
               enable: true,
               area: 800,
             },
-            value: 50,
+            value: isMobile ? 20 : 50,
           },
           opacity: {
             value: 0.5,

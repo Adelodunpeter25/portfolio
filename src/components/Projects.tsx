@@ -15,9 +15,11 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer || !isVisible) return;
+    if (!scrollContainer) return;
 
     let userInteracted = false;
+    let scrollInterval: NodeJS.Timeout;
+
     const handleUserScroll = () => {
       userInteracted = true;
       setTimeout(() => { userInteracted = false; }, 5000);
@@ -25,25 +27,30 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
 
     scrollContainer.addEventListener('scroll', handleUserScroll, { passive: true });
 
-    const initialDelay = setTimeout(() => {
-      const scrollInterval = setInterval(() => {
-        if (userInteracted) return;
-        
-        const cardWidth = 420;
-        const totalWidth = cardWidth * projects.length;
-        
-        if (scrollContainer.scrollLeft >= totalWidth) {
-          scrollContainer.scrollLeft = 0;
-        }
-        
-        scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    if (isVisible) {
+      const initialDelay = setTimeout(() => {
+        scrollInterval = setInterval(() => {
+          if (userInteracted || !isVisible) return;
+          
+          const cardWidth = 420;
+          const totalWidth = cardWidth * projects.length;
+          
+          if (scrollContainer.scrollLeft >= totalWidth) {
+            scrollContainer.scrollLeft = 0;
+          }
+          
+          scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }, 5000);
       }, 5000);
 
-      return () => clearInterval(scrollInterval);
-    }, 5000);
+      return () => {
+        clearTimeout(initialDelay);
+        clearInterval(scrollInterval);
+        scrollContainer.removeEventListener('scroll', handleUserScroll);
+      };
+    }
 
     return () => {
-      clearTimeout(initialDelay);
       scrollContainer.removeEventListener('scroll', handleUserScroll);
     };
   }, [isVisible, projects.length]);

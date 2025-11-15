@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 
 interface ProjectDetailProps {
   id: string;
@@ -14,7 +14,7 @@ interface ProjectDetailProps {
   onClose: () => void;
 }
 
-export default function ProjectDetail({ 
+function ProjectDetail({ 
   title, 
   fullDescription, 
   tech, 
@@ -118,3 +118,5 @@ export default function ProjectDetail({
     </div>
   );
 }
+
+export default memo(ProjectDetail);

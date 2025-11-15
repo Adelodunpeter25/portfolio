@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
@@ -9,7 +9,7 @@ const navLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export default function DesktopNavbar() {
+function DesktopNavbar() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
@@ -71,3 +71,5 @@ export default function DesktopNavbar() {
     </nav>
   );
 }
+
+export default memo(DesktopNavbar);
