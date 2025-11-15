@@ -40,14 +40,17 @@ export default function MobileBottomBar() {
             <a
               key={href}
               href={href}
-              className={`flex flex-col items-center py-2 px-3 rounded-lg transition-all duration-200 ${
+              className={`flex flex-col items-center py-2 px-3 rounded-lg transition-all duration-200 relative ${
                 activeSection === href.slice(1)
-                  ? 'text-primary bg-primary/10'
+                  ? 'text-primary bg-primary/20 scale-105'
                   : 'text-white hover:text-primary'
               }`}
             >
+              {activeSection === href.slice(1) && (
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-full" />
+              )}
               <Icon size={18} className="mb-1" />
-              <span className="text-xs">{name}</span>
+              <span className="text-xs font-medium">{name}</span>
             </a>
           ))}
         </div>
