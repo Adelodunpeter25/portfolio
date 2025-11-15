@@ -40,10 +40,10 @@ export default function Skills({ skills }: SkillsProps) {
               }}
             >
               <div className="flex justify-between items-center mb-3">
-                <span className="text-lg font-medium group-hover:text-primary transition-colors">
+                <span className="text-xl font-medium group-hover:text-primary transition-colors">
                   {skill.name}
                 </span>
-                <span className="text-sm text-text-secondary">
+                <span className="text-lg text-text-secondary">
                   {skill.proficiency}%
                 </span>
               </div>

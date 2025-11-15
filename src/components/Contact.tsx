@@ -94,34 +94,34 @@ export default function Contact({ email, social }: ContactProps) {
             <h3 className="text-3xl font-semibold mb-6">Connect With Me</h3>
             <div className="space-y-6">
               <div className="p-6 bg-black border border-border-dark rounded-lg hover:border-primary transition-colors">
-                <h4 className="text-lg font-semibold mb-2">Email</h4>
+                <h4 className="text-xl font-semibold mb-2">Email</h4>
                 <a
                   href={`mailto:${email}`}
-                  className="text-primary hover:underline"
+                  className="text-lg text-primary hover:underline"
                 >
                   {email}
                 </a>
               </div>
 
               <div className="p-6 bg-black border border-border-dark rounded-lg hover:border-primary transition-colors">
-                <h4 className="text-lg font-semibold mb-2">GitHub</h4>
+                <h4 className="text-xl font-semibold mb-2">GitHub</h4>
                 <a
                   href={social.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-lg text-primary hover:underline"
                 >
                   View Profile →
                 </a>
               </div>
 
               <div className="p-6 bg-black border border-border-dark rounded-lg hover:border-primary transition-colors">
-                <h4 className="text-lg font-semibold mb-2">LinkedIn</h4>
+                <h4 className="text-xl font-semibold mb-2">LinkedIn</h4>
                 <a
                   href={social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-lg text-primary hover:underline"
                 >
                   Connect →
                 </a>
@@ -133,7 +133,7 @@ export default function Contact({ email, social }: ContactProps) {
             <h3 className="text-3xl font-semibold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label htmlFor="name" className="block text-lg font-medium mb-2">
                   Name:
                 </label>
                 <input
@@ -144,12 +144,12 @@ export default function Contact({ email, social }: ContactProps) {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors disabled:opacity-50"
+                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors disabled:opacity-50 text-lg"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label htmlFor="email" className="block text-lg font-medium mb-2">
                   Email:
                 </label>
                 <input
@@ -160,12 +160,12 @@ export default function Contact({ email, social }: ContactProps) {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors disabled:opacity-50"
+                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors disabled:opacity-50 text-lg"
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label htmlFor="subject" className="block text-lg font-medium mb-2">
                   Subject:
                 </label>
                 <input
@@ -176,12 +176,12 @@ export default function Contact({ email, social }: ContactProps) {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors disabled:opacity-50"
+                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors disabled:opacity-50 text-lg"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label htmlFor="message" className="block text-lg font-medium mb-2">
                   Message:
                 </label>
                 <textarea
@@ -192,7 +192,7 @@ export default function Contact({ email, social }: ContactProps) {
                   required
                   disabled={isSubmitting}
                   rows={5}
-                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors resize-none disabled:opacity-50"
+                  className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors resize-none disabled:opacity-50 text-lg"
                 />
               </div>
 
