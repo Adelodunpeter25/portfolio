@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import DesktopNavbar from './components/DesktopNavbar';
+import MobileBottomBar from './components/MobileBottomBar';
 import Hero from './components/Hero';
 import HowIWork from './components/HowIWork';
 import Projects from './components/Projects';
@@ -49,7 +50,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen">
-        <Navbar name={portfolioData.name} />
+        <DesktopNavbar />
+      <MobileBottomBar />
         <Routes>
           <Route path="/" element={<Home onProjectSelect={setSelectedProject} />} />
           <Route path="*" element={<NotFound />} />
