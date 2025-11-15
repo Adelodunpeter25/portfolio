@@ -16,12 +16,13 @@ export default function HowIWork({ subheading, approach, principles, features }:
 
   return (
     <section 
+      ref={ref as React.RefObject<HTMLElement>}
       id="about" 
       className={`py-32 px-8 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div ref={ref as React.RefObject<HTMLDivElement>} className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h2 className="text-6xl md:text-7xl font-bold mb-4">
             How I Build Systems That <span className="text-primary">Matter</span>
