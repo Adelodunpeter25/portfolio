@@ -18,7 +18,6 @@ export default function MobileBottomBar() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('Active section:', entry.target.id);
             setActiveSection(entry.target.id);
           }
         });
@@ -28,7 +27,6 @@ export default function MobileBottomBar() {
 
     navLinks.forEach(({ href }) => {
       const element = document.querySelector(href);
-      console.log(`Observing ${href}:`, element);
       if (element) observer.observe(element);
     });
 
