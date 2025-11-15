@@ -35,9 +35,16 @@ export default function DesktopNavbar() {
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
       <div className="bg-black/90 backdrop-blur-md border border-border-dark rounded-full px-6 py-3 flex items-center gap-6">
-        {/* Mobile: Show only name */}
+        {/* Mobile: Show only name with active section highlighting */}
         <div className="md:hidden">
-          <a href="#home" className="text-lg font-bold text-primary">Adelodun Peter</a>
+          <a 
+            href="#home" 
+            className={`text-lg font-bold transition-colors ${
+              activeSection === 'home' ? 'text-primary' : 'text-white'
+            }`}
+          >
+            Adelodun Peter
+          </a>
         </div>
         
         {/* Desktop: Show full navigation */}
