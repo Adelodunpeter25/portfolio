@@ -57,14 +57,14 @@ export default function ProjectDetail({
         <div className="p-4 md:p-6 space-y-6 md:space-y-8">
           <div>
             <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Overview</h3>
-            <p className="text-sm md:text-base text-text-secondary leading-relaxed">{fullDescription}</p>
+            <p className="text-lg md:text-xl text-text-secondary leading-relaxed">{fullDescription}</p>
           </div>
 
           <div>
             <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Technologies</h3>
             <div className="flex flex-wrap gap-2">
               {tech.map((t) => (
-                <span key={t} className="px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base bg-border-dark text-primary rounded border border-primary/30">
+                <span key={t} className="px-3 md:px-4 py-1.5 md:py-2 text-base md:text-lg bg-border-dark text-primary rounded border border-primary/30">
                   {t}
                 </span>
               ))}
@@ -75,7 +75,7 @@ export default function ProjectDetail({
             <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Key Features</h3>
             <ul className="space-y-2">
               {features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-2 md:gap-3 text-sm md:text-base text-text-secondary">
+                <li key={index} className="flex items-start gap-2 md:gap-3 text-lg md:text-xl text-text-secondary">
                   <span className="text-primary mt-1">▸</span>
                   <span>{feature}</span>
                 </li>
@@ -85,12 +85,12 @@ export default function ProjectDetail({
 
           <div>
             <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Challenges</h3>
-            <p className="text-sm md:text-base text-text-secondary leading-relaxed">{challenges}</p>
+            <p className="text-lg md:text-xl text-text-secondary leading-relaxed">{challenges}</p>
           </div>
 
           <div>
             <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Outcome</h3>
-            <p className="text-sm md:text-base text-text-secondary leading-relaxed">{outcome}</p>
+            <p className="text-lg md:text-xl text-text-secondary leading-relaxed">{outcome}</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
@@ -98,7 +98,7 @@ export default function ProjectDetail({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 text-sm md:text-base border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors text-center"
+              className="px-6 py-3 text-base md:text-lg border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors text-center"
             >
               View Code
             </a>
@@ -107,7 +107,7 @@ export default function ProjectDetail({
                 href={demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 text-sm md:text-base bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors text-center"
+                className="px-6 py-3 text-base md:text-lg bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors text-center"
               >
                 Live Demo
               </a>

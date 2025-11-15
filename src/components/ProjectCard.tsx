@@ -26,14 +26,14 @@ export default function ProjectCard({
           loading="lazy"
         />
       )}
-      <h3 className="text-2xl font-bold mb-4">{title}</h3>
-      <p className="text-text-secondary mb-6 leading-relaxed flex-grow">{description}</p>
+      <h3 className="text-3xl font-bold mb-4">{title}</h3>
+      <p className="text-lg text-text-secondary mb-6 leading-relaxed flex-grow">{description}</p>
 
       <div className="flex flex-wrap gap-2 mb-6">
         {tech.map((t) => (
           <span
             key={t}
-            className="px-3 py-1 bg-border-dark text-primary text-sm rounded border border-primary/30"
+            className="px-3 py-1 bg-border-dark text-primary text-base rounded border border-primary/30"
           >
             {t}
           </span>
@@ -43,7 +43,7 @@ export default function ProjectCard({
       <div className="flex gap-3 flex-wrap">
         <button
           onClick={onViewDetails}
-          className="px-4 py-2 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-sm"
+          className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-base"
         >
           View Details
         </button>
@@ -53,7 +53,7 @@ export default function ProjectCard({
             href={demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-sm"
+            className="px-6 py-3 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-base"
           >
             Live Demo
           </a>
