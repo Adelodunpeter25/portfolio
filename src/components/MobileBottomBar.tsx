@@ -15,27 +15,13 @@ export default function MobileBottomBar() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        let mostVisible = null;
-        let maxRatio = 0;
-        let hasIntersecting = false;
-        
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            hasIntersecting = true;
-            if (entry.intersectionRatio > maxRatio) {
-              maxRatio = entry.intersectionRatio;
-              mostVisible = entry.target.id;
-            }
+            setActiveSection(entry.target.id);
           }
         });
-        
-        if (mostVisible) {
-          setActiveSection(mostVisible);
-        } else if (!hasIntersecting) {
-          setActiveSection('');
-        }
       },
-      { threshold: [0.1, 0.3, 0.5, 0.7], rootMargin: '-10% 0px -70% 0px' }
+      { threshold: 0.1, rootMargin: '-10% 0px -70% 0px' }
     );
 
     navLinks.forEach(({ href }) => {
