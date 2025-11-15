@@ -54,7 +54,7 @@ export default function DesktopNavbar() {
             <a
               key={href}
               href={href}
-              className={`text-sm px-4 py-2 rounded-full transition-all duration-200 ${
+              className={`text-base px-4 py-2 rounded-full transition-all duration-200 ${
                 activeSection === href.slice(1)
                   ? 'bg-primary text-white'
                   : 'text-white hover:text-primary hover:bg-primary/10'
