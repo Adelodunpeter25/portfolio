@@ -17,7 +17,6 @@ export default function MobileBottomBar() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('Mobile detecting:', entry.target.id);
             setActiveSection(entry.target.id);
           }
         });

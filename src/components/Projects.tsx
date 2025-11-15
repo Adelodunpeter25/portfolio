@@ -1,19 +1,7 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ProjectCard from './ProjectCard';
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  tech: string[];
-  link: string;
-  demo?: string;
-  fullDescription: string;
-  features: string[];
-  challenges: string;
-  outcome: string;
-}
+import type { Project } from '../types';
 
 interface ProjectsProps {
   projects: Project[];
@@ -23,6 +11,7 @@ interface ProjectsProps {
 export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { ref, isVisible } = useScrollAnimation();
+  const duplicatedProjects = useMemo(() => [...projects, ...projects], [projects]);
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -86,7 +75,7 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
           ref={scrollRef}
           className="flex gap-8 overflow-x-auto py-4 pb-8 snap-x snap-mandatory scrollbar-hide mb-8"
         >
-          {[...projects, ...projects].map((project, index) => (
+          {duplicatedProjects.map((project, index) => (
             <div key={`${project.id}-${index}`} className="min-w-[350px] md:min-w-[400px] snap-start">
               <ProjectCard 
                 {...project} 
