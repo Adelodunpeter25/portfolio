@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
+import { Home, User, Zap, Briefcase, Mail } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
-  { name: 'Home', href: '#home', icon: '🏠' },
-  { name: 'About', href: '#about', icon: '👤' },
-  { name: 'Skills', href: '#skills', icon: '⚡' },
-  { name: 'Projects', href: '#projects', icon: '💼' },
-  { name: 'Contact', href: '#contact', icon: '📧' },
+  { name: 'Home', href: '#home', Icon: Home },
+  { name: 'About', href: '#about', Icon: User },
+  { name: 'Skills', href: '#skills', Icon: Zap },
+  { name: 'Projects', href: '#projects', Icon: Briefcase },
+  { name: 'Contact', href: '#contact', Icon: Mail },
 ];
 
 export default function MobileBottomBar() {
@@ -36,7 +37,7 @@ export default function MobileBottomBar() {
     <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
       <div className="bg-black/95 backdrop-blur-md border-t border-border-dark px-4 py-2">
         <div className="flex items-center justify-between max-w-sm mx-auto">
-          {navLinks.map(({ name, href, icon }) => (
+          {navLinks.map(({ name, href, Icon }) => (
             <a
               key={href}
               href={href}
@@ -46,7 +47,7 @@ export default function MobileBottomBar() {
                   : 'text-white hover:text-primary'
               }`}
             >
-              <span className="text-lg mb-1">{icon}</span>
+              <Icon size={18} className="mb-1" />
               <span className="text-xs">{name}</span>
             </a>
           ))}
