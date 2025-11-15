@@ -18,7 +18,7 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
     if (!scrollContainer) return;
 
     let userInteracted = false;
-    let scrollInterval: NodeJS.Timeout;
+    let scrollInterval: number;
 
     const handleUserScroll = () => {
       userInteracted = true;
