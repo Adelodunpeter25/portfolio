@@ -37,20 +37,20 @@ export default function Hero({ name, tagline, mission, subtext, features }: Hero
           {mission}
         </div>
         
-        <p className="text-xl text-neutral-400 mb-8 max-w-2xl leading-relaxed">
+        <p className="text-2xl text-neutral-400 mb-8 max-w-2xl leading-relaxed">
           {subtext}
         </p>
         
         <div className="flex gap-4 flex-wrap mb-16">
           <a
             href="#skills"
-            className="px-6 py-3 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-base"
+            className="px-8 py-4 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-lg font-medium"
           >
             View Skills
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-base"
+            className="px-8 py-4 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-lg font-medium"
           >
             Contact Me
           </a>
@@ -67,7 +67,7 @@ export default function Hero({ name, tagline, mission, subtext, features }: Hero
             >
               <div className="text-3xl text-primary mb-4">{feature.icon}</div>
               <h3 className="text-lg font-semibold text-neutral-100 mb-3">{feature.title}</h3>
-              <p className="text-sm text-neutral-400 leading-relaxed">{feature.description}</p>
+              <p className="text-xl text-neutral-400 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

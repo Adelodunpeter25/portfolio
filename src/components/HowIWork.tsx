@@ -24,16 +24,16 @@ export default function HowIWork({ subheading, approach, principles, features }:
     >
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-6xl md:text-7xl font-bold mb-4">
             How I Build Systems That <span className="text-primary">Matter</span>
           </h2>
-          <p className="text-xl text-text-secondary">{subheading}</p>
+          <p className="text-2xl text-text-secondary">{subheading}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 mb-20">
           <div className="bg-black border border-border-dark rounded-xl p-10">
             <h3 className="text-2xl text-primary font-semibold mb-6">The Approach</h3>
-            <div className="text-text-secondary leading-relaxed space-y-4">
+            <div className="text-lg text-text-secondary leading-relaxed space-y-4">
               {approach.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -48,7 +48,7 @@ export default function HowIWork({ subheading, approach, principles, features }:
                   <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-text-secondary">{principle}</span>
+                  <span className="text-lg text-text-secondary">{principle}</span>
                 </li>
               ))}
             </ul>
@@ -66,7 +66,7 @@ export default function HowIWork({ subheading, approach, principles, features }:
             >
               <div className="text-4xl mb-5">{feature.icon}</div>
               <h4 className="text-xl font-semibold text-white mb-3">{feature.title}</h4>
-              <p className="text-text-secondary leading-relaxed">{feature.description}</p>
+              <p className="text-lg text-text-secondary leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
