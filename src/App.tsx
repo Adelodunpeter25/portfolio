@@ -37,7 +37,7 @@ function Home({
       <Skills skills={portfolioData.skills} />
       <Projects projects={portfolioData.projects} onProjectSelect={onProjectSelect} />
       <Contact email={portfolioData.email} social={portfolioData.social} />
-      <footer className="py-8 text-center text-text-secondary text-sm border-t border-border-dark">
+      <footer className="py-8 text-center text-text-secondary text-lg border-t border-border-dark">
         © {new Date().getFullYear()} {portfolioData.name}. All rights reserved.
       </footer>
     </>
