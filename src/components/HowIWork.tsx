@@ -32,7 +32,7 @@ export default function HowIWork({ subheading, approach, principles, features }:
 
         <div className="grid md:grid-cols-2 gap-16 mb-20">
           <div className="bg-black border border-border-dark rounded-xl p-10">
-            <h3 className="text-2xl text-primary font-semibold mb-6">The Approach</h3>
+            <h3 className="text-3xl text-primary font-semibold mb-6">The Approach</h3>
             <div className="text-lg text-text-secondary leading-relaxed space-y-4">
               {approach.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
@@ -41,7 +41,7 @@ export default function HowIWork({ subheading, approach, principles, features }:
           </div>
 
           <div className="bg-black border border-border-dark rounded-xl p-10">
-            <h3 className="text-2xl text-primary font-semibold mb-6">My Guiding Values</h3>
+            <h3 className="text-3xl text-primary font-semibold mb-6">My Guiding Values</h3>
             <ul className="space-y-5">
               {principles.map((principle, index) => (
                 <li key={index} className="flex items-start gap-4">

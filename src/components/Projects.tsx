@@ -79,8 +79,8 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
     >
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">Projects</h2>
-          <p className="text-xl text-text-secondary">Building solutions that make a difference</p>
+          <h2 className="text-6xl md:text-7xl font-bold mb-4">Projects</h2>
+          <p className="text-2xl text-text-secondary">Building solutions that make a difference</p>
         </div>
         <div 
           ref={scrollRef}

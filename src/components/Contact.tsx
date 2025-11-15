@@ -84,14 +84,14 @@ export default function Contact({ email, social }: ContactProps) {
       }`}
     >
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Get In Touch</h2>
-        <p className="text-lg text-text-secondary mb-12 text-center leading-relaxed">
+        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-center">Get In Touch</h2>
+        <p className="text-2xl text-text-secondary mb-12 text-center leading-relaxed">
           Have a project in mind or want to collaborate? Let's build something amazing together.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Connect With Me</h3>
+            <h3 className="text-3xl font-semibold mb-6">Connect With Me</h3>
             <div className="space-y-6">
               <div className="p-6 bg-black border border-border-dark rounded-lg hover:border-primary transition-colors">
                 <h4 className="text-lg font-semibold mb-2">Email</h4>
@@ -130,7 +130,7 @@ export default function Contact({ email, social }: ContactProps) {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+            <h3 className="text-3xl font-semibold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
