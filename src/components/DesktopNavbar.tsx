@@ -54,18 +54,19 @@ function DesktopNavbar() {
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
       <motion.div
-        className="bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-80 overflow-hidden"
+        className="bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-full overflow-hidden"
         style={{
           boxShadow: isScrolled ? '0 0 0 1px rgb(30, 41, 59)' : 'none',
         }}
         animate={{
           borderRadius: isScrolled ? 9999 : 0,
-          justifyContent: isScrolled ? 'flex-start' : 'center',
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       >
         {/* Mobile: Show name and theme toggle */}
-        <div className="md:hidden flex items-center justify-between w-full">
+        <div className={`md:hidden flex items-center w-full ${
+          isScrolled ? 'justify-between' : 'justify-center gap-8'
+        }`}>
           <a 
             href="#home" 
             className={`text-lg font-bold transition-colors ${
