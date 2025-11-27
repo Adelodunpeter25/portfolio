@@ -56,12 +56,10 @@ function DesktopNavbar() {
       <motion.div
         className="bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-80 overflow-hidden"
         style={{
-          borderColor: 'rgb(30, 41, 59)',
-          borderStyle: 'solid',
+          boxShadow: isScrolled ? '0 0 0 1px rgb(30, 41, 59)' : 'none',
         }}
         animate={{
           borderRadius: isScrolled ? 9999 : 0,
-          borderWidth: isScrolled ? 1 : 0,
           justifyContent: isScrolled ? 'flex-start' : 'center',
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
