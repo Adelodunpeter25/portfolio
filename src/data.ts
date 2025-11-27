@@ -76,7 +76,6 @@ export const portfolioData = {
       description: "A modern resume builder built with FastAPI and React, designed to simplify professional resume creation with real-time previews, ATS optimization, and responsive design.",
       tech: ["FastAPI", "React", "Supabase", "Google Oauth", "Gemini"],
       link: "https://github.com/Adelodunpeter25/Resumade",
-      demo: "https://resumade.vercel.app",
       fullDescription: "Resumade is a modern, web-based resume builder powered by FastAPI and React. It offers an intuitive, mobile-first experience for creating professional, ATS-friendly resumes with real-time editing, dynamic templates, and multi-format export options while retaining simplicity",
       features: [
         "Real-time resume editing with instant preview",
@@ -110,7 +109,6 @@ export const portfolioData = {
       description: "A comprehensive price tracking and deal aggregation system that monitors prices across multiple categories.",
       tech: ["FastAPI", "PostgreSQL", "APScheduler", "Resend API"],
       link: "https://github.com/Adelodunpeter25/price-insight",
-      demo: "https://price-insight-demo.com",
       fullDescription: "Price Insight is a comprehensive price tracking and deal aggregation system that monitors prices across multiple categories including e-commerce, travel, real estate, and utility services. The platform features automated web scraping, real-time price monitoring, intelligent deal detection, and email alert notifications when prices drop or deals become available.",
       features: [
         "Multi-category price tracking (e-commerce, travel, real estate, utilities)",
