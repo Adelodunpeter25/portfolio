@@ -22,7 +22,7 @@ export default function Projects({ projects }: ProjectsProps) {
 
     const handleUserScroll = () => {
       userInteracted = true;
-      setTimeout(() => { userInteracted = false; }, 5000);
+      setTimeout(() => { userInteracted = false; }, 3000);
     };
 
     scrollContainer.addEventListener('scroll', handleUserScroll, { passive: true });
@@ -39,8 +39,8 @@ export default function Projects({ projects }: ProjectsProps) {
         }
         
         scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
-      }, 5000);
-    }, 5000);
+      }, 3000);
+    }, 3000);
 
     return () => {
       clearTimeout(initialDelay);

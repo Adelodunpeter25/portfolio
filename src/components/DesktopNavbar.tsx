@@ -54,7 +54,9 @@ function DesktopNavbar() {
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
       <motion.div
-        className="bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-full overflow-hidden"
+        className={`bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-full overflow-hidden ${
+          isScrolled ? '' : 'justify-center'
+        }`}
         style={{
           boxShadow: isScrolled ? '0 0 0 1px rgb(30, 41, 59)' : 'none',
         }}

@@ -49,9 +49,16 @@ function Home() {
             </svg>
           </a>
         </div>
-        © {new Date().getFullYear()} {portfolioData.name}. All rights reserved.
+        <div className="mb-4">
+          © {new Date().getFullYear()} {portfolioData.name}. All rights reserved.
+        </div>
+        <a
+          href="#home"
+          className="text-primary hover:underline inline-flex items-center gap-1"
+        >
+          Back to Top ↑
+        </a>
       </footer>
-      <BackToTop />
     </>
   );
 }
@@ -71,7 +78,6 @@ export default function App() {
 
           <Terminal />
         </Suspense>
-        <BackToTop />
       </div>
     </BrowserRouter>
   );
