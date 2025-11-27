@@ -62,7 +62,6 @@ function DesktopNavbar() {
         animate={{
           borderRadius: isScrolled ? 9999 : 0,
           borderWidth: isScrolled ? 1 : 0,
-          borderBottomWidth: isScrolled ? 1 : 1,
           justifyContent: isScrolled ? 'flex-start' : 'center',
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
