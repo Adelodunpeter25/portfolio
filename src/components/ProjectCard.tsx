@@ -2,19 +2,18 @@ interface ProjectCardProps {
   title: string;
   description: string;
   tech: string[];
-  link: string;
+  link?: string;
   demo?: string;
   image?: string;
-  onViewDetails: () => void;
 }
 
 export default function ProjectCard({
   title,
   description,
   tech,
+  link,
   demo,
   image,
-  onViewDetails,
 }: ProjectCardProps) {
   return (
     <div className="h-full flex flex-col p-10 bg-black border border-border-dark rounded-xl hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(14,165,233,0.15)] transition-all duration-300 min-h-[480px]">
@@ -41,12 +40,16 @@ export default function ProjectCard({
       </div>
 
       <div className="flex gap-3 flex-wrap">
-        <button
-          onClick={onViewDetails}
-          className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-base"
-        >
-          View Details
-        </button>
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-base"
+          >
+            View Code
+          </a>
+        )}
 
         {demo && (
           <a

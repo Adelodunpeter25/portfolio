@@ -5,10 +5,9 @@ import type { Project } from '../types';
 
 interface ProjectsProps {
   projects: Project[];
-  onProjectSelect: (project: Project) => void;
 }
 
-export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
+export default function Projects({ projects }: ProjectsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { ref, isVisible } = useScrollAnimation();
   const duplicatedProjects = useMemo(() => [...projects, ...projects], [projects]);
@@ -84,10 +83,7 @@ export default function Projects({ projects, onProjectSelect }: ProjectsProps) {
         >
           {duplicatedProjects.map((project, index) => (
             <div key={`${project.id}-${index}`} className="min-w-[350px] md:min-w-[400px] snap-start">
-              <ProjectCard 
-                {...project} 
-                onViewDetails={() => onProjectSelect(project)}
-              />
+              <ProjectCard {...project} />
             </div>
           ))}
         </div>
