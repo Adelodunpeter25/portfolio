@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ParticlesBackground from './ParticlesBackground';
+import { motion } from 'framer-motion';
 
 interface HeroProps {
   name: string;
@@ -42,18 +43,24 @@ export default function Hero({ name, tagline, mission, subtext, features }: Hero
         </p>
         
         <div className="flex gap-4 flex-wrap mb-16">
-          <a
+          <motion.a
             href="#skills"
-            className="px-8 py-4 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-lg font-medium"
+            className="px-8 py-4 bg-primary text-white rounded-md text-lg font-medium"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
             View Skills
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="#contact"
-            className="px-8 py-4 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-lg font-medium"
+            className="px-8 py-4 border border-primary text-primary rounded-md text-lg font-medium"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
             Contact Me
-          </a>
+          </motion.a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -48,20 +48,24 @@ function DesktopNavbar() {
       className="fixed left-1/2 transform -translate-x-1/2 z-50"
       initial={{ top: 0, width: '100%' }}
       animate={{
-        top: isScrolled ? '1.5rem' : 0,
+        top: isScrolled ? 24 : 0,
         width: isScrolled ? 'auto' : '100%',
       }}
-      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
       <motion.div
-        className="bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-80"
-        style={{ borderColor: 'rgb(30, 41, 59)' }}
+        className="bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-80 overflow-hidden"
+        style={{
+          borderColor: 'rgb(30, 41, 59)',
+          borderStyle: 'solid',
+        }}
         animate={{
-          borderRadius: isScrolled ? '9999px' : '0px',
-          borderWidth: isScrolled ? '1px' : '0px 0px 1px 0px',
+          borderRadius: isScrolled ? 9999 : 0,
+          borderWidth: isScrolled ? 1 : 0,
+          borderBottomWidth: isScrolled ? 1 : 1,
           justifyContent: isScrolled ? 'flex-start' : 'center',
         }}
-        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       >
         {/* Mobile: Show name and theme toggle */}
         <div className="md:hidden flex items-center justify-between w-full">
