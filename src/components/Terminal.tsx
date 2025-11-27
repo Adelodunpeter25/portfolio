@@ -252,7 +252,7 @@ export default function Terminal() {
     
     for (let i = 0; i < fullText.length; i++) {
       currentText += fullText[i];
-      await new Promise(resolve => setTimeout(resolve, 12));
+      await new Promise(resolve => setTimeout(resolve, 10));
       tempHistory[tempHistory.length - 1].output = currentText.split('\n');
       setHistory([...tempHistory]);
     }
