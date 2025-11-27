@@ -132,7 +132,7 @@ export default function Contact({ email, social }: ContactProps) {
           <div>
             <h3 className="text-3xl font-semibold mb-6">Send a Message</h3>
             <div className="p-6 bg-black border border-border-dark rounded-lg">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-lg font-medium mb-2">
                   Name:
@@ -192,7 +192,7 @@ export default function Contact({ email, social }: ContactProps) {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  rows={5}
+                  rows={3}
                   className="w-full px-4 py-3 bg-black border border-border-dark rounded-lg focus:border-primary focus:outline-none transition-colors resize-none disabled:opacity-50 text-lg"
                 />
               </div>

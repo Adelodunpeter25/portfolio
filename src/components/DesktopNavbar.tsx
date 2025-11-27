@@ -51,18 +51,17 @@ function DesktopNavbar() {
         top: isScrolled ? '1.5rem' : 0,
         width: isScrolled ? 'auto' : '100%',
       }}
-      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
     >
       <motion.div
-        className="bg-black/90 backdrop-blur-md border border-border-dark px-6 py-3 flex items-center gap-6 md:w-auto w-80"
+        className="bg-black/90 backdrop-blur-md px-6 py-3 flex items-center gap-6 md:w-auto w-80"
+        style={{ borderColor: 'rgb(30, 41, 59)' }}
         animate={{
           borderRadius: isScrolled ? '9999px' : '0px',
-          borderLeft: isScrolled ? '1px solid' : '0px solid',
-          borderRight: isScrolled ? '1px solid' : '0px solid',
-          borderTop: isScrolled ? '1px solid' : '0px solid',
+          borderWidth: isScrolled ? '1px' : '0px 0px 1px 0px',
           justifyContent: isScrolled ? 'flex-start' : 'center',
         }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         {/* Mobile: Show name and theme toggle */}
         <div className="md:hidden flex items-center justify-between w-full">
