@@ -47,7 +47,7 @@ function DesktopNavbar() {
       isScrolled ? 'top-6 w-auto' : 'top-0 w-full'
     }`}>
       <div className={`bg-black/90 backdrop-blur-md border border-border-dark px-6 py-3 flex items-center gap-6 md:w-auto w-80 transition-all duration-500 ${
-        isScrolled ? 'rounded-full' : 'rounded-none border-x-0 border-t-0'
+        isScrolled ? 'rounded-full' : 'rounded-none border-x-0 border-t-0 justify-center'
       }`}>
         {/* Mobile: Show name and theme toggle */}
         <div className="md:hidden flex items-center justify-between w-full">
