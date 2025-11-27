@@ -1,4 +1,5 @@
 import { useState, useEffect, memo } from 'react';
+import { motion } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
@@ -43,12 +44,26 @@ function DesktopNavbar() {
   }, []);
 
   return (
-    <nav className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
-      isScrolled ? 'top-6 w-auto' : 'top-0 w-full'
-    }`}>
-      <div className={`bg-black/90 backdrop-blur-md border border-border-dark px-6 py-3 flex items-center gap-6 md:w-auto w-80 transition-all duration-500 ${
-        isScrolled ? 'rounded-full' : 'rounded-none border-x-0 border-t-0 justify-center'
-      }`}>
+    <motion.nav
+      className="fixed left-1/2 transform -translate-x-1/2 z-50"
+      initial={{ top: 0, width: '100%' }}
+      animate={{
+        top: isScrolled ? '1.5rem' : 0,
+        width: isScrolled ? 'auto' : '100%',
+      }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+    >
+      <motion.div
+        className="bg-black/90 backdrop-blur-md border border-border-dark px-6 py-3 flex items-center gap-6 md:w-auto w-80"
+        animate={{
+          borderRadius: isScrolled ? '9999px' : '0px',
+          borderLeft: isScrolled ? '1px solid' : '0px solid',
+          borderRight: isScrolled ? '1px solid' : '0px solid',
+          borderTop: isScrolled ? '1px solid' : '0px solid',
+          justifyContent: isScrolled ? 'flex-start' : 'center',
+        }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+      >
         {/* Mobile: Show name and theme toggle */}
         <div className="md:hidden flex items-center justify-between w-full">
           <a 
@@ -68,7 +83,7 @@ function DesktopNavbar() {
             <a
               key={href}
               href={href}
-              className={`text-base px-4 py-2 rounded-full transition-all duration-200 ${
+              className={`text-lg px-4 py-2 rounded-full transition-all duration-200 ${
                 activeSection === href.slice(1)
                   ? 'bg-primary text-white'
                   : 'text-white hover:text-primary hover:bg-primary/10'
@@ -81,8 +96,8 @@ function DesktopNavbar() {
             <ThemeToggle />
           </div>
         </div>
-      </div>
-    </nav>
+      </motion.div>
+    </motion.nav>
   );
 }
 

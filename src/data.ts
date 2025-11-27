@@ -49,7 +49,7 @@ export const portfolioData = {
   email: "adelodunpeter24@gmail.com",
   social: {
     github: "https://github.com/Adelodunpeter25",
-    linkedin: "https://linkedin.com/in/adelodun-peter",
+    linkedin: "https://linkedin.com/in/adelodunpeter",
   },
   projects: [
     {

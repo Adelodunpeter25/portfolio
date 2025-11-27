@@ -131,7 +131,8 @@ export default function Contact({ email, social }: ContactProps) {
 
           <div>
             <h3 className="text-3xl font-semibold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="p-6 bg-black border border-border-dark rounded-lg">
+              <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-lg font-medium mb-2">
                   Name:
@@ -231,7 +232,8 @@ export default function Contact({ email, social }: ContactProps) {
                   ✗ {statusMessage}
                 </div>
               )}
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
