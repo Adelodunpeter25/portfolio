@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DesktopNavbar from './components/DesktopNavbar';
 import MobileBottomBar from './components/MobileBottomBar';
 import ScrollProgress from './components/ScrollProgress';
-import BackToTop from './components/BackToTop';
 import Hero from './components/Hero';
 import { portfolioData } from './data';
 
