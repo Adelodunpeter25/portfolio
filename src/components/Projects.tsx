@@ -14,10 +14,11 @@ export default function Projects({ projects }: ProjectsProps) {
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    if (!scrollContainer || !isVisible) return;
 
     let userInteracted = false;
     let scrollInterval: number;
+    let initialDelay: number;
 
     const handleUserScroll = () => {
       userInteracted = true;
@@ -26,30 +27,24 @@ export default function Projects({ projects }: ProjectsProps) {
 
     scrollContainer.addEventListener('scroll', handleUserScroll, { passive: true });
 
-    if (isVisible) {
-      const initialDelay = setTimeout(() => {
-        scrollInterval = setInterval(() => {
-          if (userInteracted || !isVisible) return;
-          
-          const cardWidth = 420;
-          const totalWidth = cardWidth * projects.length;
-          
-          if (scrollContainer.scrollLeft >= totalWidth) {
-            scrollContainer.scrollLeft = 0;
-          }
-          
-          scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        }, 5000);
+    initialDelay = setTimeout(() => {
+      scrollInterval = setInterval(() => {
+        if (userInteracted) return;
+        
+        const cardWidth = 420;
+        const totalWidth = cardWidth * projects.length;
+        
+        if (scrollContainer.scrollLeft >= totalWidth) {
+          scrollContainer.scrollLeft = 0;
+        }
+        
+        scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
       }, 5000);
-
-      return () => {
-        clearTimeout(initialDelay);
-        clearInterval(scrollInterval);
-        scrollContainer.removeEventListener('scroll', handleUserScroll);
-      };
-    }
+    }, 5000);
 
     return () => {
+      clearTimeout(initialDelay);
+      clearInterval(scrollInterval);
       scrollContainer.removeEventListener('scroll', handleUserScroll);
     };
   }, [isVisible, projects.length]);

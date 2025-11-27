@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 
 interface ProjectCardProps {
   title: string;
@@ -9,7 +10,7 @@ interface ProjectCardProps {
   image?: string;
 }
 
-export default function ProjectCard({
+function ProjectCard({
   title,
   description,
   tech,
@@ -73,3 +74,5 @@ export default function ProjectCard({
     </div>
   );
 }
+
+export default memo(ProjectCard);
