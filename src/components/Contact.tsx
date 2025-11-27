@@ -104,6 +104,16 @@ export default function Contact({ email, social }: ContactProps) {
               </div>
 
               <div className="p-6 bg-black border border-border-dark rounded-lg hover:border-primary transition-colors">
+                <h4 className="text-xl font-semibold mb-2">Phone</h4>
+                <a
+                  href="tel:+2347039201122"
+                  className="text-lg text-primary hover:underline"
+                >
+                  +234 703 920 1122
+                </a>
+              </div>
+
+              <div className="p-6 bg-black border border-border-dark rounded-lg hover:border-primary transition-colors">
                 <h4 className="text-xl font-semibold mb-2">GitHub</h4>
                 <a
                   href={social.github}
