@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -41,25 +43,31 @@ export default function ProjectCard({
 
       <div className="flex gap-3 flex-wrap">
         {link && (
-          <a
+          <motion.a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors duration-200 text-base"
+            className="px-6 py-3 border border-primary text-primary rounded-md text-base"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
             View Code
-          </a>
+          </motion.a>
         )}
 
         {demo && (
-          <a
+          <motion.a
             href={demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-primary text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 text-base"
+            className="px-6 py-3 bg-primary text-white rounded-md text-base"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
             Live Demo
-          </a>
+          </motion.a>
         )}
       </div>
     </div>
