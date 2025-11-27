@@ -21,7 +21,7 @@ export default function Hero({ name, tagline, mission, subtext, features }: Hero
     <section 
       ref={ref as React.RefObject<HTMLElement>}
       id="home" 
-      className={`min-h-screen flex items-center px-8 py-24 transition-all duration-1000 relative ${
+      className={`min-h-screen flex items-center px-8 pt-40 pb-24 transition-all duration-1000 relative ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
