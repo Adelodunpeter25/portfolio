@@ -44,17 +44,8 @@ export default function Hero({ name, tagline, mission, subtext, features }: Hero
         
         <div className="flex gap-4 flex-wrap mb-16">
           <motion.a
-            href="#skills"
-            className="px-10 py-5 bg-primary text-white rounded-md text-xl font-medium"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-          >
-            View Skills
-          </motion.a>
-          <motion.a
             href="#contact"
-            className="px-10 py-5 border border-primary text-primary rounded-md text-xl font-medium"
+            className="px-10 py-5 bg-primary text-white rounded-md text-xl font-medium"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}

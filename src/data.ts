@@ -1,7 +1,7 @@
 export const portfolioData = {
   name: "Adelodun Peter",
    hero: {
-    tagline: "FullStack Developer",
+    tagline: "FullStack Engineer",
     mission: "Developing solutions to real-world problems.",
     subtext: "I create robust, scalable solutions that solve real-world problems. From concept to deployment, I focus on building software that works reliably and makes an impact.",
     features: [
@@ -22,7 +22,7 @@ export const portfolioData = {
       },
     ],
   },
-  tagline: "FullStack Developer & Problem Solver",
+  tagline: "FullStack Engineer & Problem Solver",
   about: {
     heading: "Building Systems That Last",
     subheading: "Focused on real-world impact, growth, and quality.",
