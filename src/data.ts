@@ -53,6 +53,27 @@ export const portfolioData = {
   },
   projects: [
     {
+      id: "smart-assistant",
+      title: "Smart Assistant",
+      description: "AI-powered personal assistant with natural language processing, task automation, and intelligent conversation capabilities. Streamlines daily workflows through voice and text commands.",
+      tech: ["Python", "FastAPI", "OpenAI", "React", "WebSockets"],
+      link: "https://github.com/Adelodunpeter25/smart-assistant",
+      demo: "https://smart-assistant.vercel.app",
+      fullDescription: "Smart Assistant is an AI-powered personal productivity tool that combines natural language processing with task automation. Built with FastAPI and React, it provides an intelligent interface for managing daily tasks, calendar events, notes, and more through conversational interactions.",
+      features: [
+        "Natural language task creation and management",
+        "Intelligent calendar integration with event scheduling",
+        "Voice-to-text note-taking with AI summarization",
+        "Email composition and management assistance",
+        "Real-time web search with contextual results",
+        "Built-in calculator with natural language math parsing",
+        "Multi-currency conversion with live exchange rates",
+        "Context-aware conversation memory for personalized responses"
+      ],
+      challenges: "Building a truly intelligent assistant required handling ambiguous user inputs, maintaining conversation context across sessions, and integrating multiple APIs while ensuring fast response times and a seamless user experience.",
+      outcome: "Created a versatile AI assistant that significantly improves productivity by understanding natural language commands and automating routine tasks, reducing time spent on daily administrative work."
+    },
+    {
       id: "contactfast",
       title: "ContactFast",
       description: "A FastAPI-powered email endpoint for frontend-only websites. Add a simple snippet to your contact form and start receiving messages directly in your inbox. No backend setup, no third-party service, no hassle.",
