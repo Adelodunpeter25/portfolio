@@ -55,22 +55,18 @@ export const portfolioData = {
     {
       id: "smart-assistant",
       title: "Smart Assistant",
-      description: "AI-powered personal assistant with natural language processing, task automation, and intelligent conversation capabilities. Streamlines daily workflows through voice and text commands.",
-      tech: ["Python", "FastAPI", "OpenAI", "React", "WebSockets"],
+      description: "AI-powered personal assistant with natural language processing, task automation, and intelligent conversation capabilities. Streamlines daily workflows through text-based commands.",
+      tech: ["FastAPI", "React", "PostgreSQL", "Workers AI"],
       link: "https://github.com/Adelodunpeter25/smart-assistant",
       demo: "https://smart-assistant.vercel.app",
-      fullDescription: "Smart Assistant is an AI-powered personal productivity tool that combines natural language processing with task automation. Built with FastAPI and React, it provides an intelligent interface for managing daily tasks, calendar events, notes, and more through conversational interactions.",
+      fullDescription: "Smart Assistant is an AI-powered personal productivity tool that combines natural language processing with task automation. Built with FastAPI, React, and Workers AI, it provides an intelligent interface for managing daily tasks and information through conversational interactions.",
       features: [
         "Natural language task creation and management",
-        "Intelligent calendar integration with event scheduling",
-        "Voice-to-text note-taking with AI summarization",
-        "Email composition and management assistance",
         "Real-time web search with contextual results",
         "Built-in calculator with natural language math parsing",
-        "Multi-currency conversion with live exchange rates",
-        "Context-aware conversation memory for personalized responses"
+        "Multi-currency conversion with live exchange rates"
       ],
-      challenges: "Building a truly intelligent assistant required handling ambiguous user inputs, maintaining conversation context across sessions, and integrating multiple APIs while ensuring fast response times and a seamless user experience.",
+      challenges: "Building a truly intelligent assistant required handling ambiguous user inputs, maintaining conversation context, and integrating multiple APIs while ensuring fast response times and a seamless user experience.",
       outcome: "Created a versatile AI assistant that significantly improves productivity by understanding natural language commands and automating routine tasks, reducing time spent on daily administrative work."
     },
     {
