@@ -58,13 +58,13 @@ export const portfolioData = {
       description: "AI-powered personal assistant with natural language processing, task automation, and intelligent conversation capabilities. Streamlines daily workflows through text-based commands.",
       tech: ["FastAPI", "React", "PostgreSQL", "Workers AI"],
       link: "https://github.com/Adelodunpeter25/smart-assistant",
-      demo: "https://smart-assistant.vercel.app",
+      demo: "https://smart-asistant.vercel.app",
       fullDescription: "Smart Assistant is an AI-powered personal productivity tool that combines natural language processing with task automation. Built with FastAPI, React, and Workers AI, it provides an intelligent interface for managing daily tasks and information through conversational interactions.",
       features: [
         "Natural language task creation and management",
         "Real-time web search with contextual results",
-        "Built-in calculator with natural language math parsing",
-        "Multi-currency conversion with live exchange rates"
+        "Note-taking with AI-powered organization and search",
+        "Smart reminders with customizable notifications"
       ],
       challenges: "Building a truly intelligent assistant required handling ambiguous user inputs, maintaining conversation context, and integrating multiple APIs while ensuring fast response times and a seamless user experience.",
       outcome: "Created a versatile AI assistant that significantly improves productivity by understanding natural language commands and automating routine tasks, reducing time spent on daily administrative work."
