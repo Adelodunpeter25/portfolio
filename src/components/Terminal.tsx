@@ -153,7 +153,7 @@ const commands: Record<string, string[]> = {
     '    backups, AI query assistant, and multi-workspace support',
     '    for managing up to 20 simultaneous database connections.',
     '    Tech: React, Node.js, Electron',
-    '    → https://github.com/Adelodunpeter25/db-toolkit',
+    '    → https://github.com/db-toolkit/db-toolkit',
     '',
     '[8] Smart Assistant',
     '    An AI-powered personal assistant with natural language',

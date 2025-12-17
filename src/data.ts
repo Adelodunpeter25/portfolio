@@ -55,9 +55,9 @@ export const portfolioData = {
     {
       id: "db-toolkit",
       title: "DB Toolkit",
-      description: "Modern cross-platform database management application with database exploration, query execution, data management, and automated backups.",
+      description: "Modern cross-platform database management application with database exploration, query execution, data management, automated backups and more",
       tech: ["React", "Node.js", "Electron"],
-      link: "https://github.com/Adelodunpeter25/db-toolkit",
+      link: "https://github.com/db-toolkit/db-toolkit",
       demo: "https://dbtoolkit.vercel.app",
       fullDescription: "DB Toolkit is a modern cross-platform database management application built with React, Node.js, and Electron. It provides a comprehensive suite of tools for database exploration, query execution, data management, and automated backups with AI-powered query assistance.",
       features: [
