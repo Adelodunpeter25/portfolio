@@ -53,6 +53,23 @@ export const portfolioData = {
   },
   projects: [
     {
+      id: "db-toolkit",
+      title: "DB Toolkit",
+      description: "Modern cross-platform database management application with database exploration, query execution, data management, and automated backups.",
+      tech: ["React", "Node.js", "Electron"],
+      link: "https://github.com/Adelodunpeter25/db-toolkit",
+      demo: "https://dbtoolkit.vercel.app",
+      fullDescription: "DB Toolkit is a modern cross-platform database management application built with React, Node.js, and Electron. It provides a comprehensive suite of tools for database exploration, query execution, data management, and automated backups with AI-powered query assistance.",
+      features: [
+        "Backup & Restore with automated scheduling and compression",
+        "AI Query Assistant powered by Cloudflare AI for SQL generation and optimization",
+        "Multiple isolated workspace tabs (up to 20) for simultaneous database connections",
+        "Database exploration with intuitive data management interface"
+      ],
+      challenges: "Building a cross-platform desktop application that handles multiple database connections efficiently while maintaining performance, implementing secure backup mechanisms, and integrating AI capabilities for intelligent query assistance.",
+      outcome: "Created a powerful database management tool that streamlines database workflows with AI-powered features, multi-workspace support, and automated backup solutions, significantly improving developer productivity."
+    },
+    {
       id: "smart-assistant",
       title: "Smart Assistant",
       description: "AI-powered personal assistant with natural language processing, task automation, and intelligent conversation capabilities. Streamlines daily workflows through text-based commands.",
