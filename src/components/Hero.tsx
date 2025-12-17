@@ -69,17 +69,23 @@ export default function Hero({ name, tagline, mission, subtext, features }: Hero
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-black border border-neutral-800 rounded-lg p-8 hover:border-primary/50 transition-all duration-300"
+              className="bg-black border border-neutral-800 rounded-lg p-8 transition-all duration-300"
               style={{ 
                 animation: isVisible ? `fadeInUp 0.6s ease-out ${index * 0.1}s both` : 'none'
               }}
+              whileHover={{ 
+                scale: 1.05, 
+                borderColor: 'rgb(2, 132, 199)',
+                boxShadow: '0 12px 32px rgba(2, 132, 199, 0.15)'
+              }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <div className="text-3xl text-primary mb-4">{feature.icon}</div>
               <h3 className="text-lg font-semibold text-neutral-100 mb-3">{feature.title}</h3>
               <p className="text-xl text-neutral-400 leading-relaxed">{feature.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
