@@ -17,7 +17,7 @@ export function ProjectEdit({ isOpen, onClose, project, entryId, onSuccess }: Pr
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await updateEntry('project', entryId, {
+    const result = await updateEntry(entryId, {
       title: formData.title,
       description: { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: formData.description }] }] },
       tech: formData.tech,

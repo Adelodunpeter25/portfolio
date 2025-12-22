@@ -8,7 +8,7 @@ const managementClient = createClient({
 export function useContentfulManagement() {
   const [saving, setSaving] = useState(false);
 
-  const updateEntry = async (contentType: string, entryId: string, fields: any) => {
+  const updateEntry = async (entryId: string, fields: any) => {
     setSaving(true);
     try {
       const space = await managementClient.getSpace(import.meta.env.VITE_CONTENTFUL_SPACE_ID);

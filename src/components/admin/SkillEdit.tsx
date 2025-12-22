@@ -21,7 +21,7 @@ export function SkillEdit({ isOpen, onClose, skill, entryId, onSuccess }: SkillE
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await updateEntry('skill', entryId, {
+    const result = await updateEntry(entryId, {
       name: formData.name,
       proficiency: formData.proficiency,
     });

@@ -20,7 +20,7 @@ export function ContactEdit({ isOpen, onClose, data, entryId, onSuccess }: Conta
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await updateEntry('contact', entryId, {
+    const result = await updateEntry(entryId, {
       email: formData.email,
       githubUrl: formData.githubUrl,
       linkedinUrl: formData.linkedinUrl,

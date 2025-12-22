@@ -20,7 +20,7 @@ export function HeroEdit({ isOpen, onClose, data, entryId, onSuccess }: HeroEdit
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await updateEntry('hero', entryId, {
+    const result = await updateEntry(entryId, {
       tagline: formData.tagline,
       mission: formData.mission,
       subtext: { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: formData.subtext }] }] },

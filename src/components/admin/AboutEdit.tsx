@@ -21,7 +21,7 @@ export function AboutEdit({ isOpen, onClose, data, entryId, onSuccess }: AboutEd
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = await updateEntry('about', entryId, {
+    const result = await updateEntry(entryId, {
       heading: formData.heading,
       subheading: formData.subheading,
       approach: { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: formData.approach }] }] },
