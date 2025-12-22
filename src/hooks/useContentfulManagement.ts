@@ -19,7 +19,17 @@ export function useContentfulManagement() {
         const value = fields[key];
         // Check if value is RichText format (has nodeType)
         if (value && typeof value === 'object' && value.nodeType === 'document') {
-          entry.fields[key] = { 'en-US': { ...value, data: {} } };
+          entry.fields[key] = { 
+            'en-US': { 
+              ...value, 
+              data: {},
+              content: value.content.map((node: any) => ({
+                ...node,
+                data: {},
+                content: node.content.map((textNode: any) => ({ ...textNode, data: {} }))
+              }))
+            } 
+          };
         } else {
           entry.fields[key] = { 'en-US': value };
         }
