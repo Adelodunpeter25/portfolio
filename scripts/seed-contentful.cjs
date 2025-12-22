@@ -74,23 +74,23 @@ async function seedContentful() {
     try {
       const entry = await environment.createEntry('project', {
         fields: {
-          projectId: { 'en-US': project.id },
+          id: { 'en-US': project.id },
           title: { 'en-US': project.title },
-          description: { 'en-US': project.description },
-          fullDescription: { 'en-US': project.fullDescription },
+          description: { 'en-US': { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: project.description, marks: [], data: {} }], data: {} }], data: {} } },
+          fullDescription: { 'en-US': { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: project.fullDescription, marks: [], data: {} }], data: {} }], data: {} } },
           tech: { 'en-US': project.tech },
           link: { 'en-US': project.link },
           demo: { 'en-US': project.demo || '' },
           features: { 'en-US': project.features },
-          challenges: { 'en-US': project.challenges },
-          outcome: { 'en-US': project.outcome },
+          challenges: { 'en-US': { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: project.challenges, marks: [], data: {} }], data: {} }], data: {} } },
+          outcome: { 'en-US': { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: project.outcome, marks: [], data: {} }], data: {} }], data: {} } },
           order: { 'en-US': i },
         },
       });
       await entry.publish();
       console.log(`✓ Created project: ${project.title}`);
     } catch (error) {
-      console.log(`✗ Failed to create project: ${project.title}`);
+      console.log(`✗ Failed to create project: ${project.title}`, error.message);
     }
   }
 

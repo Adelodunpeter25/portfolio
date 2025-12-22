@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "seed": "node scripts/seed-contentful.js"
+    "seed": "node scripts/seed-contentful.cjs"
   },
   "dependencies": {
     "contentful": "^11.10.1",
