@@ -1,8 +1,9 @@
+import 'dotenv/config';
 import { createClient } from 'contentful-management';
 import { portfolioData } from '../src/data.ts';
 
-const SPACE_ID = 'fv7sroabp31h';
-const MANAGEMENT_TOKEN = 'GOCSPX-your_management_token_here'; // Get from Contentful Settings > API keys > Content management tokens
+const SPACE_ID = process.env.VITE_CONTENTFUL_SPACE_ID;
+const MANAGEMENT_TOKEN = process.env.CONTENTFUL_MANAGEMENT_TOKEN;
 
 async function seedContentful() {
   const client = createClient({
@@ -12,10 +13,14 @@ async function seedContentful() {
   const space = await client.getSpace(SPACE_ID);
   const environment = await space.getEnvironment('master');
 
-  console.log('Creating content types...');
+  console.log('Checking content types...');
 
-  // Create Project content type
+  // Check if Project content type exists
   try {
+    await environment.getContentType('project');
+    console.log('✓ Project content type exists');
+  } catch (error) {
+    console.log('Creating Project content type...');
     const projectType = await environment.createContentTypeWithId('project', {
       name: 'Project',
       fields: [
@@ -34,12 +39,14 @@ async function seedContentful() {
     });
     await projectType.publish();
     console.log('✓ Project content type created');
-  } catch (error) {
-    console.log('Project content type already exists');
   }
 
-  // Create Skill content type
+  // Check if Skill content type exists
   try {
+    await environment.getContentType('skill');
+    console.log('✓ Skill content type exists');
+  } catch (error) {
+    console.log('Creating Skill content type...');
     const skillType = await environment.createContentTypeWithId('skill', {
       name: 'Skill',
       fields: [
@@ -50,8 +57,6 @@ async function seedContentful() {
     });
     await skillType.publish();
     console.log('✓ Skill content type created');
-  } catch (error) {
-    console.log('Skill content type already exists');
   }
 
   console.log('\nSeeding projects...');
