@@ -4,7 +4,7 @@ import DesktopNavbar from './components/DesktopNavbar';
 import MobileBottomBar from './components/MobileBottomBar';
 import ScrollProgress from './components/ScrollProgress';
 import Hero from './components/Hero';
-import { portfolioData } from './data';
+import { useContentfulData } from './hooks/useContentfulData';
 
 const HowIWork = lazy(() => import('./components/HowIWork'));
 const Projects = lazy(() => import('./components/Projects'));
@@ -13,7 +13,7 @@ const Contact = lazy(() => import('./components/Contact'));
 const Terminal = lazy(() => import('./components/Terminal'));
 const NotFound = lazy(() => import('./components/NotFound'));
 
-function Home() {
+function Home({ portfolioData }: { portfolioData: any }) {
   return (
     <>
       <Hero name={portfolioData.name} {...portfolioData.hero} />
@@ -63,6 +63,16 @@ function Home() {
 }
 
 export default function App() {
+  const { data: portfolioData, loading } = useContentfulData();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-2xl text-primary">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <BrowserRouter>
       <div className="min-h-screen">
@@ -71,7 +81,7 @@ export default function App() {
         <MobileBottomBar />
         <Suspense fallback={<div />}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home portfolioData={portfolioData} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
 
