@@ -114,6 +114,54 @@ async function seedContentful() {
     }
   }
 
+  console.log('\nSeeding hero...');
+  try {
+    const heroEntry = await environment.createEntry('hero', {
+      fields: {
+        tagline: { 'en-US': portfolioData.hero.tagline },
+        mission: { 'en-US': portfolioData.hero.mission },
+        subtext: { 'en-US': { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: portfolioData.hero.subtext, marks: [], data: {} }], data: {} }], data: {} } },
+        features: { 'en-US': portfolioData.hero.features },
+      },
+    });
+    await heroEntry.publish();
+    console.log('✓ Created hero');
+  } catch (error) {
+    console.log('✗ Failed to create hero:', error.message);
+  }
+
+  console.log('\nSeeding about...');
+  try {
+    const aboutEntry = await environment.createEntry('about', {
+      fields: {
+        heading: { 'en-US': portfolioData.about.heading },
+        subheading: { 'en-US': portfolioData.about.subheading },
+        approach: { 'en-US': { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: portfolioData.about.approach, marks: [], data: {} }], data: {} }], data: {} } },
+        principles: { 'en-US': portfolioData.about.principles },
+      },
+    });
+    await aboutEntry.publish();
+    console.log('✓ Created about');
+  } catch (error) {
+    console.log('✗ Failed to create about:', error.message);
+  }
+
+  console.log('\nSeeding contact...');
+  try {
+    const contactEntry = await environment.createEntry('contact', {
+      fields: {
+        email: { 'en-US': portfolioData.email },
+        phone: { 'en-US': '+2347039201122' },
+        githubUrl: { 'en-US': portfolioData.social.github },
+        linkedinUrl: { 'en-US': portfolioData.social.linkedin },
+      },
+    });
+    await contactEntry.publish();
+    console.log('✓ Created contact');
+  } catch (error) {
+    console.log('✗ Failed to create contact:', error.message);
+  }
+
   console.log('\n✅ Seeding complete!');
 }
 
