@@ -26,7 +26,7 @@ export function useContentfulManagement() {
               content: value.content.map((node: any) => ({
                 ...node,
                 data: {},
-                content: node.content.map((textNode: any) => ({ ...textNode, data: {} }))
+                content: node.content.map((textNode: any) => ({ ...textNode, data: {}, marks: [] }))
               }))
             } 
           };
