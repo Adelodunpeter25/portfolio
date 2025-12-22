@@ -10,8 +10,8 @@ export function useContentfulData() {
     async function fetchData() {
       try {
         const [projects, skills, hero, about, contact] = await Promise.all([
-          contentfulClient.getEntries({ content_type: 'project', order: 'fields.order' }),
-          contentfulClient.getEntries({ content_type: 'skill', order: 'fields.order' }),
+          contentfulClient.getEntries({ content_type: 'project', order: ['fields.order'] }),
+          contentfulClient.getEntries({ content_type: 'skill', order: ['fields.order'] }),
           contentfulClient.getEntries({ content_type: 'hero', limit: 1 }),
           contentfulClient.getEntries({ content_type: 'about', limit: 1 }),
           contentfulClient.getEntries({ content_type: 'contact', limit: 1 }),
