@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useContentfulData } from '../../hooks/useContentfulData';
 import { EditButton } from './EditButton';
 import { HeroEdit } from './HeroEdit';
@@ -9,13 +9,29 @@ import { SkillEdit } from './SkillEdit';
 import { SkillAdd } from './SkillAdd';
 import { ContactEdit } from './ContactEdit';
 import { Toast } from './Toast';
-import { Plus } from 'lucide-react';
+import { Login } from './Login';
+import { Plus, LogOut } from 'lucide-react';
 
 export function AdminPanel() {
   const { data, loading } = useContentfulData();
   const [editMode, setEditMode] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem('admin_token');
+    if (savedToken) setToken(savedToken);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin_token');
+    setToken(null);
+  };
+
+  if (!token) {
+    return <Login onLogin={setToken} />;
+  }
 
   const handleEdit = (section: string, index: number = 0) => {
     setEditMode(section);
@@ -32,7 +48,16 @@ export function AdminPanel() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 pt-32">
       <div className="max-w-6xl mx-auto space-y-8">
-        <h1 className="text-4xl font-bold text-center mb-12">Admin Panel</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-4xl font-bold">Admin Panel</h1>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+          >
+            <LogOut size={20} />
+            Logout
+          </button>
+        </div>
 
         {/* Hero Section */}
         <div className="bg-white rounded-lg p-6 relative">
