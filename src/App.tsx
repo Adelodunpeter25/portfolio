@@ -12,6 +12,7 @@ const Skills = lazy(() => import('./components/Skills'));
 const Contact = lazy(() => import('./components/Contact'));
 const Terminal = lazy(() => import('./components/Terminal'));
 const NotFound = lazy(() => import('./components/NotFound'));
+const AdminPanel = lazy(() => import('./components/admin/AdminPanel'));
 
 function Home({ portfolioData }: { portfolioData: any }) {
   return (
@@ -82,6 +83,7 @@ export default function App() {
         <Suspense fallback={<div />}>
           <Routes>
             <Route path="/" element={<Home portfolioData={portfolioData} />} />
+            <Route path="/admin" element={<AdminPanel />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
 
