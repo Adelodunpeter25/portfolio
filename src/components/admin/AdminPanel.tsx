@@ -25,7 +25,7 @@ export function AdminPanel() {
   if (!data) return <div className="min-h-screen flex items-center justify-center">No data</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 pt-32">
       <div className="max-w-6xl mx-auto space-y-8">
         <h1 className="text-4xl font-bold text-center mb-12">Admin Panel</h1>
 
