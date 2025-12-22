@@ -46,5 +46,42 @@ export function useContentfulManagement() {
     }
   };
 
-  return { updateEntry, saving };
+  const createEntry = async (contentType: string, fields: any) => {
+    setSaving(true);
+    try {
+      const space = await managementClient.getSpace(import.meta.env.VITE_CONTENTFUL_SPACE_ID);
+      const environment = await space.getEnvironment('master');
+      
+      const formattedFields: any = {};
+      Object.keys(fields).forEach(key => {
+        const value = fields[key];
+        if (value && typeof value === 'object' && value.nodeType === 'document') {
+          formattedFields[key] = { 
+            'en-US': { 
+              ...value, 
+              data: {},
+              content: value.content.map((node: any) => ({
+                ...node,
+                data: {},
+                content: node.content.map((textNode: any) => ({ ...textNode, data: {}, marks: [] }))
+              }))
+            } 
+          };
+        } else {
+          formattedFields[key] = { 'en-US': value };
+        }
+      });
+      
+      const entry = await environment.createEntry(contentType, { fields: formattedFields });
+      await entry.publish();
+      return { success: true, message: 'Created successfully!' };
+    } catch (error) {
+      console.error('Failed to create entry:', error);
+      return { success: false, message: 'Failed to create. Please try again.' };
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return { updateEntry, createEntry, saving };
 }

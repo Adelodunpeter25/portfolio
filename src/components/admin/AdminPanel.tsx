@@ -4,9 +4,12 @@ import { EditButton } from './EditButton';
 import { HeroEdit } from './HeroEdit';
 import { AboutEdit } from './AboutEdit';
 import { ProjectEdit } from './ProjectEdit';
+import { ProjectAdd } from './ProjectAdd';
 import { SkillEdit } from './SkillEdit';
+import { SkillAdd } from './SkillAdd';
 import { ContactEdit } from './ContactEdit';
 import { Toast } from './Toast';
+import { Plus } from 'lucide-react';
 
 export function AdminPanel() {
   const { data, loading } = useContentfulData();
@@ -49,7 +52,16 @@ export function AdminPanel() {
 
         {/* Projects Section */}
         <div className="bg-white rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4">Projects</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold">Projects</h2>
+            <button
+              onClick={() => setEditMode('project-add')}
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90"
+            >
+              <Plus size={20} />
+              Add Project
+            </button>
+          </div>
           <div className="grid gap-4">
             {data.projects.map((project: any, index: number) => (
               <div key={project.id} className="border border-gray-200 rounded-lg p-4 relative">
@@ -63,7 +75,16 @@ export function AdminPanel() {
 
         {/* Skills Section */}
         <div className="bg-white rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4">Skills</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold">Skills</h2>
+            <button
+              onClick={() => setEditMode('skill-add')}
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90"
+            >
+              <Plus size={20} />
+              Add Skill
+            </button>
+          </div>
           <div className="grid gap-4">
             {data.skills.map((skill: any, index: number) => (
               <div key={skill.name} className="border border-gray-200 rounded-lg p-4 relative">
@@ -108,6 +129,11 @@ export function AdminPanel() {
           onSuccess={handleSuccess}
         />
       )}
+      <ProjectAdd
+        isOpen={editMode === 'project-add'}
+        onClose={() => setEditMode(null)}
+        onSuccess={handleSuccess}
+      />
       {editMode === 'skill' && (
         <SkillEdit
           isOpen={true}
@@ -117,6 +143,11 @@ export function AdminPanel() {
           onSuccess={handleSuccess}
         />
       )}
+      <SkillAdd
+        isOpen={editMode === 'skill-add'}
+        onClose={() => setEditMode(null)}
+        onSuccess={handleSuccess}
+      />
       <ContactEdit
         isOpen={editMode === 'contact'}
         onClose={() => setEditMode(null)}
