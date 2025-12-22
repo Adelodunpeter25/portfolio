@@ -16,7 +16,13 @@ export function useContentfulManagement() {
       const entry = await environment.getEntry(entryId);
       
       Object.keys(fields).forEach(key => {
-        entry.fields[key] = { 'en-US': fields[key] };
+        const value = fields[key];
+        // Check if value is RichText format (has nodeType)
+        if (value && typeof value === 'object' && value.nodeType === 'document') {
+          entry.fields[key] = { 'en-US': { ...value, data: {} } };
+        } else {
+          entry.fields[key] = { 'en-US': value };
+        }
       });
       
       const updated = await entry.update();
@@ -24,6 +30,7 @@ export function useContentfulManagement() {
       return true;
     } catch (error) {
       console.error('Failed to update entry:', error);
+      alert('Failed to save changes. Please try again.');
       return false;
     } finally {
       setSaving(false);
