@@ -23,6 +23,7 @@ export function useContentfulData() {
             mission: hero.items[0]?.fields.mission as string,
             subtext: (hero.items[0]?.fields.subtext as any)?.content?.[0]?.content?.[0]?.value,
             features: hero.items[0]?.fields.features as any,
+            entryId: hero.items[0]?.sys.id,
           },
           about: {
             heading: about.items[0]?.fields.heading as string,
@@ -30,12 +31,14 @@ export function useContentfulData() {
             approach: (about.items[0]?.fields.approach as any)?.content?.[0]?.content?.[0]?.value,
             principles: about.items[0]?.fields.principles as string[],
             features: [],
+            entryId: about.items[0]?.sys.id,
           },
           email: contact.items[0]?.fields.email as string,
           social: {
             github: contact.items[0]?.fields.githubUrl as string,
             linkedin: contact.items[0]?.fields.linkedinUrl as string,
           },
+          contactEntryId: contact.items[0]?.sys.id,
           projects: projects.items.map(p => ({
             id: p.fields.id as string,
             title: p.fields.title as string,
@@ -47,12 +50,13 @@ export function useContentfulData() {
             features: p.fields.features as string[] || [],
             challenges: (p.fields.challenges as any)?.content?.[0]?.content?.[0]?.value || '',
             outcome: (p.fields.outcome as any)?.content?.[0]?.content?.[0]?.value || '',
+            entryId: p.sys.id,
           })),
           skills: skills.items.map(s => ({
             name: s.fields.name as string,
             proficiency: s.fields.proficiency as number,
+            entryId: s.sys.id,
           })),
-          tagline: 'FullStack Engineer & Problem Solver',
         });
       } catch (error) {
         console.error('Failed to fetch from Contentful:', error);
