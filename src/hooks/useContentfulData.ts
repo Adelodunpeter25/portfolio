@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { contentfulClient } from '../lib/contentful';
-import { portfolioData as fallbackData } from '../data';
 
 export function useContentfulData() {
-  const [data, setData] = useState(fallbackData);
+  const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,24 +17,24 @@ export function useContentfulData() {
         ]);
 
         setData({
-          name: fallbackData.name,
+          name: 'Adelodun Peter',
           hero: {
-            tagline: hero.items[0]?.fields.tagline as string || fallbackData.hero.tagline,
-            mission: hero.items[0]?.fields.mission as string || fallbackData.hero.mission,
-            subtext: (hero.items[0]?.fields.subtext as any)?.content?.[0]?.content?.[0]?.value || fallbackData.hero.subtext,
-            features: hero.items[0]?.fields.features as any || fallbackData.hero.features,
+            tagline: hero.items[0]?.fields.tagline as string,
+            mission: hero.items[0]?.fields.mission as string,
+            subtext: (hero.items[0]?.fields.subtext as any)?.content?.[0]?.content?.[0]?.value,
+            features: hero.items[0]?.fields.features as any,
           },
           about: {
-            heading: about.items[0]?.fields.heading as string || fallbackData.about.heading,
-            subheading: about.items[0]?.fields.subheading as string || fallbackData.about.subheading,
-            approach: (about.items[0]?.fields.approach as any)?.content?.[0]?.content?.[0]?.value || fallbackData.about.approach,
-            principles: about.items[0]?.fields.principles as string[] || fallbackData.about.principles,
-            features: fallbackData.about.features,
+            heading: about.items[0]?.fields.heading as string,
+            subheading: about.items[0]?.fields.subheading as string,
+            approach: (about.items[0]?.fields.approach as any)?.content?.[0]?.content?.[0]?.value,
+            principles: about.items[0]?.fields.principles as string[],
+            features: [],
           },
-          email: contact.items[0]?.fields.email as string || fallbackData.email,
+          email: contact.items[0]?.fields.email as string,
           social: {
-            github: contact.items[0]?.fields.githubUrl as string || fallbackData.social.github,
-            linkedin: contact.items[0]?.fields.linkedinUrl as string || fallbackData.social.linkedin,
+            github: contact.items[0]?.fields.githubUrl as string,
+            linkedin: contact.items[0]?.fields.linkedinUrl as string,
           },
           projects: projects.items.map(p => ({
             id: p.fields.id as string,
@@ -53,7 +52,7 @@ export function useContentfulData() {
             name: s.fields.name as string,
             proficiency: s.fields.proficiency as number,
           })),
-          tagline: fallbackData.tagline,
+          tagline: 'FullStack Engineer & Problem Solver',
         });
       } catch (error) {
         console.error('Failed to fetch from Contentful:', error);
