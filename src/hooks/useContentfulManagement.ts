@@ -37,11 +37,10 @@ export function useContentfulManagement() {
       
       const updated = await entry.update();
       await updated.publish();
-      return true;
+      return { success: true, message: 'Changes saved successfully!' };
     } catch (error) {
       console.error('Failed to update entry:', error);
-      alert('Failed to save changes. Please try again.');
-      return false;
+      return { success: false, message: 'Failed to save changes. Please try again.' };
     } finally {
       setSaving(false);
     }

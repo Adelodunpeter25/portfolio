@@ -8,7 +8,7 @@ interface ProjectEditProps {
   onClose: () => void;
   project: Project;
   entryId: string;
-  onSuccess: () => void;
+  onSuccess: (message: string, type: 'success' | 'error') => void;
 }
 
 export function ProjectEdit({ isOpen, onClose, project, entryId, onSuccess }: ProjectEditProps) {
@@ -17,7 +17,7 @@ export function ProjectEdit({ isOpen, onClose, project, entryId, onSuccess }: Pr
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = await updateEntry('project', entryId, {
+    const result = await updateEntry('project', entryId, {
       title: formData.title,
       description: { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: formData.description }] }] },
       tech: formData.tech,
@@ -28,10 +28,8 @@ export function ProjectEdit({ isOpen, onClose, project, entryId, onSuccess }: Pr
       challenges: { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: formData.challenges }] }] },
       outcome: { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: formData.outcome }] }] },
     });
-    if (success) {
-      onSuccess();
-      onClose();
-    }
+    onSuccess(result.message, result.success ? 'success' : 'error');
+    if (result.success) onClose();
   };
 
   return (

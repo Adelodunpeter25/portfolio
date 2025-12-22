@@ -11,7 +11,7 @@ interface ContactEditProps {
     linkedinUrl: string;
   };
   entryId: string;
-  onSuccess: () => void;
+  onSuccess: (message: string, type: 'success' | 'error') => void;
 }
 
 export function ContactEdit({ isOpen, onClose, data, entryId, onSuccess }: ContactEditProps) {
@@ -20,15 +20,13 @@ export function ContactEdit({ isOpen, onClose, data, entryId, onSuccess }: Conta
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = await updateEntry('contact', entryId, {
+    const result = await updateEntry('contact', entryId, {
       email: formData.email,
       githubUrl: formData.githubUrl,
       linkedinUrl: formData.linkedinUrl,
     });
-    if (success) {
-      onSuccess();
-      onClose();
-    }
+    onSuccess(result.message, result.success ? 'success' : 'error');
+    if (result.success) onClose();
   };
 
   return (

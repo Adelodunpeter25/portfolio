@@ -6,19 +6,21 @@ import { AboutEdit } from './AboutEdit';
 import { ProjectEdit } from './ProjectEdit';
 import { SkillEdit } from './SkillEdit';
 import { ContactEdit } from './ContactEdit';
+import { Toast } from './Toast';
 
 export function AdminPanel() {
   const { data, loading } = useContentfulData();
   const [editMode, setEditMode] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const handleEdit = (section: string, index: number = 0) => {
     setEditMode(section);
     setSelectedIndex(index);
   };
 
-  const handleSuccess = () => {
-    window.location.reload();
+  const handleSuccess = (message: string, type: 'success' | 'error') => {
+    setToast({ message, type });
   };
 
   if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
@@ -122,6 +124,7 @@ export function AdminPanel() {
         entryId={data.contactEntryId}
         onSuccess={handleSuccess}
       />
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </div>
   );
 }

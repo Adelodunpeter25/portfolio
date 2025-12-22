@@ -12,7 +12,7 @@ interface SkillEditProps {
   onClose: () => void;
   skill: Skill;
   entryId: string;
-  onSuccess: () => void;
+  onSuccess: (message: string, type: 'success' | 'error') => void;
 }
 
 export function SkillEdit({ isOpen, onClose, skill, entryId, onSuccess }: SkillEditProps) {
@@ -21,14 +21,12 @@ export function SkillEdit({ isOpen, onClose, skill, entryId, onSuccess }: SkillE
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = await updateEntry('skill', entryId, {
+    const result = await updateEntry('skill', entryId, {
       name: formData.name,
       proficiency: formData.proficiency,
     });
-    if (success) {
-      onSuccess();
-      onClose();
-    }
+    onSuccess(result.message, result.success ? 'success' : 'error');
+    if (result.success) onClose();
   };
 
   return (

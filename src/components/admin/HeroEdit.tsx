@@ -11,7 +11,7 @@ interface HeroEditProps {
     subtext: string;
   };
   entryId: string;
-  onSuccess: () => void;
+  onSuccess: (message: string, type: 'success' | 'error') => void;
 }
 
 export function HeroEdit({ isOpen, onClose, data, entryId, onSuccess }: HeroEditProps) {
@@ -20,15 +20,13 @@ export function HeroEdit({ isOpen, onClose, data, entryId, onSuccess }: HeroEdit
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = await updateEntry('hero', entryId, {
+    const result = await updateEntry('hero', entryId, {
       tagline: formData.tagline,
       mission: formData.mission,
       subtext: { nodeType: 'document', content: [{ nodeType: 'paragraph', content: [{ nodeType: 'text', value: formData.subtext }] }] },
     });
-    if (success) {
-      onSuccess();
-      onClose();
-    }
+    onSuccess(result.message, result.success ? 'success' : 'error');
+    if (result.success) onClose();
   };
 
   return (
